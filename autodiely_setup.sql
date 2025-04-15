@@ -1,6 +1,5 @@
 USE autodiely_eshop;
 
--- Users table (unchanged)
 CREATE TABLE IF NOT EXISTS autodiely_eshop.users (
   _id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -9,7 +8,6 @@ CREATE TABLE IF NOT EXISTS autodiely_eshop.users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
--- Products table (unchanged)
 CREATE TABLE IF NOT EXISTS autodiely_eshop.products (
   _id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255),
@@ -74,7 +72,6 @@ INSERT INTO products (_id, name, description, cta, price, image_url, manufacture
 	('39', 'Zapaľovacia cievka', 'Vysoko kvalitná zapalovacia cievka so stabilným výkonom. Zaisťuje silnú iskru pre optimálne spaľovanie.', 'Dokonalé spaľovanie s našou zapalovacou cievkou!', '25.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693332/ydvmgjfdyu9bcc1rzzoc.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
 	('40', 'Zapaľovacia sviečka', 'Vysoko kvalitná zapaľovacia sviečka s perfektným spaľovaním. Znižuje spotrebu paliva.', 'Optimálny výkon motora s našimi zapaľovacími sviečkami!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693372/q2ehawuqsvkq37n3po25.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]');
 
--- Cart table (unchanged)
 CREATE TABLE IF NOT EXISTS autodiely_eshop.cart (
   _id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
