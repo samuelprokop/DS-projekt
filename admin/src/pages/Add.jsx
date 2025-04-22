@@ -253,7 +253,7 @@ const Add = ({ token }) => {
       </div>
 
       <div className="form-section">
-        <p className="section-label">Branch</p>
+        <p className="section-label">Warehouse</p>
         <div className="checkbox-grid">
           <div className="checkbox-column">
             <div className="checkbox-item select-all">

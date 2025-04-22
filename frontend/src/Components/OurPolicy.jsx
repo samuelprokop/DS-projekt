@@ -11,8 +11,8 @@ const OurPolicy = () => {
       </div>
       <div className="flex flex-col items-center">
         <img src={assets.quality_icon} className="w-12 mb-5" />
-        <p className="font-semibold">7 days return policy</p>
-        <p className="text-gray-400">we provide 7 days free return policy</p>
+        <p className="font-semibold">14 days return policy</p>
+        <p className="text-gray-400">we provide 14 days free return policy</p>
       </div>
       <div className="flex flex-col items-center">
         <img src={assets.support_icon} className="w-12 mb-5" />

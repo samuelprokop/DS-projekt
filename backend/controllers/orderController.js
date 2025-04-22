@@ -1,6 +1,7 @@
 import Order from '../models/orderModel.js';
 import Product from '../models/productModel.js';
 import sequelize from '../config/db.js';
+import cartModel from '../models/cartModel.js';
 import {
     toast
 } from 'react-toastify';
@@ -35,11 +36,7 @@ const enrichOrderItems = async (items) => {
 const placeOrder = async (req, res) => {
     const t = await sequelize.transaction();
     try {
-        const {
-            user_id,
-            items,
-            ...orderData
-        } = req.body;
+        const { user_id, items, ...orderData } = req.body;
 
         if (!user_id || !items || items.length === 0) {
             await t.rollback();
@@ -51,9 +48,7 @@ const placeOrder = async (req, res) => {
 
         const productIds = items.map(item => item.product_id);
         const products = await Product.findAll({
-            where: {
-                _id: productIds
-            },
+            where: { _id: productIds },
             attributes: ['_id', 'price']
         });
 
@@ -74,7 +69,10 @@ const placeOrder = async (req, res) => {
             user_id: Number(user_id),
             items: orderItems,
             ...orderData
-        }, {
+        }, { transaction: t });
+
+        await cartModel.destroy({
+            where: { user_id: Number(user_id) },
             transaction: t
         });
 

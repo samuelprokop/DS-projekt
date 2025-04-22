@@ -1,5 +1,6 @@
 USE autodiely_eshop;
 
+-- TABLES
 CREATE TABLE IF NOT EXISTS autodiely_eshop.users (
   _id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -22,55 +23,6 @@ CREATE TABLE IF NOT EXISTS autodiely_eshop.products (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
-
-
-INSERT INTO users (_id, name, email, password) VALUES
-(1, 'admin', 'admin@admin.com', '$2b$10$qlqgTMltcvk7aAtxQ5MSR.qZZz5R2I6zcYexiBJRBIRLBvNnYK9vq'),
-(2, 'testuser', 'test123@test.com', '$2b$10$YIXk8pNj/5MMosKql5wsWe0euwNB7z6QD2Dzzb8uLul.RwVSBaO6W'),
-(3, 'admin', 'me@admin.com', '$2b$10$KZHaLEoU8Ie3DD3gSuJ0qOd/r3CN2ReiQsUKPMoYzeHziv0AVVbuG'),
-(4, 'me', 'me@me.com', '$2b$10$yTbsyiNNdIYfLjSmHPa/ZeoOLOGAIlDoKAI/BzRvVykxJssZtgRPO');
-
-INSERT INTO products (_id, name, description, cta, price, image_url, manufacturer, bestseller, category, subCategory) VALUES
-	('1', 'Alternátor', 'Vysoko kvalitný alternátor pre spoľahlivé dobíjanie batérie. Kompatibilný s viacerými európskymi značkami.', 'Najlepší alternátor za najlepšiu cenu!', '75.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690248/lfkrgh8sxw56wf0hm7iu.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('2', 'Brzdová kvapalina', 'Vysoko kvalitná brzdová kvapalina s vysokým bodom varu. Zabezpečuje spoľahlivé brzdenie.', 'Bezpečnosť na prvom mieste s našou brzdovou kvapalinou!', '5.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690384/hbxtrlq4vqqnl5zu8kiz.webp', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('3', 'Brzdové doštičky', 'Výkonné brzdové doštičky s dlhou životnosťou. Poskytujú optimálnu brzdnú silu a tichý chod.', 'Bezpečná jazda začína kvalitnými brzdovými doštičkami!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690435/uvoumvhr3emur0kn5pxt.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('4', 'Brzdové kotúče', 'Odolné brzdové kotúče s vynikajúcou odvodňovacou schopnosťou. Znížená hlučnosť a minimálne vibrácie.', 'Kvalitné brzdové kotúče pre bezpečné brzdenie za skvelú cenu!', '48.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690472/vooxorxsjtfjfqqqfzui.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('5', 'Čistič bŕzd', 'Efektívny čistič pre dokonalú čistotu brzdových komponentov. Odstraňuje mastnotu a nečistoty.', 'Udržujte svoje brzdy v perfektnom stave!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690599/hjtj9up3bxgi2wxgnlyu.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('6', 'Čistič interiéru', 'Efektívny čistič pre dokonalú hygienu interiéru vášho auta. Odstraňuje nečistoty a zápachy.', 'Čistý interiér za bezkonkurenčnú cenu!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690651/ch5jwcqt6qclevxs8gnw.png', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('7', 'Chladiaca kvapalina', 'Vysoko účinná chladiaca kvapalina s protimrazovými vlastnosťami. Chráni motor pred prehriatím.', 'Optimálna teplota motora po celý rok!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690702/p3r91ehnja0bg1bxtdwf.webp', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('8', 'Chladič', 'Efektívny chladič motoru s optimalizovaným odvodom tepla. Vhodný pre náročné prevádzkové podmienky.', 'Udržte váš motor v optimálnej teplote s našim chladičom!', '134.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690739/vyktdmmckwk00rttdti3.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('9', 'DPF filter', 'Vysokoúčinný DPF filter pre čisté emisie. Dlhá životnosť a jednoduchá údržba.', 'Ekologická jazda s našim DPF filtrom za výhodnú cenu!', '329.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690781/pzy2yxfva590sfu1biru.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('10', 'Hlavný brzdový valec', 'Presne opracovaný brzdový valec s dokonalou tesnosťou. Dlhá životnosť a spoľahlivá funkcia.', 'Dokonalé brzdenie s našim hlavným brzdovým valcom!', '20.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690829/gkyoexo6p59jljnmtb1x.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('11', 'Katalyzátor', 'Vysokoúčinný katalyzátor pre čisté emisie. Odolný voči vysokým teplotám a korózii.', 'Ekologická jazda s našim katalyzátorom!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690922/vrkc9wwhnwjmuloxiaei.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('12', 'Ochrana proti korózii', 'Vysoko účinná ochrana karosérie pred koróziou. Vytvára trvanlivú ochrannú vrstvu.', 'Chráňte svoje auto pred hrdzavením za výhodnú cenu!', '9.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690974/qfkbrel4qtnrxdcjcnyt.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('13', 'Olejový filter', 'Efektívny olejový filter s vysokou priepustnosťou. Zachytáva aj najmenšie nečistoty z oleja.', 'Čistý olej znamená dlhšiu životnosť motora!', '4.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691015/irknt70jzsdkounrb712.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('14', 'Palivové čerpadlo', 'Výkonné palivové čerpadlo s konštantným tlakom. Zabezpečuje optimálne spaľovanie.', 'Dokonalý prívod paliva do vášho motora!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691149/wwmyabbteshfdx8wnp71.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('15', 'Palivový filter', 'Vysokoúčinný palivový filter pre čisté palivo. Chráni vstrekovací systém pred nečistotami.', 'Zabezpečte si optimálny výkon motora s našim palivovým filtrom!', '1.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691256/ky8xkslkpd3ib77bglzw.jpg', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('16', 'Impregnácia pneumatík', 'Vysoko účinná impregnácia pre dlhšiu životnosť pneumatík. Chráni pred prasknutím a starnutím.', 'Dlhšia životnosť pneumatík s našou impregnáciou!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691392/lzxbjtxbqjatubm1eyhd.png', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('17', 'Katalyzátor', 'Vysokoúčinný katalyzátor pre čisté emisie. Odolný voči vysokým teplotám a korózii.', 'Ekologická jazda s našim katalyzátorom!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691509/zqzfn28mhoajmmclenle.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('18', 'Klinový remeň', 'Odolný klinový remeň s vynikajúcou prispôsobivosťou. Znížené riziko preklzovania a tichý chod.', 'Spoľahlivý klinový remeň za bezkonkurenčnú cenu!', '6.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691576/nkpa3q900sftquhdxzl1.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('19', 'Kolesové ložisko', 'Presné kolesové ložisko s nízkym trením. Odolné voči zaťaženiu a nepriaznivým podmienkam.', 'Plynulá jazda s našimi kolesovými ložiskami!', '11.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691661/s0zcfhxrgqyyrhftl84t.webp', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('20', 'Kľukový hriadeľ', 'Presne vyvážený kľukový hriadeľ s vysokou odolnosťou. Minimalizuje vibrácie motora.', 'Spoľahlivý základ vášho motora za výhodnú cenu!', '1249.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691716/cposardpzdkumxlc9hve.png', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('21', 'Kryt motora', 'Odolný kryt motora chrániaci pred nečistotami a vplyvmi počasia. Jednoduchá inštalácia a údržba.', 'Chráňte svoj motor s našim krytom!', '49.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691915/if5n3qxf7wusuhihozcg.png', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('22', 'Lambda sonda', 'Presná lambda sonda pre optimálne spaľovanie. Znižuje spotrebu paliva a emisie.', 'Maximálny výkon motora s našou lambda sondou!', '49.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691996/a66tyngsqyxac5lehsbw.png', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('23', 'Ložisko kľukového hriadeľa', 'Vysoko kvalitné ložisko s nízkym trením. Odolné voči extrémnym zaťaženiam a vysokým teplotám.', 'Plynulý chod motora s našim ložiskom kľukového hriadeľa!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692067/s1yeakumtgt0aivrm7ph.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('24', 'Motorový olej 10W-40', 'Vysokokvalitný syntetický olej pre optimálnu ochranu motora. Znižuje opotrebenie a predlžuje životnosť.', 'Najlepšia starostlivosť o váš motor za skvelú cenu!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692130/ffqsd9blildhhjdpek4t.jpg', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('25', 'Ochrana proti korózii', 'Chráňte svoje auto pred hrdzavením za výhodnú cenu!', 'Chráňte svoje auto pred hrdzavením za výhodnú cenu!', '9.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692228/llqquyn78tsyksr44lls.jpg', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('26', 'Rozvodová reťaz', 'Presná rozvodová reťaz s vynikajúcou odolnosťou. Minimalizuje opotrebenie a hluk.', 'Spoľahlivý časovací mechanizmus za výhodnú cenu!', '32.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692471/be1aestiyeql8nbdoadz.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('27', 'Spojková sada', 'Kompletná spojková sada s vysokým krútiacim momentom. Hladké radenie a dlhá životnosť.', 'Dokonalý prenos výkonu s našou spojkovou sadou!', '459.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692589/qm7m8izkxw4zb4b0fsz8.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('28', 'Stieračová guma (pár)', 'Kvalitné stieračové gumy s dokonalým priliehaním. Odstraňujú vodu bez šmúh a škrabancov. (nie zo Škody, čiže nehučí po dvoch zotretiach)', 'Čisté čelné sklo za každého počasia!', '0.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692657/wmzwqlgyjw6o15c3xveg.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('29', 'Svetlomet (ľavý)', 'Výkonný svetlomet s optimálnym rozptylom svetla. Dlhá životnosť a jednoduchá inštalácia.', 'Bezpečná jazda v noci s našimi svetlometmi!', '149.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692732/voe34cceefmro3g1tb6u.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('30', 'Svetlomet (pravý)', 'Výkonný svetlomet s optimálnym rozptylom svetla. Dlhá životnosť a jednoduchá inštalácia.', 'Bezpečná jazda v noci s našimi svetlometmi!', '149.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692779/npxzlsl1bywx2wvamkd0.webp', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('31', 'Štartér', 'Výkonný štartér s rýchlym a spoľahlivým štartovaním. Odolný voči vysokým teplotám.', 'Rýchly štart za každého počasia s našim štartérom!', '99.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692854/mnzckzey9t87rfahja5a.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('32', 'Štartovacie káble', 'Silné štartovacie káble s výbornou vodivosťou. Bezpečné a odolné voči extrémnym podmienkam.', 'Nenechajte sa zastihnúť vybitou batériou - vždy pripravení s našimi káblami!', '10.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692932/g5jofw99ce32zt4gblxv.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('33', 'Tlmič pruženia', 'Kvalitný tlmič pruženia pre pohodlnú jazdu. Znižuje vibrácie a zlepšuje stabilitu vozidla.', 'Pohodlná jazda s našimi tlmičmi pruženia!', '75.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692961/knhykqucrsy13pxauyov.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('34', 'Turbo kompresor', 'Výkonný turbo kompresor pre zvýšenie výkonu motora. Rýchla reakcia a dlhá životnosť.', 'Extra výkon pre váš motor s našim turbo kompresorom!', '199.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693004/zpotkqfmnwydbmbjbask.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('35', 'Vodná pumpa', 'Spoľahlivá vodná pumpa pre efektívnu cirkuláciu chladiacej kvapaliny. Tichý chod a dlhá životnosť.', 'Udržte váš motor v optimálnej teplote s našou vodnou pumpou!', '45.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693119/ihmzq5eejcryitktzbat.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('36', 'Vosk na karosériu', 'Vysoko kvalitný vosk vytvárajúci ochrannú vrstvu na karosérii. Dodáva lesk a chráni farbu.', 'Dokonalý lesk a ochrana pre vaše auto!', '9.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693156/n0svh6oggwetgo6ag4dw.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('37', 'Vstrekovacie čerpadlo', 'Výkonné vstrekovacie čerpadlo s presným dávkovaním paliva. Znižuje spotrebu a emisie.', 'Maximálna účinnosť motora s našim vstrekovacím čerpadlom!', '459.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693251/zfoe35t5fvgs7vlnwc7x.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('38', 'Vzduchový filter', 'Vysokoúčinný vzduchový filter pre čistý prívod vzduchu. Chráni motor pred nečistotami.', 'Čistý vzduch pre váš motor za skvelú cenu!', '6.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693294/ij2qjqmwf98ghmstpdvg.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('39', 'Zapaľovacia cievka', 'Vysoko kvalitná zapalovacia cievka so stabilným výkonom. Zaisťuje silnú iskru pre optimálne spaľovanie.', 'Dokonalé spaľovanie s našou zapalovacou cievkou!', '25.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693332/ydvmgjfdyu9bcc1rzzoc.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
-	('40', 'Zapaľovacia sviečka', 'Vysoko kvalitná zapaľovacia sviečka s perfektným spaľovaním. Znižuje spotrebu paliva.', 'Optimálny výkon motora s našimi zapaľovacími sviečkami!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693372/q2ehawuqsvkq37n3po25.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]');
 
 CREATE TABLE IF NOT EXISTS autodiely_eshop.cart (
   _id INT NOT NULL AUTO_INCREMENT,
@@ -183,4 +135,923 @@ CREATE TABLE autodiely_eshop.branch_orders (
   FOREIGN KEY (product_id) REFERENCES autodiely_eshop.products(_id)
 );
 
+
+
+
+
+-- TABLE DATA VIA QUERY
+INSERT INTO users (_id, name, email, password) VALUES
+(1, 'admin', 'admin@admin.com', '$2b$10$qlqgTMltcvk7aAtxQ5MSR.qZZz5R2I6zcYexiBJRBIRLBvNnYK9vq'),
+(2, 'testuser', 'test123@test.com', '$2b$10$YIXk8pNj/5MMosKql5wsWe0euwNB7z6QD2Dzzb8uLul.RwVSBaO6W'),
+(3, 'admin', 'me@admin.com', '$2b$10$KZHaLEoU8Ie3DD3gSuJ0qOd/r3CN2ReiQsUKPMoYzeHziv0AVVbuG'),
+(4, 'me', 'me@me.com', '$2b$10$yTbsyiNNdIYfLjSmHPa/ZeoOLOGAIlDoKAI/BzRvVykxJssZtgRPO');
+
+INSERT INTO products (_id, name, description, cta, price, image_url, manufacturer, bestseller, category, subCategory) VALUES
+	('1', 'Alternátor', 'Vysoko kvalitný alternátor pre spoľahlivé dobíjanie batérie. Kompatibilný s viacerými európskymi značkami.', 'Najlepší alternátor za najlepšiu cenu!', '75.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690248/lfkrgh8sxw56wf0hm7iu.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('2', 'Brzdová kvapalina', 'Vysoko kvalitná brzdová kvapalina s vysokým bodom varu. Zabezpečuje spoľahlivé brzdenie.', 'Bezpečnosť na prvom mieste s našou brzdovou kvapalinou!', '5.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690384/hbxtrlq4vqqnl5zu8kiz.webp', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('3', 'Brzdové doštičky', 'Výkonné brzdové doštičky s dlhou životnosťou. Poskytujú optimálnu brzdnú silu a tichý chod.', 'Bezpečná jazda začína kvalitnými brzdovými doštičkami!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690435/uvoumvhr3emur0kn5pxt.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('4', 'Brzdové kotúče', 'Odolné brzdové kotúče s vynikajúcou odvodňovacou schopnosťou. Znížená hlučnosť a minimálne vibrácie.', 'Kvalitné brzdové kotúče pre bezpečné brzdenie za skvelú cenu!', '48.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690472/vooxorxsjtfjfqqqfzui.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('5', 'Čistič bŕzd', 'Efektívny čistič pre dokonalú čistotu brzdových komponentov. Odstraňuje mastnotu a nečistoty.', 'Udržujte svoje brzdy v perfektnom stave!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690599/hjtj9up3bxgi2wxgnlyu.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('6', 'Čistič interiéru', 'Efektívny čistič pre dokonalú hygienu interiéru vášho auta. Odstraňuje nečistoty a zápachy.', 'Čistý interiér za bezkonkurenčnú cenu!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690651/ch5jwcqt6qclevxs8gnw.png', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('7', 'Chladiaca kvapalina', 'Vysoko účinná chladiaca kvapalina s protimrazovými vlastnosťami. Chráni motor pred prehriatím.', 'Optimálna teplota motora po celý rok!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690702/p3r91ehnja0bg1bxtdwf.webp', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('8', 'Chladič', 'Efektívny chladič motoru s optimalizovaným odvodom tepla. Vhodný pre náročné prevádzkové podmienky.', 'Udržte váš motor v optimálnej teplote s našim chladičom!', '134.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690739/vyktdmmckwk00rttdti3.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('9', 'DPF filter', 'Vysokoúčinný DPF filter pre čisté emisie. Dlhá životnosť a jednoduchá údržba.', 'Ekologická jazda s našim DPF filtrom za výhodnú cenu!', '329.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690781/pzy2yxfva590sfu1biru.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('10', 'Hlavný brzdový valec', 'Presne opracovaný brzdový valec s dokonalou tesnosťou. Dlhá životnosť a spoľahlivá funkcia.', 'Dokonalé brzdenie s našim hlavným brzdovým valcom!', '20.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690829/gkyoexo6p59jljnmtb1x.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('11', 'Katalyzátor', 'Vysokoúčinný katalyzátor pre čisté emisie. Odolný voči vysokým teplotám a korózii.', 'Ekologická jazda s našim katalyzátorom!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690922/vrkc9wwhnwjmuloxiaei.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('12', 'Ochrana proti korózii', 'Vysoko účinná ochrana karosérie pred koróziou. Vytvára trvanlivú ochrannú vrstvu.', 'Chráňte svoje auto pred hrdzavením za výhodnú cenu!', '9.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743690974/qfkbrel4qtnrxdcjcnyt.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('13', 'Olejový filter', 'Efektívny olejový filter s vysokou priepustnosťou. Zachytáva aj najmenšie nečistoty z oleja.', 'Čistý olej znamená dlhšiu životnosť motora!', '4.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691015/irknt70jzsdkounrb712.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('14', 'Palivové čerpadlo', 'Výkonné palivové čerpadlo s konštantným tlakom. Zabezpečuje optimálne spaľovanie.', 'Dokonalý prívod paliva do vášho motora!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691149/wwmyabbteshfdx8wnp71.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('15', 'Palivový filter', 'Vysokoúčinný palivový filter pre čisté palivo. Chráni vstrekovací systém pred nečistotami.', 'Zabezpečte si optimálny výkon motora s našim palivovým filtrom!', '1.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691256/ky8xkslkpd3ib77bglzw.jpg', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('16', 'Impregnácia pneumatík', 'Vysoko účinná impregnácia pre dlhšiu životnosť pneumatík. Chráni pred prasknutím a starnutím.', 'Dlhšia životnosť pneumatík s našou impregnáciou!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691392/lzxbjtxbqjatubm1eyhd.png', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('17', 'Katalyzátor', 'Vysokoúčinný katalyzátor pre čisté emisie. Odolný voči vysokým teplotám a korózii.', 'Ekologická jazda s našim katalyzátorom!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691509/zqzfn28mhoajmmclenle.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('18', 'Klinový remeň', 'Odolný klinový remeň s vynikajúcou prispôsobivosťou. Znížené riziko preklzovania a tichý chod.', 'Spoľahlivý klinový remeň za bezkonkurenčnú cenu!', '6.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691576/nkpa3q900sftquhdxzl1.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('19', 'Kolesové ložisko', 'Presné kolesové ložisko s nízkym trením. Odolné voči zaťaženiu a nepriaznivým podmienkam.', 'Plynulá jazda s našimi kolesovými ložiskami!', '11.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691661/s0zcfhxrgqyyrhftl84t.webp', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('20', 'Kľukový hriadeľ', 'Presne vyvážený kľukový hriadeľ s vysokou odolnosťou. Minimalizuje vibrácie motora.', 'Spoľahlivý základ vášho motora za výhodnú cenu!', '1249.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691716/cposardpzdkumxlc9hve.png', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('21', 'Kryt motora', 'Odolný kryt motora chrániaci pred nečistotami a vplyvmi počasia. Jednoduchá inštalácia a údržba.', 'Chráňte svoj motor s našim krytom!', '49.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691915/if5n3qxf7wusuhihozcg.png', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('22', 'Lambda sonda', 'Presná lambda sonda pre optimálne spaľovanie. Znižuje spotrebu paliva a emisie.', 'Maximálny výkon motora s našou lambda sondou!', '49.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743691996/a66tyngsqyxac5lehsbw.png', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('23', 'Ložisko kľukového hriadeľa', 'Vysoko kvalitné ložisko s nízkym trením. Odolné voči extrémnym zaťaženiam a vysokým teplotám.', 'Plynulý chod motora s našim ložiskom kľukového hriadeľa!', '12.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692067/s1yeakumtgt0aivrm7ph.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('24', 'Motorový olej 10W-40', 'Vysokokvalitný syntetický olej pre optimálnu ochranu motora. Znižuje opotrebenie a predlžuje životnosť.', 'Najlepšia starostlivosť o váš motor za skvelú cenu!', '29.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692130/ffqsd9blildhhjdpek4t.jpg', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('25', 'Ochrana proti korózii', 'Chráňte svoje auto pred hrdzavením za výhodnú cenu!', 'Chráňte svoje auto pred hrdzavením za výhodnú cenu!', '9.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692228/llqquyn78tsyksr44lls.jpg', '["Universal"]', '1', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('26', 'Rozvodová reťaz', 'Presná rozvodová reťaz s vynikajúcou odolnosťou. Minimalizuje opotrebenie a hluk.', 'Spoľahlivý časovací mechanizmus za výhodnú cenu!', '32.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692471/be1aestiyeql8nbdoadz.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('27', 'Spojková sada', 'Kompletná spojková sada s vysokým krútiacim momentom. Hladké radenie a dlhá životnosť.', 'Dokonalý prenos výkonu s našou spojkovou sadou!', '459.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692589/qm7m8izkxw4zb4b0fsz8.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('28', 'Stieračová guma (pár)', 'Kvalitné stieračové gumy s dokonalým priliehaním. Odstraňujú vodu bez šmúh a škrabancov. (nie zo Škody, čiže nehučí po dvoch zotretiach)', 'Čisté čelné sklo za každého počasia!', '0.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692657/wmzwqlgyjw6o15c3xveg.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('29', 'Svetlomet (ľavý)', 'Výkonný svetlomet s optimálnym rozptylom svetla. Dlhá životnosť a jednoduchá inštalácia.', 'Bezpečná jazda v noci s našimi svetlometmi!', '149.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692732/voe34cceefmro3g1tb6u.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('30', 'Svetlomet (pravý)', 'Výkonný svetlomet s optimálnym rozptylom svetla. Dlhá životnosť a jednoduchá inštalácia.', 'Bezpečná jazda v noci s našimi svetlometmi!', '149.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692779/npxzlsl1bywx2wvamkd0.webp', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('31', 'Štartér', 'Výkonný štartér s rýchlym a spoľahlivým štartovaním. Odolný voči vysokým teplotám.', 'Rýchly štart za každého počasia s našim štartérom!', '99.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692854/mnzckzey9t87rfahja5a.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('32', 'Štartovacie káble', 'Silné štartovacie káble s výbornou vodivosťou. Bezpečné a odolné voči extrémnym podmienkam.', 'Nenechajte sa zastihnúť vybitou batériou - vždy pripravení s našimi káblami!', '10.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692932/g5jofw99ce32zt4gblxv.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('33', 'Tlmič pruženia', 'Kvalitný tlmič pruženia pre pohodlnú jazdu. Znižuje vibrácie a zlepšuje stabilitu vozidla.', 'Pohodlná jazda s našimi tlmičmi pruženia!', '75.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743692961/knhykqucrsy13pxauyov.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('34', 'Turbo kompresor', 'Výkonný turbo kompresor pre zvýšenie výkonu motora. Rýchla reakcia a dlhá životnosť.', 'Extra výkon pre váš motor s našim turbo kompresorom!', '199.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693004/zpotkqfmnwydbmbjbask.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('35', 'Vodná pumpa', 'Spoľahlivá vodná pumpa pre efektívnu cirkuláciu chladiacej kvapaliny. Tichý chod a dlhá životnosť.', 'Udržte váš motor v optimálnej teplote s našou vodnou pumpou!', '45.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693119/ihmzq5eejcryitktzbat.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('36', 'Vosk na karosériu', 'Vysoko kvalitný vosk vytvárajúci ochrannú vrstvu na karosérii. Dodáva lesk a chráni farbu.', 'Dokonalý lesk a ochrana pre vaše auto!', '9.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693156/n0svh6oggwetgo6ag4dw.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('37', 'Vstrekovacie čerpadlo', 'Výkonné vstrekovacie čerpadlo s presným dávkovaním paliva. Znižuje spotrebu a emisie.', 'Maximálna účinnosť motora s našim vstrekovacím čerpadlom!', '459.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693251/zfoe35t5fvgs7vlnwc7x.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('38', 'Vzduchový filter', 'Vysokoúčinný vzduchový filter pre čistý prívod vzduchu. Chráni motor pred nečistotami.', 'Čistý vzduch pre váš motor za skvelú cenu!', '6.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693294/ij2qjqmwf98ghmstpdvg.jpg', '["Universal"]', '0', 'prislusenstvo', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('39', 'Zapaľovacia cievka', 'Vysoko kvalitná zapalovacia cievka so stabilným výkonom. Zaisťuje silnú iskru pre optimálne spaľovanie.', 'Dokonalé spaľovanie s našou zapalovacou cievkou!', '25.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693332/ydvmgjfdyu9bcc1rzzoc.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
+	('40', 'Zapaľovacia sviečka', 'Vysoko kvalitná zapaľovacia sviečka s perfektným spaľovaním. Znižuje spotrebu paliva.', 'Optimálny výkon motora s našimi zapaľovacími sviečkami!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693372/q2ehawuqsvkq37n3po25.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]');
+    
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer)
+VALUES 
+(1, 'Alternátor', 45, 'BMW'),
+(3, 'Brzdové doštičky', 72, 'Volkswagen'),
+(5, 'Čistič bŕzd', 88, 'Universal'),
+(7, 'Chladiaca kvapalina', 33, 'Universal'),
+(9, 'DPF filter', 19, 'Toyota'),
+(11, 'Katalyzátor', 56, 'Ford'),
+(13, 'Olejový filter', 91, 'Universal'),
+(15, 'Palivový filter', 27, 'Universal'),
+(17, 'Katalyzátor', 62, 'Mercedes'),
+(19, 'Kolesové ložisko', 14, 'Audi'),
+(21, 'Kryt motora', 78, 'Volvo'),
+(23, 'Ložisko kľukového hriadeľa', 41, 'Škoda'),
+(25, 'Ochrana proti korózii', 95, 'Universal'),
+(27, 'Spojková sada', 63, 'Seat'),
+(29, 'Svetlomet (ľavý)', 22, 'Honda'),
+(31, 'Štartér', 37, 'BMW'),
+(33, 'Tlmič pruženia', 84, 'Volkswagen'),
+(35, 'Vodná pumpa', 59, 'Toyota'),
+(37, 'Vstrekovacie čerpadlo', 16, 'Ford'),
+(39, 'Zapaľovacia cievka', 71, 'Mercedes'),
+(2, 'Brzdová kvapalina', 48, 'Universal'),
+(4, 'Brzdové kotúče', 82, 'Audi'),
+(6, 'Čistič interiéru', 25, 'Universal'),
+(8, 'Chladič', 67, 'Volvo'),
+(10, 'Hlavný brzdový valec', 53, 'Škoda'),
+(12, 'Ochrana proti korózii', 39, 'Universal'),
+(14, 'Palivové čerpadlo', 76, 'Seat'),
+(16, 'Impregnácia pneumatík', 92, 'Universal'),
+(18, 'Klinový remeň', 44, 'Honda'),
+(20, 'Kľukový hriadeľ', 17, 'BMW'),
+(22, 'Lambda sonda', 81, 'Volkswagen'),
+(24, 'Motorový olej 10W-40', 28, 'Universal'),
+(26, 'Rozvodová reťaz', 65, 'Toyota'),
+(28, 'Stieračová guma (pár)', 93, 'Universal'),
+(30, 'Svetlomet (pravý)', 36, 'Ford'),
+(32, 'Štartovacie káble', 79, 'Universal'),
+(34, 'Turbo kompresor', 52, 'Mercedes'),
+(36, 'Vosk na karosériu', 85, 'Universal'),
+(38, 'Vzduchový filter', 21, 'Universal'),
+(40, 'Zapaľovacia sviečka', 74, 'Audi'),
+(1, 'Alternátor', 47, 'Volvo'),
+(3, 'Brzdové doštičky', 69, 'Škoda'),
+(5, 'Čistič bŕzd', 83, 'Universal'),
+(7, 'Chladiaca kvapalina', 31, 'Universal'),
+(9, 'DPF filter', 18, 'Seat'),
+(11, 'Katalyzátor', 55, 'Honda'),
+(13, 'Olejový filter', 94, 'Universal'),
+(15, 'Palivový filter', 26, 'Universal'),
+(17, 'Katalyzátor', 61, 'BMW'),
+(19, 'Kolesové ložisko', 13, 'Volkswagen'),
+(21, 'Kryt motora', 77, 'Toyota'),
+(23, 'Ložisko kľukového hriadeľa', 42, 'Ford'),
+(25, 'Ochrana proti korózii', 96, 'Universal'),
+(27, 'Spojková sada', 64, 'Mercedes'),
+(29, 'Svetlomet (ľavý)', 23, 'Audi'),
+(31, 'Štartér', 38, 'Volvo'),
+(33, 'Tlmič pruženia', 86, 'Škoda'),
+(35, 'Vodná pumpa', 58, 'Seat'),
+(37, 'Vstrekovacie čerpadlo', 15, 'Honda'),
+(39, 'Zapaľovacia cievka', 72, 'BMW'),
+(2, 'Brzdová kvapalina', 49, 'Universal'),
+(4, 'Brzdové kotúče', 81, 'Volkswagen'),
+(6, 'Čistič interiéru', 24, 'Universal'),
+(8, 'Chladič', 66, 'Toyota'),
+(10, 'Hlavný brzdový valec', 54, 'Ford'),
+(12, 'Ochrana proti korózii', 38, 'Universal'),
+(14, 'Palivové čerpadlo', 75, 'Mercedes'),
+(16, 'Impregnácia pneumatík', 91, 'Universal'),
+(18, 'Klinový remeň', 43, 'Audi'),
+(20, 'Kľukový hriadeľ', 16, 'Volvo'),
+(22, 'Lambda sonda', 82, 'Škoda'),
+(24, 'Motorový olej 10W-40', 29, 'Universal'),
+(26, 'Rozvodová reťaz', 64, 'Seat'),
+(28, 'Stieračová guma (pár)', 94, 'Universal'),
+(30, 'Svetlomet (pravý)', 35, 'Honda'),
+(32, 'Štartovacie káble', 78, 'Universal'),
+(34, 'Turbo kompresor', 51, 'BMW'),
+(36, 'Vosk na karosériu', 84, 'Universal'),
+(38, 'Vzduchový filter', 22, 'Universal'),
+(40, 'Zapaľovacia sviečka', 73, 'Volkswagen');
+
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer)
+VALUES 
+(2, 'Brzdová kvapalina', 42, 'Universal'),
+(4, 'Brzdové kotúče', 75, 'Toyota'),
+(6, 'Čistič interiéru', 29, 'Universal'),
+(8, 'Chladič', 68, 'Ford'),
+(10, 'Hlavný brzdový valec', 57, 'Mercedes'),
+(12, 'Ochrana proti korózii', 34, 'Universal'),
+(14, 'Palivové čerpadlo', 79, 'Audi'),
+(16, 'Impregnácia pneumatík', 89, 'Universal'),
+(18, 'Klinový remeň', 46, 'Volvo'),
+(20, 'Kľukový hriadeľ', 19, 'Škoda'),
+(22, 'Lambda sonda', 83, 'Seat'),
+(24, 'Motorový olej 10W-40', 32, 'Universal'),
+(26, 'Rozvodová reťaz', 66, 'Honda'),
+(28, 'Stieračová guma (pár)', 97, 'Universal'),
+(30, 'Svetlomet (pravý)', 38, 'BMW'),
+(32, 'Štartovacie káble', 72, 'Universal'),
+(34, 'Turbo kompresor', 54, 'Volkswagen'),
+(36, 'Vosk na karosériu', 87, 'Universal'),
+(38, 'Vzduchový filter', 23, 'Universal'),
+(40, 'Zapaľovacia sviečka', 76, 'Toyota'),
+(1, 'Alternátor', 44, 'Ford'),
+(3, 'Brzdové doštičky', 71, 'Mercedes'),
+(5, 'Čistič bŕzd', 87, 'Universal'),
+(7, 'Chladiaca kvapalina', 35, 'Universal'),
+(9, 'DPF filter', 17, 'Audi'),
+(11, 'Katalyzátor', 58, 'Volvo'),
+(13, 'Olejový filter', 93, 'Universal'),
+(15, 'Palivový filter', 28, 'Universal'),
+(17, 'Katalyzátor', 63, 'Škoda'),
+(19, 'Kolesové ložisko', 15, 'Seat'),
+(21, 'Kryt motora', 77, 'Honda'),
+(23, 'Ložisko kľukového hriadeľa', 43, 'BMW'),
+(25, 'Ochrana proti korózii', 94, 'Universal'),
+(27, 'Spojková sada', 65, 'Volkswagen'),
+(29, 'Svetlomet (ľavý)', 24, 'Toyota'),
+(31, 'Štartér', 39, 'Ford'),
+(33, 'Tlmič pruženia', 85, 'Mercedes'),
+(35, 'Vodná pumpa', 61, 'Audi'),
+(37, 'Vstrekovacie čerpadlo', 14, 'Volvo'),
+(39, 'Zapaľovacia cievka', 73, 'Škoda'),
+(2, 'Brzdová kvapalina', 43, 'Universal'),
+(4, 'Brzdové kotúče', 74, 'Seat'),
+(6, 'Čistič interiéru', 28, 'Universal'),
+(8, 'Chladič', 67, 'Honda'),
+(10, 'Hlavný brzdový valec', 56, 'BMW'),
+(12, 'Ochrana proti korózii', 35, 'Universal'),
+(14, 'Palivové čerpadlo', 78, 'Volkswagen'),
+(16, 'Impregnácia pneumatík', 88, 'Universal'),
+(18, 'Klinový remeň', 45, 'Toyota'),
+(20, 'Kľukový hriadeľ', 18, 'Ford'),
+(22, 'Lambda sonda', 84, 'Mercedes'),
+(24, 'Motorový olej 10W-40', 31, 'Universal'),
+(26, 'Rozvodová reťaz', 67, 'Audi'),
+(28, 'Stieračová guma (pár)', 96, 'Universal'),
+(30, 'Svetlomet (pravý)', 37, 'Volvo'),
+(32, 'Štartovacie káble', 73, 'Universal'),
+(34, 'Turbo kompresor', 53, 'Škoda'),
+(36, 'Vosk na karosériu', 86, 'Universal'),
+(38, 'Vzduchový filter', 24, 'Universal'),
+(40, 'Zapaľovacia sviečka', 75, 'Seat'),
+(1, 'Alternátor', 46, 'Honda'),
+(3, 'Brzdové doštičky', 70, 'BMW'),
+(5, 'Čistič bŕzd', 86, 'Universal'),
+(7, 'Chladiaca kvapalina', 34, 'Universal'),
+(9, 'DPF filter', 16, 'Volkswagen'),
+(11, 'Katalyzátor', 57, 'Toyota'),
+(13, 'Olejový filter', 92, 'Universal'),
+(15, 'Palivový filter', 29, 'Universal'),
+(17, 'Katalyzátor', 64, 'Ford'),
+(19, 'Kolesové ložisko', 12, 'Mercedes'),
+(21, 'Kryt motora', 79, 'Audi'),
+(23, 'Ložisko kľukového hriadeľa', 44, 'Volvo'),
+(25, 'Ochrana proti korózii', 93, 'Universal'),
+(27, 'Spojková sada', 66, 'Škoda'),
+(29, 'Svetlomet (ľavý)', 25, 'Seat'),
+(31, 'Štartér', 40, 'Honda'),
+(33, 'Tlmič pruženia', 83, 'BMW'),
+(35, 'Vodná pumpa', 62, 'Volkswagen'),
+(37, 'Vstrekovacie čerpadlo', 13, 'Toyota'),
+(39, 'Zapaľovacia cievka', 74, 'Ford');
+
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer)
+VALUES 
+(3, 'Brzdové doštičky', 73, 'Mercedes'),
+(5, 'Čistič bŕzd', 85, 'Universal'),
+(7, 'Chladiaca kvapalina', 32, 'Universal'),
+(9, 'DPF filter', 20, 'Audi'),
+(11, 'Katalyzátor', 59, 'Volvo'),
+(13, 'Olejový filter', 90, 'Universal'),
+(15, 'Palivový filter', 30, 'Universal'),
+(17, 'Katalyzátor', 60, 'Škoda'),
+(19, 'Kolesové ložisko', 11, 'Seat'),
+(21, 'Kryt motora', 80, 'Honda'),
+(23, 'Ložisko kľukového hriadeľa', 45, 'BMW'),
+(25, 'Ochrana proti korózii', 92, 'Universal'),
+(27, 'Spojková sada', 67, 'Volkswagen'),
+(29, 'Svetlomet (ľavý)', 26, 'Toyota'),
+(31, 'Štartér', 36, 'Ford'),
+(33, 'Tlmič pruženia', 82, 'Mercedes'),
+(35, 'Vodná pumpa', 60, 'Audi'),
+(37, 'Vstrekovacie čerpadlo', 17, 'Volvo'),
+(39, 'Zapaľovacia cievka', 70, 'Škoda'),
+(2, 'Brzdová kvapalina', 50, 'Universal'),
+(4, 'Brzdové kotúče', 80, 'Seat'),
+(6, 'Čistič interiéru', 23, 'Universal'),
+(8, 'Chladič', 65, 'Honda'),
+(10, 'Hlavný brzdový valec', 55, 'BMW'),
+(12, 'Ochrana proti korózii', 37, 'Universal'),
+(14, 'Palivové čerpadlo', 74, 'Volkswagen'),
+(16, 'Impregnácia pneumatík', 90, 'Universal'),
+(18, 'Klinový remeň', 47, 'Toyota'),
+(20, 'Kľukový hriadeľ', 20, 'Ford'),
+(22, 'Lambda sonda', 80, 'Mercedes'),
+(24, 'Motorový olej 10W-40', 30, 'Universal'),
+(26, 'Rozvodová reťaz', 68, 'Audi'),
+(28, 'Stieračová guma (pár)', 95, 'Universal'),
+(30, 'Svetlomet (pravý)', 34, 'Volvo'),
+(32, 'Štartovacie káble', 77, 'Universal'),
+(34, 'Turbo kompresor', 50, 'Škoda'),
+(36, 'Vosk na karosériu', 83, 'Universal'),
+(38, 'Vzduchový filter', 20, 'Universal'),
+(40, 'Zapaľovacia sviečka', 70, 'Seat'),
+(1, 'Alternátor', 48, 'Honda'),
+(3, 'Brzdové doštičky', 68, 'BMW'),
+(5, 'Čistič bŕzd', 84, 'Universal'),
+(7, 'Chladiaca kvapalina', 36, 'Universal'),
+(9, 'DPF filter', 15, 'Volkswagen'),
+(11, 'Katalyzátor', 54, 'Toyota'),
+(13, 'Olejový filter', 89, 'Universal'),
+(15, 'Palivový filter', 31, 'Universal'),
+(17, 'Katalyzátor', 65, 'Ford'),
+(19, 'Kolesové ložisko', 10, 'Mercedes'),
+(21, 'Kryt motora', 75, 'Audi'),
+(23, 'Ložisko kľukového hriadeľa', 40, 'Volvo'),
+(25, 'Ochrana proti korózii', 91, 'Universal'),
+(27, 'Spojková sada', 62, 'Škoda'),
+(29, 'Svetlomet (ľavý)', 21, 'Seat'),
+(31, 'Štartér', 35, 'Honda'),
+(33, 'Tlmič pruženia', 81, 'BMW'),
+(35, 'Vodná pumpa', 57, 'Volkswagen'),
+(37, 'Vstrekovacie čerpadlo', 18, 'Toyota'),
+(39, 'Zapaľovacia cievka', 69, 'Ford'),
+(2, 'Brzdová kvapalina', 47, 'Universal'),
+(4, 'Brzdové kotúče', 79, 'Mercedes'),
+(6, 'Čistič interiéru', 22, 'Universal'),
+(8, 'Chladič', 64, 'Audi'),
+(10, 'Hlavný brzdový valec', 52, 'Volvo'),
+(12, 'Ochrana proti korózii', 36, 'Universal'),
+(14, 'Palivové čerpadlo', 73, 'Škoda'),
+(16, 'Impregnácia pneumatík', 89, 'Universal'),
+(18, 'Klinový remeň', 48, 'Seat'),
+(20, 'Kľukový hriadeľ', 21, 'Honda'),
+(22, 'Lambda sonda', 79, 'BMW'),
+(24, 'Motorový olej 10W-40', 33, 'Universal'),
+(26, 'Rozvodová reťaz', 63, 'Volkswagen'),
+(28, 'Stieračová guma (pár)', 98, 'Universal'),
+(30, 'Svetlomet (pravý)', 33, 'Toyota'),
+(32, 'Štartovacie káble', 76, 'Universal'),
+(34, 'Turbo kompresor', 55, 'Ford'),
+(36, 'Vosk na karosériu', 82, 'Universal'),
+(38, 'Vzduchový filter', 19, 'Universal'),
+(40, 'Zapaľovacia sviečka', 72, 'Mercedes');
+
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer)
+VALUES 
+(4, 'Brzdové kotúče', 78, 'Audi'),
+(6, 'Čistič interiéru', 21, 'Universal'),
+(8, 'Chladič', 63, 'Volvo'),
+(10, 'Hlavný brzdový valec', 51, 'Škoda'),
+(12, 'Ochrana proti korózii', 40, 'Universal'),
+(14, 'Palivové čerpadlo', 72, 'Seat'),
+(16, 'Impregnácia pneumatík', 87, 'Universal'),
+(18, 'Klinový remeň', 49, 'Honda'),
+(20, 'Kľukový hriadeľ', 22, 'BMW'),
+(22, 'Lambda sonda', 78, 'Volkswagen'),
+(24, 'Motorový olej 10W-40', 34, 'Universal'),
+(26, 'Rozvodová reťaz', 62, 'Toyota'),
+(28, 'Stieračová guma (pár)', 99, 'Universal'),
+(30, 'Svetlomet (pravý)', 32, 'Ford'),
+(32, 'Štartovacie káble', 75, 'Universal'),
+(34, 'Turbo kompresor', 56, 'Mercedes'),
+(36, 'Vosk na karosériu', 81, 'Universal'),
+(38, 'Vzduchový filter', 18, 'Universal'),
+(40, 'Zapaľovacia sviečka', 71, 'Audi'),
+(1, 'Alternátor', 50, 'Volvo'),
+(3, 'Brzdové doštičky', 67, 'Škoda'),
+(5, 'Čistič bŕzd', 89, 'Universal'),
+(7, 'Chladiaca kvapalina', 37, 'Universal'),
+(9, 'DPF filter', 14, 'Seat'),
+(11, 'Katalyzátor', 53, 'Honda'),
+(13, 'Olejový filter', 88, 'Universal'),
+(15, 'Palivový filter', 32, 'Universal'),
+(17, 'Katalyzátor', 66, 'BMW'),
+(19, 'Kolesové ložisko', 9, 'Volkswagen'),
+(21, 'Kryt motora', 74, 'Toyota'),
+(23, 'Ložisko kľukového hriadeľa', 39, 'Ford'),
+(25, 'Ochrana proti korózii', 90, 'Universal'),
+(27, 'Spojková sada', 61, 'Mercedes'),
+(29, 'Svetlomet (ľavý)', 20, 'Audi'),
+(31, 'Štartér', 34, 'Volvo'),
+(33, 'Tlmič pruženia', 80, 'Škoda'),
+(35, 'Vodná pumpa', 56, 'Seat'),
+(37, 'Vstrekovacie čerpadlo', 19, 'Honda'),
+(39, 'Zapaľovacia cievka', 68, 'BMW'),
+(2, 'Brzdová kvapalina', 46, 'Universal'),
+(4, 'Brzdové kotúče', 77, 'Volkswagen'),
+(6, 'Čistič interiéru', 20, 'Universal'),
+(8, 'Chladič', 62, 'Toyota'),
+(10, 'Hlavný brzdový valec', 50, 'Ford'),
+(12, 'Ochrana proti korózii', 41, 'Universal'),
+(14, 'Palivové čerpadlo', 71, 'Mercedes'),
+(16, 'Impregnácia pneumatík', 86, 'Universal'),
+(18, 'Klinový remeň', 50, 'Audi'),
+(20, 'Kľukový hriadeľ', 23, 'Volvo'),
+(22, 'Lambda sonda', 77, 'Škoda'),
+(24, 'Motorový olej 10W-40', 35, 'Universal'),
+(26, 'Rozvodová reťaz', 61, 'Seat'),
+(28, 'Stieračová guma (pár)', 100, 'Universal'),
+(30, 'Svetlomet (pravý)', 31, 'Honda'),
+(32, 'Štartovacie káble', 74, 'Universal'),
+(34, 'Turbo kompresor', 57, 'BMW'),
+(36, 'Vosk na karosériu', 80, 'Universal'),
+(38, 'Vzduchový filter', 17, 'Universal'),
+(40, 'Zapaľovacia sviečka', 69, 'Volkswagen'),
+(1, 'Alternátor', 49, 'Toyota'),
+(3, 'Brzdové doštičky', 66, 'Ford'),
+(5, 'Čistič bŕzd', 90, 'Universal'),
+(7, 'Chladiaca kvapalina', 38, 'Universal'),
+(9, 'DPF filter', 13, 'Mercedes'),
+(11, 'Katalyzátor', 52, 'Audi'),
+(13, 'Olejový filter', 87, 'Universal'),
+(15, 'Palivový filter', 33, 'Universal'),
+(17, 'Katalyzátor', 67, 'Volvo'),
+(19, 'Kolesové ložisko', 8, 'Škoda'),
+(21, 'Kryt motora', 73, 'Seat'),
+(23, 'Ložisko kľukového hriadeľa', 38, 'Honda'),
+(25, 'Ochrana proti korózii', 89, 'Universal'),
+(27, 'Spojková sada', 60, 'BMW'),
+(29, 'Svetlomet (ľavý)', 19, 'Volkswagen'),
+(31, 'Štartér', 33, 'Toyota'),
+(33, 'Tlmič pruženia', 79, 'Ford'),
+(35, 'Vodná pumpa', 55, 'Mercedes'),
+(37, 'Vstrekovacie čerpadlo', 20, 'Audi'),
+(39, 'Zapaľovacia cievka', 67, 'Volvo');
+
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer)
+VALUES 
+(5, 'Čistič bŕzd', 81, 'Universal'),
+(7, 'Chladiaca kvapalina', 39, 'Universal'),
+(9, 'DPF filter', 12, 'Audi'),
+(11, 'Katalyzátor', 51, 'Volvo'),
+(13, 'Olejový filter', 86, 'Universal'),
+(15, 'Palivový filter', 34, 'Universal'),
+(17, 'Katalyzátor', 68, 'Škoda'),
+(19, 'Kolesové ložisko', 7, 'Seat'),
+(21, 'Kryt motora', 72, 'Honda'),
+(23, 'Ložisko kľukového hriadeľa', 37, 'BMW'),
+(25, 'Ochrana proti korózii', 88, 'Universal'),
+(27, 'Spojková sada', 59, 'Volkswagen'),
+(29, 'Svetlomet (ľavý)', 18, 'Toyota'),
+(31, 'Štartér', 32, 'Ford'),
+(33, 'Tlmič pruženia', 77, 'Mercedes'),
+(35, 'Vodná pumpa', 54, 'Audi'),
+(37, 'Vstrekovacie čerpadlo', 21, 'Volvo'),
+(39, 'Zapaľovacia cievka', 66, 'Škoda'),
+(2, 'Brzdová kvapalina', 45, 'Universal'),
+(4, 'Brzdové kotúče', 76, 'Seat'),
+(6, 'Čistič interiéru', 19, 'Universal'),
+(8, 'Chladič', 61, 'Honda'),
+(10, 'Hlavný brzdový valec', 49, 'BMW'),
+(12, 'Ochrana proti korózii', 42, 'Universal'),
+(14, 'Palivové čerpadlo', 70, 'Volkswagen'),
+(16, 'Impregnácia pneumatík', 85, 'Universal'),
+(18, 'Klinový remeň', 51, 'Toyota'),
+(20, 'Kľukový hriadeľ', 24, 'Ford'),
+(22, 'Lambda sonda', 76, 'Mercedes'),
+(24, 'Motorový olej 10W-40', 36, 'Universal'),
+(26, 'Rozvodová reťaz', 60, 'Audi'),
+(28, 'Stieračová guma (pár)', 97, 'Universal'),
+(30, 'Svetlomet (pravý)', 30, 'Volvo'),
+(32, 'Štartovacie káble', 71, 'Universal'),
+(34, 'Turbo kompresor', 58, 'Škoda'),
+(36, 'Vosk na karosériu', 79, 'Universal'),
+(38, 'Vzduchový filter', 16, 'Universal'),
+(40, 'Zapaľovacia sviečka', 68, 'Seat'),
+(1, 'Alternátor', 51, 'Honda'),
+(3, 'Brzdové doštičky', 65, 'BMW'),
+(5, 'Čistič bŕzd', 82, 'Universal'),
+(7, 'Chladiaca kvapalina', 40, 'Universal'),
+(9, 'DPF filter', 11, 'Volkswagen'),
+(11, 'Katalyzátor', 50, 'Toyota'),
+(13, 'Olejový filter', 85, 'Universal'),
+(15, 'Palivový filter', 35, 'Universal'),
+(17, 'Katalyzátor', 69, 'Ford'),
+(19, 'Kolesové ložisko', 6, 'Mercedes'),
+(21, 'Kryt motora', 71, 'Audi'),
+(23, 'Ložisko kľukového hriadeľa', 36, 'Volvo'),
+(25, 'Ochrana proti korózii', 87, 'Universal'),
+(27, 'Spojková sada', 58, 'Škoda'),
+(29, 'Svetlomet (ľavý)', 17, 'Seat'),
+(31, 'Štartér', 31, 'Honda'),
+(33, 'Tlmič pruženia', 76, 'BMW'),
+(35, 'Vodná pumpa', 53, 'Volkswagen'),
+(37, 'Vstrekovacie čerpadlo', 22, 'Toyota'),
+(39, 'Zapaľovacia cievka', 65, 'Ford'),
+(2, 'Brzdová kvapalina', 44, 'Universal'),
+(4, 'Brzdové kotúče', 75, 'Mercedes'),
+(6, 'Čistič interiéru', 18, 'Universal'),
+(8, 'Chladič', 60, 'Audi'),
+(10, 'Hlavný brzdový valec', 48, 'Volvo'),
+(12, 'Ochrana proti korózii', 43, 'Universal'),
+(14, 'Palivové čerpadlo', 69, 'Škoda'),
+(16, 'Impregnácia pneumatík', 84, 'Universal'),
+(18, 'Klinový remeň', 52, 'Seat'),
+(20, 'Kľukový hriadeľ', 25, 'Honda'),
+(22, 'Lambda sonda', 75, 'BMW'),
+(24, 'Motorový olej 10W-40', 37, 'Universal'),
+(26, 'Rozvodová reťaz', 59, 'Volkswagen'),
+(28, 'Stieračová guma (pár)', 96, 'Universal'),
+(30, 'Svetlomet (pravý)', 29, 'Toyota'),
+(32, 'Štartovacie káble', 70, 'Universal'),
+(34, 'Turbo kompresor', 59, 'Ford'),
+(36, 'Vosk na karosériu', 78, 'Universal'),
+(38, 'Vzduchový filter', 15, 'Universal'),
+(40, 'Zapaľovacia sviečka', 67, 'Mercedes');
+
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 23, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 7, 'Volkswagen');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 45, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 18, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 31, 'Toyota');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 9, 'Audi');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 27, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 14, 'Mercedes');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 5, 'Ford');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 42, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 21, 'Honda');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (4, 'Brzdové kotúče', 16, 'Škoda');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 29, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 11, 'Volvo');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 8, 'Seat');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 22, 'BMW');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 6, 'Toyota');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 33, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 19, 'Volkswagen');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 13, 'Audi');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 25, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (3, 'Brzdové doštičky', 28, 'Ford');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (9, 'DPF filter', 15, 'Mercedes');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 36, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 44, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 10, 'Honda');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 17, 'Volvo');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 20, 'Seat');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 9, 'BMW');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 12, 'Škoda');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 24, 'Toyota');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 32, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 14, 'Audi');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (11, 'Katalyzátor', 7, 'Mercedes');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 26, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (18, 'Klinový remeň', 21, 'Ford');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (23, 'Ložisko kľukového hriadeľa', 9, 'Volvo');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (27, 'Spojková sada', 13, 'Honda');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (32, 'Štartovacie káble', 39, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 45, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 17, 'Toyota');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (2, 'Brzdová kvapalina', 29, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (4, 'Brzdové kotúče', 11, 'Seat');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 34, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 8, 'Škoda');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 15, 'BMW');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 7, 'Audi');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (24, 'Motorový olej 10W-40', 43, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 31, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 18, 'Mercedes');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 12, 'Ford');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 27, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 37, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 28, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 41, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 9, 'Honda');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 16, 'Volkswagen');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 21, 'Audi');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 8, 'BMW');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 13, 'Škoda');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 30, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 13, 'Volvo');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 42, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 19, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 28, 'Ford');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 10, 'Seat');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 24, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 15, 'BMW');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 6, 'Honda');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 39, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 20, 'Toyota');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (11, 'Katalyzátor', 14, 'Volkswagen');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (18, 'Klinový remeň', 22, 'Ford');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (23, 'Ložisko kľukového hriadeľa', 8, 'Audi');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (27, 'Spojková sada', 17, 'Honda');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 40, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 30, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 45, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 11, 'Toyota');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 18, 'Volvo');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 20, 'BMW');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 7, 'Audi');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 14, 'Volkswagen');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 23, 'Seat');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (2, 'Brzdová kvapalina', 32, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 28, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 10, 'Ford');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 19, 'Toyota');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 24, 'Volvo');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 9, 'Škoda');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (24, 'Motorový olej 10W-40', 42, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 34, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 16, 'BMW');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 13, 'Mercedes');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 26, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 27, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 11, 'Seat');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 20, 'Audi');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 25, 'Toyota');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 8, 'BMW');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 33, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 17, 'Honda');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 12, 'Ford');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 25, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (1, 'Alternátor', 16, 'Volvo');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 29, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 12, 'Mercedes');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 43, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 18, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 27, 'Škoda');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 9, 'Toyota');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 23, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 14, 'Audi');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 5, 'BMW');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 38, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 19, 'Volkswagen');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 21, 'Volvo');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 13, 'Seat');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 10, 'Honda');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (24, 'Motorový olej 10W-40', 44, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 32, 'Universal');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 15, 'Ford');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 11, 'BMW');
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 24, 'Universal');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (11, 'Katalyzátor', 16, 'Toyota');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (18, 'Klinový remeň', 23, 'Volkswagen');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (23, 'Ložisko kľukového hriadeľa', 9, 'Mercedes');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (27, 'Spojková sada', 18, 'Audi');
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (32, 'Štartovacie káble', 36, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (1, 'Alternátor', 19, 'BMW');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 30, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 13, 'Ford');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 44, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 17, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 26, 'Volvo');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 8, 'Škoda');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 22, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 15, 'Honda');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 6, 'Toyota');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 37, 'Universal');
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 20, 'Audi');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (3, 'Brzdové doštičky', 26, 'Honda');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 39, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (9, 'DPF filter', 13, 'BMW');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 29, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 43, 'Universal');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 10, 'Volkswagen');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 19, 'Mercedes');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 21, 'Toyota');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 8, 'Ford');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 15, 'Seat');
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 24, 'Škoda');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (3, 'Brzdové doštičky', 24, 'Volvo');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 38, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (9, 'DPF filter', 14, 'Audi');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 31, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 42, 'Universal');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 11, 'Mercedes');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 20, 'BMW');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 22, 'Honda');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 9, 'Toyota');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 16, 'Ford');
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 25, 'Volkswagen');
+
+INSERT INTO autodiely_eshop.orders (
+    order_number, user_id, first_name, last_name, email, street, city, state,
+    zip_code, country, phone, items, total_amount, payment_method, status, created_at
+) VALUES
+('ORD000001', 200, 'Zuzana', 'Šimko', 'zuzana.šimko1@example.com', '397 Lakeview Dr', 'Poprad', 'Prešovský kraj', '20296', 'Slovakia', '+421900000001', '[{"product_id": 766, "manufacturer": "Ford", "quantity": 3}, {"product_id": 500, "manufacturer": "Ford", "quantity": 2}, {"product_id": 256, "manufacturer": "Honda", "quantity": 2}]', 392.68, 'Transfer', 'Shipped', NOW()),
+('ORD000002', 201, 'Tomáš', 'Michal', 'tomáš.michal2@example.com', '242 Oak Ave', 'Senec', 'Bratislavský kraj', '88267', 'Slovakia', '+421900000002', '[{"product_id": 999, "manufacturer": "\u0160koda", "quantity": 1}]', 313.21, 'Cash', 'Delivered', NOW()),
+('ORD000003', 202, 'Peter', 'Hajduová', 'peter.hajduová3@example.com', '909 Hilltop Rd', 'Bratislava', 'Bratislavský kraj', '95380', 'Slovakia', '+421900000003', '[{"product_id": 403, "manufacturer": "Toyota", "quantity": 1}, {"product_id": 384, "manufacturer": "Ford", "quantity": 3}, {"product_id": 880, "manufacturer": "\u0160koda", "quantity": 1}]', 319.41, 'Cash', 'Processing', NOW()),
+('ORD000004', 203, 'Zuzana', 'Smith', 'zuzana.smith4@example.com', '847 Forest Rd', 'Banská Bystrica', 'Banskobystrický kraj', '67097', 'Slovakia', '+421900000004', '[{"product_id": 450, "manufacturer": "Seat", "quantity": 5}, {"product_id": 780, "manufacturer": "\u0160koda", "quantity": 5}]', 201.47, 'Transfer', 'Shipped', NOW()),
+('ORD000005', 204, 'Eva', 'Smith', 'eva.smith5@example.com', '524 Green St', 'Michalovce', 'Košický kraj', '68431', 'Slovakia', '+421900000005', '[{"product_id": 379, "manufacturer": "Honda", "quantity": 5}, {"product_id": 760, "manufacturer": "Ford", "quantity": 5}, {"product_id": 982, "manufacturer": "Honda", "quantity": 2}]', 133.34, 'Transfer', 'Processing', NOW()),
+('ORD000006', 205, 'Tomáš', 'Smith', 'tomáš.smith6@example.com', '859 Forest Rd', 'Žilina', 'Žilinský kraj', '87934', 'Slovakia', '+421900000006', '[{"product_id": 522, "manufacturer": "Audi", "quantity": 4}, {"product_id": 480, "manufacturer": "Volkswagen", "quantity": 5}, {"product_id": 362, "manufacturer": "Volvo", "quantity": 2}]', 234.12, 'Cash', 'Order Placed', NOW()),
+('ORD000007', 206, 'Peter', 'Doe', 'peter.doe7@example.com', '677 Hilltop Rd', 'Bratislava', 'Bratislavský kraj', '45543', 'Slovakia', '+421900000007', '[{"product_id": 678, "manufacturer": "Toyota", "quantity": 1}, {"product_id": 401, "manufacturer": "\u0160koda", "quantity": 4}, {"product_id": 800, "manufacturer": "Mercedes", "quantity": 2}]', 310.05, 'Transfer', 'Processing', NOW()),
+('ORD000008', 207, 'Tomáš', 'Doe', 'tomáš.doe8@example.com', '769 Main St', 'Žilina', 'Žilinský kraj', '92435', 'Slovakia', '+421900000008', '[{"product_id": 693, "manufacturer": "Volkswagen", "quantity": 3}, {"product_id": 313, "manufacturer": "\u0160koda", "quantity": 3}]', 443.29, 'Cash', 'Order Placed', NOW()),
+('ORD000009', 208, 'Zuzana', 'Novák', 'zuzana.novák9@example.com', '999 Oak Ave', 'Trnava', 'Trnavský kraj', '34123', 'Slovakia', '+421900000009', '[{"product_id": 891, "manufacturer": "Honda", "quantity": 3}, {"product_id": 583, "manufacturer": "BMW", "quantity": 3}]', 89.96, 'Cash', 'Delivered', NOW()),
+('ORD000010', 209, 'Anna', 'Horváthová', 'anna.horváthová10@example.com', '32 Elm St', 'Banská Bystrica', 'Banskobystrický kraj', '30930', 'Slovakia', '+421900000010', '[{"product_id": 427, "manufacturer": "Toyota", "quantity": 5}, {"product_id": 278, "manufacturer": "Audi", "quantity": 5}, {"product_id": 832, "manufacturer": "Seat", "quantity": 1}]', 52.08, 'Cash', 'Delivered', NOW()),
+('ORD000011', 210, 'Jane', 'Michal', 'jane.michal11@example.com', '910 Main St', 'Michalovce', 'Košický kraj', '76542', 'Slovakia', '+421900000011', '[{"product_id": 895, "manufacturer": "Mercedes", "quantity": 2}, {"product_id": 327, "manufacturer": "Seat", "quantity": 4}, {"product_id": 471, "manufacturer": "BMW", "quantity": 1}]', 455.5, 'Card', 'Delivered', NOW()),
+('ORD000012', 211, 'Lucia', 'Horváthová', 'lucia.horváthová12@example.com', '163 Main St', 'Košice', 'Košický kraj', '37511', 'Slovakia', '+421900000012', '[{"product_id": 198, "manufacturer": "Ford", "quantity": 4}]', 71.19, 'Cash', 'Order Placed', NOW()),
+('ORD000013', 212, 'Eva', 'Kováč', 'eva.kováč13@example.com', '365 Lakeview Dr', 'Senec', 'Bratislavský kraj', '21181', 'Slovakia', '+421900000013', '[{"product_id": 882, "manufacturer": "Seat", "quantity": 3}]', 192.57, 'Transfer', 'Shipped', NOW()),
+('ORD000014', 213, 'John', 'Horváthová', 'john.horváthová14@example.com', '215 Main St', 'Nitra', 'Nitriansky kraj', '77730', 'Slovakia', '+421900000014', '[{"product_id": 202, "manufacturer": "Seat", "quantity": 4}, {"product_id": 859, "manufacturer": "Toyota", "quantity": 5}, {"product_id": 583, "manufacturer": "\u0160koda", "quantity": 3}]', 155.77, 'Cash', 'Shipped', NOW()),
+('ORD000015', 214, 'John', 'Smith', 'john.smith15@example.com', '348 Oak Ave', 'Košice', 'Košický kraj', '17831', 'Slovakia', '+421900000015', '[{"product_id": 271, "manufacturer": "Mercedes", "quantity": 3}]', 219.53, 'Cash', 'Processing', NOW()),
+('ORD000016', 215, 'Jozef', 'Zelená', 'jozef.zelená16@example.com', '453 Blue St', 'Nitra', 'Nitriansky kraj', '42821', 'Slovakia', '+421900000016', '[{"product_id": 297, "manufacturer": "Honda", "quantity": 4}, {"product_id": 103, "manufacturer": "Seat", "quantity": 1}, {"product_id": 907, "manufacturer": "Seat", "quantity": 4}]', 66.27, 'Transfer', 'Delivered', NOW()),
+('ORD000017', 216, 'Lucia', 'Hajduová', 'lucia.hajduová17@example.com', '830 Park Blvd', 'Žilina', 'Žilinský kraj', '57009', 'Slovakia', '+421900000017', '[{"product_id": 740, "manufacturer": "BMW", "quantity": 4}, {"product_id": 153, "manufacturer": "Audi", "quantity": 4}]', 433.59, 'Transfer', 'Delivered', NOW()),
+('ORD000018', 217, 'Lucia', 'Šimko', 'lucia.šimko18@example.com', '606 Blue St', 'Michalovce', 'Košický kraj', '94319', 'Slovakia', '+421900000018', '[{"product_id": 665, "manufacturer": "BMW", "quantity": 3}, {"product_id": 711, "manufacturer": "BMW", "quantity": 2}]', 79.95, 'Transfer', 'Processing', NOW()),
+('ORD000019', 218, 'Jane', 'Zelená', 'jane.zelená19@example.com', '799 Blue St', 'Žilina', 'Žilinský kraj', '68813', 'Slovakia', '+421900000019', '[{"product_id": 129, "manufacturer": "Ford", "quantity": 5}, {"product_id": 614, "manufacturer": "Volkswagen", "quantity": 5}]', 325.82, 'Card', 'Order Placed', NOW()),
+('ORD000020', 219, 'Jozef', 'Bieliková', 'jozef.bieliková20@example.com', '660 Green St', 'Prešov', 'Prešovský kraj', '83858', 'Slovakia', '+421900000020', '[{"product_id": 251, "manufacturer": "Mercedes", "quantity": 1}, {"product_id": 371, "manufacturer": "Volvo", "quantity": 4}, {"product_id": 715, "manufacturer": "Seat", "quantity": 1}]', 134.74, 'Card', 'Shipped', NOW()),
+('ORD000021', 220, 'Jozef', 'Horváthová', 'jozef.horváthová21@example.com', '271 Oak Ave', 'Košice', 'Košický kraj', '39081', 'Slovakia', '+421900000021', '[{"product_id": 673, "manufacturer": "Seat", "quantity": 1}]', 137.64, 'Transfer', 'Processing', NOW()),
+('ORD000022', 221, 'Jozef', 'Novák', 'jozef.novák22@example.com', '498 Park Blvd', 'Poprad', 'Prešovský kraj', '76532', 'Slovakia', '+421900000022', '[{"product_id": 743, "manufacturer": "Volvo", "quantity": 3}]', 213.35, 'Cash', 'Shipped', NOW()),
+('ORD000023', 222, 'Jane', 'Michal', 'jane.michal23@example.com', '325 Blue St', 'Košice', 'Košický kraj', '85209', 'Slovakia', '+421900000023', '[{"product_id": 224, "manufacturer": "Ford", "quantity": 3}, {"product_id": 676, "manufacturer": "BMW", "quantity": 4}]', 411.09, 'Transfer', 'Order Placed', NOW()),
+('ORD000024', 223, 'Eva', 'Hajduová', 'eva.hajduová24@example.com', '736 Hilltop Rd', 'Michalovce', 'Košický kraj', '73581', 'Slovakia', '+421900000024', '[{"product_id": 836, "manufacturer": "Seat", "quantity": 2}]', 111.46, 'Cash', 'Delivered', NOW()),
+('ORD000025', 224, 'Martin', 'Smith', 'martin.smith25@example.com', '372 Main St', 'Michalovce', 'Košický kraj', '65400', 'Slovakia', '+421900000025', '[{"product_id": 247, "manufacturer": "Honda", "quantity": 2}]', 134.87, 'Cash', 'Delivered', NOW()),
+('ORD000026', 225, 'Zuzana', 'Zelená', 'zuzana.zelená26@example.com', '169 Main St', 'Poprad', 'Prešovský kraj', '14516', 'Slovakia', '+421900000026', '[{"product_id": 428, "manufacturer": "Honda", "quantity": 4}]', 98.66, 'Transfer', 'Shipped', NOW()),
+('ORD000027', 226, 'Zuzana', 'Zelená', 'zuzana.zelená27@example.com', '174 River Rd', 'Senec', 'Bratislavský kraj', '83031', 'Slovakia', '+421900000027', '[{"product_id": 934, "manufacturer": "Volkswagen", "quantity": 5}, {"product_id": 656, "manufacturer": "Volvo", "quantity": 2}, {"product_id": 582, "manufacturer": "Toyota", "quantity": 3}]', 264.98, 'Card', 'Shipped', NOW()),
+('ORD000028', 227, 'Jozef', 'Zelená', 'jozef.zelená28@example.com', '969 Elm St', 'Senec', 'Bratislavský kraj', '66527', 'Slovakia', '+421900000028', '[{"product_id": 601, "manufacturer": "Ford", "quantity": 3}]', 359.63, 'Transfer', 'Processing', NOW()),
+('ORD000029', 228, 'Anna', 'Michal', 'anna.michal29@example.com', '295 River Rd', 'Bratislava', 'Bratislavský kraj', '33929', 'Slovakia', '+421900000029', '[{"product_id": 582, "manufacturer": "BMW", "quantity": 4}]', 60.44, 'Transfer', 'Order Placed', NOW()),
+('ORD000030', 229, 'Jane', 'Bieliková', 'jane.bieliková30@example.com', '624 Elm St', 'Prešov', 'Prešovský kraj', '20377', 'Slovakia', '+421900000030', '[{"product_id": 229, "manufacturer": "\u0160koda", "quantity": 5}]', 399.55, 'Transfer', 'Shipped', NOW()),
+('ORD000031', 230, 'Anna', 'Hajduová', 'anna.hajduová31@example.com', '96 River Rd', 'Prešov', 'Prešovský kraj', '99340', 'Slovakia', '+421900000031', '[{"product_id": 398, "manufacturer": "Audi", "quantity": 5}]', 241.28, 'Card', 'Delivered', NOW()),
+('ORD000032', 231, 'Anna', 'Zelená', 'anna.zelená32@example.com', '464 River Rd', 'Trnava', 'Trnavský kraj', '91464', 'Slovakia', '+421900000032', '[{"product_id": 848, "manufacturer": "Volvo", "quantity": 2}, {"product_id": 325, "manufacturer": "Volkswagen", "quantity": 2}, {"product_id": 642, "manufacturer": "BMW", "quantity": 1}]', 199.83, 'Transfer', 'Order Placed', NOW()),
+('ORD000033', 232, 'Zuzana', 'Kováč', 'zuzana.kováč33@example.com', '915 Oak Ave', 'Senec', 'Bratislavský kraj', '98541', 'Slovakia', '+421900000033', '[{"product_id": 358, "manufacturer": "Toyota", "quantity": 4}]', 473.75, 'Card', 'Processing', NOW()),
+('ORD000034', 233, 'Jane', 'Michal', 'jane.michal34@example.com', '680 Park Blvd', 'Prešov', 'Prešovský kraj', '96232', 'Slovakia', '+421900000034', '[{"product_id": 247, "manufacturer": "Mercedes", "quantity": 4}, {"product_id": 879, "manufacturer": "Audi", "quantity": 3}, {"product_id": 639, "manufacturer": "Honda", "quantity": 5}]', 122.59, 'Transfer', 'Delivered', NOW()),
+('ORD000035', 234, 'Tomáš', 'Doe', 'tomáš.doe35@example.com', '425 Park Blvd', 'Žilina', 'Žilinský kraj', '90915', 'Slovakia', '+421900000035', '[{"product_id": 370, "manufacturer": "Toyota", "quantity": 3}]', 83.82, 'Card', 'Shipped', NOW()),
+('ORD000036', 235, 'John', 'Novák', 'john.novák36@example.com', '589 Hilltop Rd', 'Žilina', 'Žilinský kraj', '48630', 'Slovakia', '+421900000036', '[{"product_id": 220, "manufacturer": "Mercedes", "quantity": 1}]', 66.56, 'Transfer', 'Shipped', NOW()),
+('ORD000037', 236, 'John', 'Smith', 'john.smith37@example.com', '617 Park Blvd', 'Michalovce', 'Košický kraj', '94666', 'Slovakia', '+421900000037', '[{"product_id": 826, "manufacturer": "Mercedes", "quantity": 4}, {"product_id": 823, "manufacturer": "Volkswagen", "quantity": 4}, {"product_id": 492, "manufacturer": "Audi", "quantity": 2}]', 461.24, 'Transfer', 'Shipped', NOW()),
+('ORD000038', 237, 'Lucia', 'Kováč', 'lucia.kováč38@example.com', '577 River Rd', 'Trnava', 'Trnavský kraj', '12285', 'Slovakia', '+421900000038', '[{"product_id": 251, "manufacturer": "\u0160koda", "quantity": 3}, {"product_id": 702, "manufacturer": "Toyota", "quantity": 5}]', 328.37, 'Cash', 'Processing', NOW()),
+('ORD000039', 238, 'Anna', 'Šimko', 'anna.šimko39@example.com', '838 Forest Rd', 'Košice', 'Košický kraj', '33022', 'Slovakia', '+421900000039', '[{"product_id": 614, "manufacturer": "\u0160koda", "quantity": 5}]', 160.86, 'Transfer', 'Delivered', NOW()),
+('ORD000040', 239, 'Peter', 'Doe', 'peter.doe40@example.com', '809 Park Blvd', 'Poprad', 'Prešovský kraj', '11975', 'Slovakia', '+421900000040', '[{"product_id": 244, "manufacturer": "Ford", "quantity": 5}, {"product_id": 229, "manufacturer": "\u0160koda", "quantity": 4}]', 337.87, 'Transfer', 'Delivered', NOW()),
+('ORD000041', 240, 'Jozef', 'Horváthová', 'jozef.horváthová41@example.com', '383 Blue St', 'Banská Bystrica', 'Banskobystrický kraj', '57118', 'Slovakia', '+421900000041', '[{"product_id": 235, "manufacturer": "Seat", "quantity": 3}, {"product_id": 435, "manufacturer": "Honda", "quantity": 4}]', 324.41, 'Card', 'Delivered', NOW()),
+('ORD000042', 241, 'Tomáš', 'Novák', 'tomáš.novák42@example.com', '218 Elm St', 'Prešov', 'Prešovský kraj', '84838', 'Slovakia', '+421900000042', '[{"product_id": 869, "manufacturer": "Audi", "quantity": 3}, {"product_id": 906, "manufacturer": "\u0160koda", "quantity": 3}, {"product_id": 442, "manufacturer": "Volvo", "quantity": 3}]', 209.94, 'Cash', 'Order Placed', NOW()),
+('ORD000043', 242, 'Lucia', 'Bieliková', 'lucia.bieliková43@example.com', '175 Hilltop Rd', 'Žilina', 'Žilinský kraj', '94173', 'Slovakia', '+421900000043', '[{"product_id": 681, "manufacturer": "BMW", "quantity": 4}]', 204.62, 'Transfer', 'Order Placed', NOW()),
+('ORD000044', 243, 'Jane', 'Michal', 'jane.michal44@example.com', '371 Hilltop Rd', 'Žilina', 'Žilinský kraj', '21304', 'Slovakia', '+421900000044', '[{"product_id": 469, "manufacturer": "Honda", "quantity": 4}, {"product_id": 231, "manufacturer": "Toyota", "quantity": 3}, {"product_id": 770, "manufacturer": "Seat", "quantity": 2}]', 352.35, 'Transfer', 'Delivered', NOW()),
+('ORD000045', 244, 'Martin', 'Bieliková', 'martin.bieliková45@example.com', '322 Hilltop Rd', 'Banská Bystrica', 'Banskobystrický kraj', '56760', 'Slovakia', '+421900000045', '[{"product_id": 143, "manufacturer": "BMW", "quantity": 3}, {"product_id": 623, "manufacturer": "Honda", "quantity": 3}, {"product_id": 548, "manufacturer": "Mercedes", "quantity": 5}]', 257.34, 'Card', 'Processing', NOW()),
+('ORD000046', 245, 'John', 'Zelená', 'john.zelená46@example.com', '455 River Rd', 'Košice', 'Košický kraj', '38336', 'Slovakia', '+421900000046', '[{"product_id": 868, "manufacturer": "Ford", "quantity": 1}, {"product_id": 788, "manufacturer": "Volvo", "quantity": 5}, {"product_id": 633, "manufacturer": "Toyota", "quantity": 1}]', 390.49, 'Card', 'Order Placed', NOW()),
+('ORD000047', 246, 'Zuzana', 'Horváthová', 'zuzana.horváthová47@example.com', '996 Elm St', 'Trnava', 'Trnavský kraj', '21232', 'Slovakia', '+421900000047', '[{"product_id": 354, "manufacturer": "Honda", "quantity": 1}]', 444.04, 'Cash', 'Order Placed', NOW()),
+('ORD000048', 247, 'Peter', 'Horváthová', 'peter.horváthová48@example.com', '220 Lakeview Dr', 'Nitra', 'Nitriansky kraj', '97087', 'Slovakia', '+421900000048', '[{"product_id": 825, "manufacturer": "Mercedes", "quantity": 3}]', 71.6, 'Cash', 'Processing', NOW()),
+('ORD000049', 248, 'Lucia', 'Smith', 'lucia.smith49@example.com', '157 Blue St', 'Prešov', 'Prešovský kraj', '84915', 'Slovakia', '+421900000049', '[{"product_id": 828, "manufacturer": "Honda", "quantity": 5}]', 89.55, 'Card', 'Delivered', NOW()),
+('ORD000050', 249, 'Jozef', 'Zelená', 'jozef.zelená50@example.com', '889 Blue St', 'Banská Bystrica', 'Banskobystrický kraj', '97888', 'Slovakia', '+421900000050', '[{"product_id": 600, "manufacturer": "Seat", "quantity": 2}, {"product_id": 659, "manufacturer": "Mercedes", "quantity": 3}]', 369.3, 'Transfer', 'Processing', NOW()),
+('ORD000051', 250, 'Jane', 'Smith', 'jane.smith51@example.com', '69 Blue St', 'Trnava', 'Trnavský kraj', '79908', 'Slovakia', '+421900000051', '[{"product_id": 227, "manufacturer": "Ford", "quantity": 3}, {"product_id": 794, "manufacturer": "Ford", "quantity": 1}]', 182.44, 'Card', 'Order Placed', NOW()),
+('ORD000052', 251, 'Peter', 'Novák', 'peter.novák52@example.com', '304 Hilltop Rd', 'Prešov', 'Prešovský kraj', '94569', 'Slovakia', '+421900000052', '[{"product_id": 700, "manufacturer": "BMW", "quantity": 5}]', 400.71, 'Card', 'Shipped', NOW()),
+('ORD000053', 252, 'Eva', 'Michal', 'eva.michal53@example.com', '201 Oak Ave', 'Trnava', 'Trnavský kraj', '60130', 'Slovakia', '+421900000053', '[{"product_id": 311, "manufacturer": "Mercedes", "quantity": 4}]', 478.24, 'Card', 'Shipped', NOW()),
+('ORD000054', 253, 'Eva', 'Horváthová', 'eva.horváthová54@example.com', '273 Green St', 'Košice', 'Košický kraj', '36820', 'Slovakia', '+421900000054', '[{"product_id": 818, "manufacturer": "BMW", "quantity": 1}, {"product_id": 976, "manufacturer": "Mercedes", "quantity": 4}, {"product_id": 750, "manufacturer": "Volkswagen", "quantity": 5}]', 360.3, 'Transfer', 'Shipped', NOW()),
+('ORD000055', 254, 'Jane', 'Horváthová', 'jane.horváthová55@example.com', '856 Green St', 'Nitra', 'Nitriansky kraj', '56541', 'Slovakia', '+421900000055', '[{"product_id": 528, "manufacturer": "Ford", "quantity": 3}, {"product_id": 307, "manufacturer": "Volkswagen", "quantity": 5}, {"product_id": 681, "manufacturer": "Ford", "quantity": 5}]', 97.51, 'Transfer', 'Order Placed', NOW()),
+('ORD000056', 255, 'Anna', 'Smith', 'anna.smith56@example.com', '519 Blue St', 'Trnava', 'Trnavský kraj', '97327', 'Slovakia', '+421900000056', '[{"product_id": 704, "manufacturer": "Toyota", "quantity": 4}]', 240.22, 'Transfer', 'Delivered', NOW()),
+('ORD000057', 256, 'Zuzana', 'Šimko', 'zuzana.šimko57@example.com', '716 Lakeview Dr', 'Žilina', 'Žilinský kraj', '69703', 'Slovakia', '+421900000057', '[{"product_id": 319, "manufacturer": "\u0160koda", "quantity": 4}, {"product_id": 753, "manufacturer": "Seat", "quantity": 4}]', 338.35, 'Transfer', 'Processing', NOW()),
+('ORD000058', 257, 'Martin', 'Hajduová', 'martin.hajduová58@example.com', '215 Park Blvd', 'Bratislava', 'Bratislavský kraj', '87211', 'Slovakia', '+421900000058', '[{"product_id": 602, "manufacturer": "Honda", "quantity": 2}, {"product_id": 740, "manufacturer": "BMW", "quantity": 3}, {"product_id": 500, "manufacturer": "Volkswagen", "quantity": 4}]', 157.32, 'Transfer', 'Order Placed', NOW()),
+('ORD000059', 258, 'Jane', 'Hajduová', 'jane.hajduová59@example.com', '140 Forest Rd', 'Banská Bystrica', 'Banskobystrický kraj', '18567', 'Slovakia', '+421900000059', '[{"product_id": 762, "manufacturer": "Seat", "quantity": 3}, {"product_id": 566, "manufacturer": "\u0160koda", "quantity": 3}, {"product_id": 925, "manufacturer": "BMW", "quantity": 5}]', 470.81, 'Transfer', 'Shipped', NOW()),
+('ORD000060', 259, 'Lucia', 'Kováč', 'lucia.kováč60@example.com', '264 Park Blvd', 'Prešov', 'Prešovský kraj', '27940', 'Slovakia', '+421900000060', '[{"product_id": 510, "manufacturer": "Honda", "quantity": 3}]', 178.8, 'Card', 'Delivered', NOW()),
+('ORD000061', 260, 'Jane', 'Horváthová', 'jane.horváthová61@example.com', '996 River Rd', 'Senec', 'Bratislavský kraj', '35210', 'Slovakia', '+421900000061', '[{"product_id": 746, "manufacturer": "Mercedes", "quantity": 2}, {"product_id": 640, "manufacturer": "Honda", "quantity": 1}]', 178.32, 'Transfer', 'Processing', NOW()),
+('ORD000062', 261, 'Tomáš', 'Novák', 'tomáš.novák62@example.com', '597 Blue St', 'Senec', 'Bratislavský kraj', '88874', 'Slovakia', '+421900000062', '[{"product_id": 390, "manufacturer": "Honda", "quantity": 4}]', 385.28, 'Card', 'Processing', NOW()),
+('ORD000063', 262, 'Peter', 'Šimko', 'peter.šimko63@example.com', '19 Park Blvd', 'Prešov', 'Prešovský kraj', '72675', 'Slovakia', '+421900000063', '[{"product_id": 781, "manufacturer": "Toyota", "quantity": 3}, {"product_id": 304, "manufacturer": "\u0160koda", "quantity": 2}, {"product_id": 160, "manufacturer": "Mercedes", "quantity": 4}]', 398.02, 'Card', 'Order Placed', NOW()),
+('ORD000064', 263, 'Peter', 'Novák', 'peter.novák64@example.com', '463 Lakeview Dr', 'Banská Bystrica', 'Banskobystrický kraj', '51765', 'Slovakia', '+421900000064', '[{"product_id": 909, "manufacturer": "Ford", "quantity": 2}, {"product_id": 738, "manufacturer": "BMW", "quantity": 3}]', 301.82, 'Cash', 'Processing', NOW()),
+('ORD000065', 264, 'Peter', 'Bieliková', 'peter.bieliková65@example.com', '445 Blue St', 'Michalovce', 'Košický kraj', '34558', 'Slovakia', '+421900000065', '[{"product_id": 556, "manufacturer": "Honda", "quantity": 3}]', 395.77, 'Cash', 'Shipped', NOW()),
+('ORD000066', 265, 'Jozef', 'Doe', 'jozef.doe66@example.com', '574 Park Blvd', 'Košice', 'Košický kraj', '56405', 'Slovakia', '+421900000066', '[{"product_id": 959, "manufacturer": "Volkswagen", "quantity": 5}, {"product_id": 366, "manufacturer": "Volkswagen", "quantity": 5}]', 189.31, 'Card', 'Delivered', NOW()),
+('ORD000067', 266, 'Peter', 'Smith', 'peter.smith67@example.com', '760 Main St', 'Košice', 'Košický kraj', '79670', 'Slovakia', '+421900000067', '[{"product_id": 638, "manufacturer": "Volkswagen", "quantity": 3}, {"product_id": 289, "manufacturer": "Toyota", "quantity": 3}, {"product_id": 965, "manufacturer": "\u0160koda", "quantity": 4}]', 444.49, 'Transfer', 'Processing', NOW()),
+('ORD000068', 267, 'John', 'Horváthová', 'john.horváthová68@example.com', '452 Park Blvd', 'Prešov', 'Prešovský kraj', '91255', 'Slovakia', '+421900000068', '[{"product_id": 874, "manufacturer": "Audi", "quantity": 4}, {"product_id": 879, "manufacturer": "Seat", "quantity": 5}, {"product_id": 358, "manufacturer": "BMW", "quantity": 3}]', 203.45, 'Card', 'Processing', NOW()),
+('ORD000069', 268, 'Anna', 'Šimko', 'anna.šimko69@example.com', '747 Oak Ave', 'Nitra', 'Nitriansky kraj', '83687', 'Slovakia', '+421900000069', '[{"product_id": 383, "manufacturer": "Seat", "quantity": 5}]', 403.35, 'Cash', 'Order Placed', NOW()),
+('ORD000070', 269, 'Jozef', 'Šimko', 'jozef.šimko70@example.com', '626 Elm St', 'Banská Bystrica', 'Banskobystrický kraj', '79833', 'Slovakia', '+421900000070', '[{"product_id": 284, "manufacturer": "Volvo", "quantity": 2}, {"product_id": 114, "manufacturer": "\u0160koda", "quantity": 4}, {"product_id": 956, "manufacturer": "Audi", "quantity": 4}]', 396.01, 'Transfer', 'Shipped', NOW()),
+('ORD000071', 270, 'John', 'Bieliková', 'john.bieliková71@example.com', '780 River Rd', 'Senec', 'Bratislavský kraj', '99482', 'Slovakia', '+421900000071', '[{"product_id": 885, "manufacturer": "Audi", "quantity": 5}, {"product_id": 532, "manufacturer": "Ford", "quantity": 3}, {"product_id": 523, "manufacturer": "Seat", "quantity": 2}]', 103.66, 'Transfer', 'Order Placed', NOW()),
+('ORD000072', 271, 'Eva', 'Šimko', 'eva.šimko72@example.com', '57 Oak Ave', 'Banská Bystrica', 'Banskobystrický kraj', '80250', 'Slovakia', '+421900000072', '[{"product_id": 534, "manufacturer": "Ford", "quantity": 4}, {"product_id": 147, "manufacturer": "BMW", "quantity": 2}, {"product_id": 263, "manufacturer": "Honda", "quantity": 1}]', 487.56, 'Transfer', 'Shipped', NOW()),
+('ORD000073', 272, 'Anna', 'Zelená', 'anna.zelená73@example.com', '111 River Rd', 'Banská Bystrica', 'Banskobystrický kraj', '53368', 'Slovakia', '+421900000073', '[{"product_id": 847, "manufacturer": "\u0160koda", "quantity": 3}, {"product_id": 947, "manufacturer": "Mercedes", "quantity": 4}]', 107.18, 'Cash', 'Processing', NOW()),
+('ORD000074', 273, 'John', 'Novák', 'john.novák74@example.com', '975 Blue St', 'Michalovce', 'Košický kraj', '54474', 'Slovakia', '+421900000074', '[{"product_id": 339, "manufacturer": "Mercedes", "quantity": 4}, {"product_id": 338, "manufacturer": "\u0160koda", "quantity": 1}]', 325.85, 'Cash', 'Processing', NOW()),
+('ORD000075', 274, 'Eva', 'Horváthová', 'eva.horváthová75@example.com', '692 Forest Rd', 'Prešov', 'Prešovský kraj', '77984', 'Slovakia', '+421900000075', '[{"product_id": 641, "manufacturer": "Toyota", "quantity": 3}, {"product_id": 277, "manufacturer": "BMW", "quantity": 2}, {"product_id": 866, "manufacturer": "\u0160koda", "quantity": 5}]', 439.43, 'Card', 'Processing', NOW()),
+('ORD000076', 275, 'Lucia', 'Horváthová', 'lucia.horváthová76@example.com', '686 Hilltop Rd', 'Nitra', 'Nitriansky kraj', '15024', 'Slovakia', '+421900000076', '[{"product_id": 375, "manufacturer": "\u0160koda", "quantity": 1}, {"product_id": 375, "manufacturer": "\u0160koda", "quantity": 1}, {"product_id": 587, "manufacturer": "Seat", "quantity": 5}]', 409.3, 'Cash', 'Shipped', NOW()),
+('ORD000077', 276, 'Peter', 'Smith', 'peter.smith77@example.com', '24 Forest Rd', 'Prešov', 'Prešovský kraj', '62480', 'Slovakia', '+421900000077', '[{"product_id": 571, "manufacturer": "\u0160koda", "quantity": 5}, {"product_id": 737, "manufacturer": "Ford", "quantity": 3}, {"product_id": 698, "manufacturer": "Mercedes", "quantity": 4}]', 141.85, 'Cash', 'Shipped', NOW()),
+('ORD000078', 277, 'Eva', 'Hajduová', 'eva.hajduová78@example.com', '688 Blue St', 'Prešov', 'Prešovský kraj', '44805', 'Slovakia', '+421900000078', '[{"product_id": 120, "manufacturer": "\u0160koda", "quantity": 1}, {"product_id": 765, "manufacturer": "Toyota", "quantity": 3}, {"product_id": 738, "manufacturer": "Volkswagen", "quantity": 4}]', 299.04, 'Cash', 'Processing', NOW()),
+('ORD000079', 278, 'Jane', 'Hajduová', 'jane.hajduová79@example.com', '977 Blue St', 'Prešov', 'Prešovský kraj', '64526', 'Slovakia', '+421900000079', '[{"product_id": 730, "manufacturer": "\u0160koda", "quantity": 2}]', 442.01, 'Card', 'Order Placed', NOW()),
+('ORD000080', 279, 'Zuzana', 'Michal', 'zuzana.michal80@example.com', '633 River Rd', 'Trnava', 'Trnavský kraj', '54169', 'Slovakia', '+421900000080', '[{"product_id": 423, "manufacturer": "BMW", "quantity": 4}, {"product_id": 360, "manufacturer": "BMW", "quantity": 4}]', 453.82, 'Cash', 'Shipped', NOW()),
+('ORD000081', 280, 'Jozef', 'Novák', 'jozef.novák81@example.com', '982 River Rd', 'Trnava', 'Trnavský kraj', '41419', 'Slovakia', '+421900000081', '[{"product_id": 148, "manufacturer": "Volvo", "quantity": 5}, {"product_id": 582, "manufacturer": "BMW", "quantity": 4}, {"product_id": 270, "manufacturer": "Audi", "quantity": 1}]', 480.01, 'Transfer', 'Processing', NOW()),
+('ORD000082', 281, 'Peter', 'Bieliková', 'peter.bieliková82@example.com', '193 Forest Rd', 'Poprad', 'Prešovský kraj', '47317', 'Slovakia', '+421900000082', '[{"product_id": 102, "manufacturer": "Toyota", "quantity": 2}, {"product_id": 393, "manufacturer": "Toyota", "quantity": 4}]', 66.05, 'Card', 'Shipped', NOW()),
+('ORD000083', 282, 'Jane', 'Bieliková', 'jane.bieliková83@example.com', '561 Blue St', 'Bratislava', 'Bratislavský kraj', '60944', 'Slovakia', '+421900000083', '[{"product_id": 530, "manufacturer": "Seat", "quantity": 2}, {"product_id": 835, "manufacturer": "BMW", "quantity": 3}, {"product_id": 642, "manufacturer": "Honda", "quantity": 1}]', 149.12, 'Transfer', 'Processing', NOW()),
+('ORD000084', 283, 'Jozef', 'Zelená', 'jozef.zelená84@example.com', '933 Lakeview Dr', 'Trnava', 'Trnavský kraj', '36393', 'Slovakia', '+421900000084', '[{"product_id": 398, "manufacturer": "Mercedes", "quantity": 4}]', 437.23, 'Cash', 'Processing', NOW()),
+('ORD000085', 284, 'Tomáš', 'Novák', 'tomáš.novák85@example.com', '594 Green St', 'Trnava', 'Trnavský kraj', '59069', 'Slovakia', '+421900000085', '[{"product_id": 892, "manufacturer": "Volkswagen", "quantity": 2}]', 205.44, 'Cash', 'Order Placed', NOW()),
+('ORD000086', 285, 'Tomáš', 'Bieliková', 'tomáš.bieliková86@example.com', '846 Forest Rd', 'Žilina', 'Žilinský kraj', '67569', 'Slovakia', '+421900000086', '[{"product_id": 327, "manufacturer": "BMW", "quantity": 5}, {"product_id": 339, "manufacturer": "Seat", "quantity": 1}]', 336.28, 'Transfer', 'Processing', NOW()),
+('ORD000087', 286, 'Zuzana', 'Hajduová', 'zuzana.hajduová87@example.com', '612 Oak Ave', 'Senec', 'Bratislavský kraj', '71618', 'Slovakia', '+421900000087', '[{"product_id": 952, "manufacturer": "Seat", "quantity": 2}]', 100.57, 'Transfer', 'Delivered', NOW()),
+('ORD000088', 287, 'Tomáš', 'Hajduová', 'tomáš.hajduová88@example.com', '944 Oak Ave', 'Banská Bystrica', 'Banskobystrický kraj', '94516', 'Slovakia', '+421900000088', '[{"product_id": 695, "manufacturer": "Mercedes", "quantity": 1}, {"product_id": 632, "manufacturer": "Honda", "quantity": 1}, {"product_id": 532, "manufacturer": "Seat", "quantity": 2}]', 118.56, 'Card', 'Order Placed', NOW()),
+('ORD000089', 288, 'Jozef', 'Zelená', 'jozef.zelená89@example.com', '576 Blue St', 'Košice', 'Košický kraj', '56574', 'Slovakia', '+421900000089', '[{"product_id": 293, "manufacturer": "Seat", "quantity": 4}]', 431.18, 'Transfer', 'Shipped', NOW()),
+('ORD000090', 289, 'Peter', 'Šimko', 'peter.šimko90@example.com', '968 Oak Ave', 'Trnava', 'Trnavský kraj', '33279', 'Slovakia', '+421900000090', '[{"product_id": 734, "manufacturer": "Honda", "quantity": 1}, {"product_id": 146, "manufacturer": "Mercedes", "quantity": 1}, {"product_id": 560, "manufacturer": "Seat", "quantity": 3}]', 233.11, 'Card', 'Shipped', NOW()),
+('ORD000091', 290, 'Jozef', 'Zelená', 'jozef.zelená91@example.com', '780 Elm St', 'Žilina', 'Žilinský kraj', '54102', 'Slovakia', '+421900000091', '[{"product_id": 328, "manufacturer": "Honda", "quantity": 5}, {"product_id": 201, "manufacturer": "Honda", "quantity": 5}, {"product_id": 170, "manufacturer": "Mercedes", "quantity": 3}]', 305.99, 'Transfer', 'Delivered', NOW()),
+('ORD000092', 291, 'Zuzana', 'Smith', 'zuzana.smith92@example.com', '248 Elm St', 'Nitra', 'Nitriansky kraj', '68469', 'Slovakia', '+421900000092', '[{"product_id": 340, "manufacturer": "Toyota", "quantity": 2}]', 377.56, 'Transfer', 'Order Placed', NOW()),
+('ORD000093', 292, 'Lucia', 'Šimko', 'lucia.šimko93@example.com', '816 Hilltop Rd', 'Banská Bystrica', 'Banskobystrický kraj', '31456', 'Slovakia', '+421900000093', '[{"product_id": 545, "manufacturer": "Volvo", "quantity": 3}, {"product_id": 631, "manufacturer": "Volvo", "quantity": 4}]', 454.34, 'Card', 'Order Placed', NOW()),
+('ORD000094', 293, 'Tomáš', 'Hajduová', 'tomáš.hajduová94@example.com', '418 Main St', 'Nitra', 'Nitriansky kraj', '48240', 'Slovakia', '+421900000094', '[{"product_id": 266, "manufacturer": "Ford", "quantity": 5}, {"product_id": 838, "manufacturer": "Volvo", "quantity": 4}, {"product_id": 918, "manufacturer": "BMW", "quantity": 1}]', 123.53, 'Transfer', 'Processing', NOW()),
+('ORD000095', 294, 'Eva', 'Novák', 'eva.novák95@example.com', '730 Blue St', 'Košice', 'Košický kraj', '26494', 'Slovakia', '+421900000095', '[{"product_id": 930, "manufacturer": "Ford", "quantity": 5}, {"product_id": 496, "manufacturer": "Mercedes", "quantity": 4}, {"product_id": 885, "manufacturer": "BMW", "quantity": 5}]', 145.09, 'Card', 'Order Placed', NOW()),
+('ORD000096', 295, 'Eva', 'Doe', 'eva.doe96@example.com', '570 Main St', 'Michalovce', 'Košický kraj', '36335', 'Slovakia', '+421900000096', '[{"product_id": 689, "manufacturer": "Honda", "quantity": 2}, {"product_id": 399, "manufacturer": "Toyota", "quantity": 4}, {"product_id": 412, "manufacturer": "Volvo", "quantity": 5}]', 67.13, 'Cash', 'Processing', NOW()),
+('ORD000097', 296, 'Peter', 'Novák', 'peter.novák97@example.com', '449 Hilltop Rd', 'Michalovce', 'Košický kraj', '63727', 'Slovakia', '+421900000097', '[{"product_id": 958, "manufacturer": "BMW", "quantity": 4}, {"product_id": 503, "manufacturer": "Honda", "quantity": 5}, {"product_id": 194, "manufacturer": "Ford", "quantity": 3}]', 470.39, 'Transfer', 'Shipped', NOW()),
+('ORD000098', 297, 'Eva', 'Horváthová', 'eva.horváthová98@example.com', '485 Elm St', 'Banská Bystrica', 'Banskobystrický kraj', '55454', 'Slovakia', '+421900000098', '[{"product_id": 162, "manufacturer": "BMW", "quantity": 3}, {"product_id": 458, "manufacturer": "BMW", "quantity": 1}]', 130.53, 'Transfer', 'Shipped', NOW()),
+('ORD000099', 298, 'Zuzana', 'Hajduová', 'zuzana.hajduová99@example.com', '859 Lakeview Dr', 'Senec', 'Bratislavský kraj', '84701', 'Slovakia', '+421900000099', '[{"product_id": 213, "manufacturer": "Mercedes", "quantity": 5}, {"product_id": 256, "manufacturer": "Audi", "quantity": 4}]', 85.7, 'Card', 'Delivered', NOW()),
+('ORD000100', 299, 'Jozef', 'Horváthová', 'jozef.horváthová100@example.com', '658 Forest Rd', 'Košice', 'Košický kraj', '81406', 'Slovakia', '+421900000100', '[{"product_id": 964, "manufacturer": "\u0160koda", "quantity": 4}]', 175.25, 'Transfer', 'Shipped', NOW());
+
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO autodiely_eshop.branch_orders (
+    _id, branch, order_number, product_id, product_name, manufacturer, quantity, price,
+    created_at, customer_name, customer_email, customer_phone, notes
+) VALUES
+(200, 'NT', 'ORD000001', 342, 'Spark Plug', 'Toyota', 6, 224.5, NOW(), 'Tomáš Bieliková', 'tomáš.bieliková@example.com', '+421900000001', 'Include invoice'),
+(201, 'SC', 'ORD000002', 538, 'Spark Plug', 'Seat', 9, 192.2, NOW(), 'John Kováč', 'john.kováč@example.com', '+421900000002', ''),
+(202, 'SC', 'ORD000003', 806, 'Radiator', 'Škoda', 2, 202.39, NOW(), 'Eva Zelená', 'eva.zelená@example.com', '+421900000003', ''),
+(203, 'NT', 'ORD000004', 203, 'Battery', 'Ford', 3, 295.5, NOW(), 'Tomáš Smith', 'tomáš.smith@example.com', '+421900000004', 'No notes'),
+(204, 'BL', 'ORD000005', 856, 'Oil Filter', 'Honda', 3, 25.3, NOW(), 'Martin Bieliková', 'martin.bieliková@example.com', '+421900000005', 'Urgent delivery'),
+(205, 'NT', 'ORD000006', 204, 'Radiator', 'BMW', 4, 124.0, NOW(), 'Anna Smith', 'anna.smith@example.com', '+421900000006', 'Include invoice'),
+(206, 'KE', 'ORD000007', 251, 'Battery', 'Volvo', 8, 184.87, NOW(), 'Jane Šimko', 'jane.šimko@example.com', '+421900000007', 'Call before delivery'),
+(207, 'NT', 'ORD000008', 280, 'Clutch Kit', 'Volvo', 7, 214.96, NOW(), 'Peter Hajduová', 'peter.hajduová@example.com', '+421900000008', 'Urgent delivery'),
+(208, 'KE', 'ORD000009', 566, 'Radiator', 'BMW', 8, 230.52, NOW(), 'Lucia Hajduová', 'lucia.hajduová@example.com', '+421900000009', 'Urgent delivery'),
+(209, 'PP', 'ORD000010', 832, 'Shock Absorber', 'Honda', 10, 273.31, NOW(), 'Tomáš Smith', 'tomáš.smith@example.com', '+421900000010', 'Include invoice'),
+(210, 'NT', 'ORD000011', 105, 'Air Filter', 'Honda', 2, 33.18, NOW(), 'Tomáš Bieliková', 'tomáš.bieliková@example.com', '+421900000011', 'Call before delivery'),
+(211, 'SC', 'ORD000012', 680, 'Timing Belt', 'Audi', 10, 211.96, NOW(), 'Jane Zelená', 'jane.zelená@example.com', '+421900000012', 'Urgent delivery'),
+(212, 'BL', 'ORD000013', 943, 'Timing Belt', 'Volvo', 7, 36.91, NOW(), 'John Horváthová', 'john.horváthová@example.com', '+421900000013', 'No notes'),
+(213, 'KE', 'ORD000014', 216, 'Oil Filter', 'Mercedes', 4, 156.05, NOW(), 'Peter Kováč', 'peter.kováč@example.com', '+421900000014', 'Include invoice'),
+(214, 'SC', 'ORD000015', 636, 'Shock Absorber', 'Seat', 10, 204.8, NOW(), 'John Michal', 'john.michal@example.com', '+421900000015', 'Include invoice'),
+(215, 'KE', 'ORD000016', 690, 'Clutch Kit', 'Toyota', 8, 192.37, NOW(), 'Anna Hajduová', 'anna.hajduová@example.com', '+421900000016', 'Call before delivery'),
+(216, 'KE', 'ORD000017', 833, 'Timing Belt', 'Volvo', 8, 176.11, NOW(), 'Martin Zelená', 'martin.zelená@example.com', '+421900000017', 'Include invoice'),
+(217, 'NT', 'ORD000018', 204, 'Timing Belt', 'Seat', 8, 99.11, NOW(), 'Martin Zelená', 'martin.zelená@example.com', '+421900000018', 'Urgent delivery'),
+(218, 'PP', 'ORD000019', 749, 'Air Filter', 'Toyota', 6, 209.55, NOW(), 'Anna Doe', 'anna.doe@example.com', '+421900000019', 'No notes'),
+(219, 'KE', 'ORD000020', 193, 'Clutch Kit', 'BMW', 3, 113.07, NOW(), 'Jane Novák', 'jane.novák@example.com', '+421900000020', 'Call before delivery'),
+(220, 'PP', 'ORD000021', 872, 'Alternator', 'Toyota', 4, 264.54, NOW(), 'Zuzana Michal', 'zuzana.michal@example.com', '+421900000021', 'Call before delivery'),
+(221, 'BL', 'ORD000022', 520, 'Battery', 'Volkswagen', 2, 186.57, NOW(), 'Anna Hajduová', 'anna.hajduová@example.com', '+421900000022', 'Call before delivery'),
+(222, 'PP', 'ORD000023', 122, 'Air Filter', 'Mercedes', 9, 168.18, NOW(), 'Anna Zelená', 'anna.zelená@example.com', '+421900000023', ''),
+(223, 'KE', 'ORD000024', 564, 'Shock Absorber', 'Seat', 10, 87.97, NOW(), 'Martin Kováč', 'martin.kováč@example.com', '+421900000024', 'Urgent delivery'),
+(224, 'PP', 'ORD000025', 381, 'Oil Filter', 'Audi', 3, 100.26, NOW(), 'Lucia Horváthová', 'lucia.horváthová@example.com', '+421900000025', 'Include invoice'),
+(225, 'SC', 'ORD000026', 317, 'Brake Pads', 'Volkswagen', 1, 228.79, NOW(), 'Zuzana Smith', 'zuzana.smith@example.com', '+421900000026', ''),
+(226, 'NT', 'ORD000027', 909, 'Shock Absorber', 'Mercedes', 8, 232.51, NOW(), 'Tomáš Smith', 'tomáš.smith@example.com', '+421900000027', 'Call before delivery'),
+(227, 'NT', 'ORD000028', 201, 'Air Filter', 'Toyota', 4, 130.24, NOW(), 'Tomáš Bieliková', 'tomáš.bieliková@example.com', '+421900000028', 'Call before delivery'),
+(228, 'KE', 'ORD000029', 352, 'Clutch Kit', 'Ford', 9, 132.77, NOW(), 'Lucia Doe', 'lucia.doe@example.com', '+421900000029', 'Call before delivery'),
+(229, 'KE', 'ORD000030', 151, 'Air Filter', 'Mercedes', 10, 236.66, NOW(), 'Anna Smith', 'anna.smith@example.com', '+421900000030', 'Call before delivery'),
+(230, 'SC', 'ORD000031', 695, 'Spark Plug', 'Toyota', 2, 288.88, NOW(), 'Martin Zelená', 'martin.zelená@example.com', '+421900000031', 'Urgent delivery'),
+(231, 'SC', 'ORD000032', 552, 'Oil Filter', 'Mercedes', 7, 60.72, NOW(), 'Eva Michal', 'eva.michal@example.com', '+421900000032', 'Urgent delivery'),
+(232, 'KE', 'ORD000033', 892, 'Radiator', 'Volvo', 10, 163.68, NOW(), 'Eva Michal', 'eva.michal@example.com', '+421900000033', 'No notes'),
+(233, 'PP', 'ORD000034', 645, 'Clutch Kit', 'Škoda', 5, 208.57, NOW(), 'Martin Šimko', 'martin.šimko@example.com', '+421900000034', ''),
+(234, 'PP', 'ORD000035', 408, 'Shock Absorber', 'Honda', 6, 15.97, NOW(), 'John Michal', 'john.michal@example.com', '+421900000035', ''),
+(235, 'KE', 'ORD000036', 749, 'Shock Absorber', 'Mercedes', 7, 55.26, NOW(), 'Jozef Smith', 'jozef.smith@example.com', '+421900000036', ''),
+(236, 'NT', 'ORD000037', 783, 'Radiator', 'Seat', 7, 181.04, NOW(), 'Eva Bieliková', 'eva.bieliková@example.com', '+421900000037', 'Call before delivery'),
+(237, 'PP', 'ORD000038', 569, 'Alternator', 'Volkswagen', 6, 282.59, NOW(), 'John Hajduová', 'john.hajduová@example.com', '+421900000038', 'Include invoice'),
+(238, 'BL', 'ORD000039', 786, 'Radiator', 'Audi', 10, 10.28, NOW(), 'Peter Michal', 'peter.michal@example.com', '+421900000039', 'Include invoice'),
+(239, 'BL', 'ORD000040', 459, 'Oil Filter', 'Škoda', 1, 242.63, NOW(), 'Anna Hajduová', 'anna.hajduová@example.com', '+421900000040', 'Urgent delivery'),
+(240, 'BL', 'ORD000041', 133, 'Air Filter', 'Volvo', 9, 217.21, NOW(), 'Martin Šimko', 'martin.šimko@example.com', '+421900000041', 'Include invoice'),
+(241, 'SC', 'ORD000042', 757, 'Shock Absorber', 'Škoda', 1, 298.25, NOW(), 'Tomáš Doe', 'tomáš.doe@example.com', '+421900000042', 'Include invoice'),
+(242, 'PP', 'ORD000043', 915, 'Battery', 'BMW', 3, 64.09, NOW(), 'Jozef Novák', 'jozef.novák@example.com', '+421900000043', 'Include invoice'),
+(243, 'SC', 'ORD000044', 922, 'Air Filter', 'Audi', 6, 165.63, NOW(), 'Martin Michal', 'martin.michal@example.com', '+421900000044', 'Include invoice'),
+(244, 'NT', 'ORD000045', 471, 'Timing Belt', 'BMW', 5, 287.52, NOW(), 'Eva Kováč', 'eva.kováč@example.com', '+421900000045', 'No notes'),
+(245, 'PP', 'ORD000046', 639, 'Radiator', 'Ford', 10, 248.22, NOW(), 'Anna Smith', 'anna.smith@example.com', '+421900000046', ''),
+(246, 'BL', 'ORD000047', 608, 'Radiator', 'Volkswagen', 1, 258.73, NOW(), 'Eva Kováč', 'eva.kováč@example.com', '+421900000047', 'Call before delivery'),
+(247, 'PP', 'ORD000048', 151, 'Clutch Kit', 'Toyota', 4, 152.53, NOW(), 'Lucia Hajduová', 'lucia.hajduová@example.com', '+421900000048', 'Call before delivery'),
+(248, 'SC', 'ORD000049', 340, 'Clutch Kit', 'Honda', 10, 268.79, NOW(), 'Tomáš Kováč', 'tomáš.kováč@example.com', '+421900000049', 'Include invoice'),
+(249, 'NT', 'ORD000050', 620, 'Air Filter', 'Škoda', 9, 263.76, NOW(), 'Jane Michal', 'jane.michal@example.com', '+421900000050', 'Urgent delivery'),
+(250, 'BL', 'ORD000051', 785, 'Timing Belt', 'Toyota', 8, 97.99, NOW(), 'Tomáš Kováč', 'tomáš.kováč@example.com', '+421900000051', 'Include invoice'),
+(251, 'NT', 'ORD000052', 153, 'Brake Pads', 'Ford', 10, 298.75, NOW(), 'Eva Doe', 'eva.doe@example.com', '+421900000052', 'Urgent delivery'),
+(252, 'NT', 'ORD000053', 433, 'Air Filter', 'Audi', 4, 15.64, NOW(), 'John Horváthová', 'john.horváthová@example.com', '+421900000053', ''),
+(253, 'SC', 'ORD000054', 148, 'Radiator', 'Audi', 9, 49.67, NOW(), 'Lucia Zelená', 'lucia.zelená@example.com', '+421900000054', ''),
+(254, 'PP', 'ORD000055', 935, 'Radiator', 'Škoda', 10, 166.65, NOW(), 'Martin Smith', 'martin.smith@example.com', '+421900000055', 'Include invoice'),
+(255, 'PP', 'ORD000056', 754, 'Alternator', 'Audi', 1, 133.25, NOW(), 'Zuzana Michal', 'zuzana.michal@example.com', '+421900000056', 'Urgent delivery'),
+(256, 'SC', 'ORD000057', 375, 'Brake Pads', 'Seat', 9, 263.79, NOW(), 'Lucia Šimko', 'lucia.šimko@example.com', '+421900000057', 'Urgent delivery'),
+(257, 'SC', 'ORD000058', 985, 'Air Filter', 'BMW', 5, 299.39, NOW(), 'Lucia Zelená', 'lucia.zelená@example.com', '+421900000058', 'Include invoice'),
+(258, 'NT', 'ORD000059', 493, 'Radiator', 'Honda', 9, 257.62, NOW(), 'Jozef Zelená', 'jozef.zelená@example.com', '+421900000059', 'Call before delivery'),
+(259, 'SC', 'ORD000060', 884, 'Shock Absorber', 'Škoda', 8, 138.0, NOW(), 'Jozef Zelená', 'jozef.zelená@example.com', '+421900000060', 'No notes'),
+(260, 'PP', 'ORD000061', 392, 'Timing Belt', 'Ford', 3, 174.07, NOW(), 'John Novák', 'john.novák@example.com', '+421900000061', 'Urgent delivery'),
+(261, 'KE', 'ORD000062', 274, 'Alternator', 'Ford', 9, 31.74, NOW(), 'Jozef Horváthová', 'jozef.horváthová@example.com', '+421900000062', ''),
+(262, 'NT', 'ORD000063', 344, 'Clutch Kit', 'Volvo', 9, 296.13, NOW(), 'Lucia Šimko', 'lucia.šimko@example.com', '+421900000063', 'Urgent delivery'),
+(263, 'SC', 'ORD000064', 452, 'Shock Absorber', 'Volvo', 10, 218.55, NOW(), 'Anna Hajduová', 'anna.hajduová@example.com', '+421900000064', ''),
+(264, 'NT', 'ORD000065', 560, 'Air Filter', 'Honda', 4, 175.91, NOW(), 'Eva Smith', 'eva.smith@example.com', '+421900000065', 'Urgent delivery'),
+(265, 'BL', 'ORD000066', 888, 'Brake Pads', 'Toyota', 8, 258.36, NOW(), 'Eva Bieliková', 'eva.bieliková@example.com', '+421900000066', ''),
+(266, 'PP', 'ORD000067', 530, 'Alternator', 'Audi', 10, 29.08, NOW(), 'Zuzana Novák', 'zuzana.novák@example.com', '+421900000067', 'Call before delivery'),
+(267, 'SC', 'ORD000068', 519, 'Radiator', 'Toyota', 7, 186.06, NOW(), 'Peter Novák', 'peter.novák@example.com', '+421900000068', ''),
+(268, 'KE', 'ORD000069', 497, 'Radiator', 'Ford', 5, 215.98, NOW(), 'Anna Doe', 'anna.doe@example.com', '+421900000069', 'Urgent delivery'),
+(269, 'NT', 'ORD000070', 971, 'Alternator', 'Volkswagen', 3, 296.55, NOW(), 'Jozef Horváthová', 'jozef.horváthová@example.com', '+421900000070', 'Include invoice'),
+(270, 'SC', 'ORD000071', 856, 'Timing Belt', 'Ford', 9, 180.89, NOW(), 'Jozef Šimko', 'jozef.šimko@example.com', '+421900000071', 'No notes'),
+(271, 'NT', 'ORD000072', 126, 'Clutch Kit', 'BMW', 9, 235.08, NOW(), 'Tomáš Hajduová', 'tomáš.hajduová@example.com', '+421900000072', 'Call before delivery'),
+(272, 'SC', 'ORD000073', 525, 'Air Filter', 'Honda', 6, 24.33, NOW(), 'Martin Hajduová', 'martin.hajduová@example.com', '+421900000073', 'No notes'),
+(273, 'NT', 'ORD000074', 872, 'Shock Absorber', 'Volkswagen', 9, 173.83, NOW(), 'Eva Zelená', 'eva.zelená@example.com', '+421900000074', ''),
+(274, 'KE', 'ORD000075', 252, 'Radiator', 'Toyota', 5, 109.52, NOW(), 'Martin Horváthová', 'martin.horváthová@example.com', '+421900000075', 'Call before delivery'),
+(275, 'PP', 'ORD000076', 828, 'Brake Pads', 'Ford', 10, 121.68, NOW(), 'Eva Zelená', 'eva.zelená@example.com', '+421900000076', 'Urgent delivery'),
+(276, 'SC', 'ORD000077', 723, 'Air Filter', 'Seat', 3, 81.29, NOW(), 'Eva Horváthová', 'eva.horváthová@example.com', '+421900000077', 'No notes'),
+(277, 'PP', 'ORD000078', 462, 'Spark Plug', 'Mercedes', 5, 169.48, NOW(), 'Tomáš Kováč', 'tomáš.kováč@example.com', '+421900000078', 'Urgent delivery'),
+(278, 'SC', 'ORD000079', 576, 'Air Filter', 'Volkswagen', 6, 143.6, NOW(), 'Zuzana Šimko', 'zuzana.šimko@example.com', '+421900000079', 'Include invoice'),
+(279, 'NT', 'ORD000080', 385, 'Radiator', 'BMW', 7, 188.4, NOW(), 'Martin Smith', 'martin.smith@example.com', '+421900000080', ''),
+(280, 'PP', 'ORD000081', 247, 'Brake Pads', 'Škoda', 2, 86.4, NOW(), 'Eva Bieliková', 'eva.bieliková@example.com', '+421900000081', 'Call before delivery'),
+(281, 'SC', 'ORD000082', 168, 'Clutch Kit', 'BMW', 8, 102.63, NOW(), 'Lucia Novák', 'lucia.novák@example.com', '+421900000082', 'Call before delivery'),
+(282, 'BL', 'ORD000083', 458, 'Clutch Kit', 'Volkswagen', 9, 31.2, NOW(), 'Anna Michal', 'anna.michal@example.com', '+421900000083', 'No notes'),
+(283, 'PP', 'ORD000084', 719, 'Clutch Kit', 'BMW', 6, 258.58, NOW(), 'Zuzana Smith', 'zuzana.smith@example.com', '+421900000084', 'Call before delivery'),
+(284, 'SC', 'ORD000085', 754, 'Spark Plug', 'Ford', 8, 279.95, NOW(), 'Lucia Hajduová', 'lucia.hajduová@example.com', '+421900000085', ''),
+(285, 'KE', 'ORD000086', 851, 'Brake Pads', 'Mercedes', 6, 184.11, NOW(), 'Jozef Doe', 'jozef.doe@example.com', '+421900000086', 'Include invoice'),
+(286, 'BL', 'ORD000087', 785, 'Alternator', 'Volkswagen', 9, 258.28, NOW(), 'Jane Doe', 'jane.doe@example.com', '+421900000087', 'Include invoice'),
+(287, 'SC', 'ORD000088', 946, 'Timing Belt', 'Volkswagen', 2, 281.01, NOW(), 'Peter Doe', 'peter.doe@example.com', '+421900000088', 'No notes'),
+(288, 'BL', 'ORD000089', 927, 'Radiator', 'Škoda', 8, 125.21, NOW(), 'Lucia Horváthová', 'lucia.horváthová@example.com', '+421900000089', 'Urgent delivery'),
+(289, 'BL', 'ORD000090', 237, 'Alternator', 'Škoda', 3, 82.01, NOW(), 'Martin Horváthová', 'martin.horváthová@example.com', '+421900000090', 'Call before delivery'),
+(290, 'SC', 'ORD000091', 340, 'Spark Plug', 'Mercedes', 4, 140.12, NOW(), 'Zuzana Smith', 'zuzana.smith@example.com', '+421900000091', 'Call before delivery'),
+(291, 'KE', 'ORD000092', 524, 'Oil Filter', 'Škoda', 4, 259.9, NOW(), 'Peter Zelená', 'peter.zelená@example.com', '+421900000092', 'Urgent delivery'),
+(292, 'BL', 'ORD000093', 224, 'Spark Plug', 'BMW', 4, 142.39, NOW(), 'Eva Kováč', 'eva.kováč@example.com', '+421900000093', 'Include invoice'),
+(293, 'KE', 'ORD000094', 109, 'Oil Filter', 'Volkswagen', 6, 79.32, NOW(), 'John Michal', 'john.michal@example.com', '+421900000094', 'No notes'),
+(294, 'PP', 'ORD000095', 199, 'Clutch Kit', 'Škoda', 1, 219.73, NOW(), 'Anna Šimko', 'anna.šimko@example.com', '+421900000095', ''),
+(295, 'NT', 'ORD000096', 717, 'Shock Absorber', 'Mercedes', 6, 45.4, NOW(), 'Martin Hajduová', 'martin.hajduová@example.com', '+421900000096', 'Include invoice'),
+(296, 'PP', 'ORD000097', 372, 'Oil Filter', 'Audi', 2, 106.85, NOW(), 'Jozef Novák', 'jozef.novák@example.com', '+421900000097', 'No notes'),
+(297, 'KE', 'ORD000098', 908, 'Oil Filter', 'Toyota', 1, 110.7, NOW(), 'Peter Horváthová', 'peter.horváthová@example.com', '+421900000098', 'Include invoice'),
+(298, 'PP', 'ORD000099', 160, 'Shock Absorber', 'Audi', 8, 272.55, NOW(), 'Zuzana Kováč', 'zuzana.kováč@example.com', '+421900000099', 'Include invoice'),
+(299, 'PP', 'ORD000100', 782, 'Clutch Kit', 'Audi', 1, 43.77, NOW(), 'Eva Doe', 'eva.doe@example.com', '+421900000100', 'No notes');
+
+SET FOREIGN_KEY_CHECKS=1;
+
+INSERT INTO autodiely_eshop.users (_id, name, email, password, created_at) VALUES
+(100, 'John Smith', 'john.smith@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-01 08:00:00'),
+(101, 'Emily Johnson', 'emily.johnson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-02 09:15:00'),
+(102, 'Michael Williams', 'michael.williams@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-03 10:30:00'),
+(103, 'Sarah Brown', 'sarah.brown@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-04 11:45:00'),
+(104, 'David Jones', 'david.jones@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-05 12:00:00'),
+(105, 'Jessica Garcia', 'jessica.garcia@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-06 13:15:00'),
+(106, 'Robert Miller', 'robert.miller@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-07 14:30:00'),
+(107, 'Jennifer Davis', 'jennifer.davis@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-08 15:45:00'),
+(108, 'Thomas Rodriguez', 'thomas.rodriguez@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-09 16:00:00'),
+(109, 'Lisa Martinez', 'lisa.martinez@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-10 17:15:00'),
+(110, 'Daniel Wilson', 'daniel.wilson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-11 18:30:00'),
+(111, 'Amy Anderson', 'amy.anderson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-12 19:45:00'),
+(112, 'Charles Taylor', 'charles.taylor@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-13 20:00:00'),
+(113, 'Megan Thomas', 'megan.thomas@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-14 21:15:00'),
+(114, 'Christopher Hernandez', 'christopher.hernandez@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-15 22:30:00'),
+(115, 'Ashley Moore', 'ashley.moore@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-16 23:45:00'),
+(116, 'Matthew Martin', 'matthew.martin@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-17 08:15:00'),
+(117, 'Amanda Jackson', 'amanda.jackson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-18 09:30:00'),
+(118, 'James Thompson', 'james.thompson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-19 10:45:00'),
+(119, 'Nicole White', 'nicole.white@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-20 11:00:00'),
+(120, 'Kevin Lopez', 'kevin.lopez@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-21 12:15:00'),
+(121, 'Stephanie Lee', 'stephanie.lee@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-22 13:30:00'),
+(122, 'Ryan Gonzalez', 'ryan.gonzalez@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-23 14:45:00'),
+(123, 'Laura Harris', 'laura.harris@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-24 15:00:00'),
+(124, 'Andrew Clark', 'andrew.clark@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-25 16:15:00'),
+(125, 'Rebecca Lewis', 'rebecca.lewis@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-26 17:30:00'),
+(126, 'Joshua Robinson', 'joshua.robinson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-27 18:45:00'),
+(127, 'Heather Walker', 'heather.walker@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-28 19:00:00'),
+(128, 'Brandon Hall', 'brandon.hall@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-29 20:15:00'),
+(129, 'Samantha Young', 'samantha.young@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-30 21:30:00'),
+(130, 'Justin Allen', 'justin.allen@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-01-31 22:45:00'),
+(131, 'Rachel King', 'rachel.king@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-01 08:30:00'),
+(132, 'Benjamin Wright', 'benjamin.wright@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-02 09:45:00'),
+(133, 'Elizabeth Scott', 'elizabeth.scott@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-03 10:00:00'),
+(134, 'Nicholas Green', 'nicholas.green@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-04 11:15:00'),
+(135, 'Hannah Adams', 'hannah.adams@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-05 12:30:00'),
+(136, 'Tyler Baker', 'tyler.baker@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-06 13:45:00'),
+(137, 'Kayla Nelson', 'kayla.nelson@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-07 14:00:00'),
+(138, 'Jacob Carter', 'jacob.carter@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-08 15:15:00'),
+(139, 'Victoria Mitchell', 'victoria.mitchell@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-09 16:30:00'),
+(140, 'Alexander Perez', 'alexander.perez@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-10 17:45:00'),
+(141, 'Olivia Roberts', 'olivia.roberts@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-11 18:00:00'),
+(142, 'William Turner', 'william.turner@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-12 19:15:00'),
+(143, 'Sophia Phillips', 'sophia.phillips@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-13 20:30:00'),
+(144, 'Ethan Campbell', 'ethan.campbell@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-14 21:45:00'),
+(145, 'Mia Parker', 'mia.parker@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-15 22:00:00'),
+(146, 'Nathan Evans', 'nathan.evans@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-16 23:15:00'),
+(147, 'Chloe Edwards', 'chloe.edwards@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-17 08:45:00'),
+(148, 'Samuel Collins', 'samuel.collins@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-18 09:00:00'),
+(149, 'Ava Stewart', 'ava.stewart@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-19 10:15:00');
+ALTER TABLE autodiely_eshop.users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+
+
+-- TABLE CONTENT COUNT
+SELECT SUM(row_count) AS total_rows FROM (
+    SELECT COUNT(*) AS row_count FROM autodiely_eshop.bl_branch
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.branch_orders
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.cart
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.ke_branch
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.nr_branch
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.orders
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.pp_branch
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.products
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.sc_branch
+    UNION ALL
+    SELECT COUNT(*) FROM autodiely_eshop.users
+) AS total_counts;
 

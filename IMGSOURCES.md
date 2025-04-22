@@ -85,3 +85,13 @@ https://www.google.com/url?sa=i&url=https%3A%2F%2Fcarstore.sk%2Fsheron-cistic-in
 https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.garage.movemycar.in%2Fdelhi&psig=AOvVaw3CJEhJrFlqJVjmX0zCtaah&ust=1743517104943000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMCuhMzBtIwDFQAAAAAdAAAAABAJ
 
 https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.needpix.com%2Fphoto%2F487304%2Fcontact-us-email-phone-communication-web-contact-us-information&psig=AOvVaw10gBXhVPjS0NilTXCBjCl3&ust=1743518931956000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCIjDzKjItIwDFQAAAAAdAAAAABAE
+
+
+
+TOOLS USED:
+https://jsoneditoronline.org/#left=local.gaqocu&right=local.dacumi
+https://beautifier.io
+https://www.removecomments.com
+https://codebeautify.org/react-formatter#
+https://www.npmjs.com/package/react-toastify
+https://tableconvert.com/json-to-sql#google_vignette

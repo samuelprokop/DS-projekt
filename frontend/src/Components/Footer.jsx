@@ -35,7 +35,7 @@ const Footer = () => {
       <div className="w-full">
         <hr className="border-gray-200" />
         <p className="py-5 text-sm text-center w-full">
-          Copyright 2023 Autodiely.sk - All rights reserved
+          Copyright 2025 Autodiely.sk - All rights reserved
         </p>
       </div>
     </div>

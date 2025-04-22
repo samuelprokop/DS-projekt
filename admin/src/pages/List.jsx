@@ -70,8 +70,7 @@ const List = ({ token }) => {
             <p>{item.name}</p>
             <p>{item.bestseller ? "Yes" : "No"}</p>
             <p>
-              {item.price}
-              {currency}
+              {item.price} {currency}
             </p>
             <p
               onClick={() => removeProduct(item._id)}

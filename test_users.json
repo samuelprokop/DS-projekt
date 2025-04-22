@@ -1,0 +1,211 @@
+[
+    {
+        "name": "John McOilChange",
+        "email": "oilyjohn231@hotmail.com",
+        "password": "Ihatemyexwife42",
+        "phone": "(555) 867-5309",
+        "street": "125 High Lane",
+        "city": "Greaseville",
+        "state": "TX",
+        "zip": "77777",
+        "country": "United States of Lane"
+    },
+    {
+        "name": "Sarah Crashalot",
+        "email": "sarahqueen@gmail.com",
+        "password": "parkingisforLOSERS0",
+        "phone": "(555) 123-4567",
+        "street": "15 Fender Bender Blvd",
+        "city": "Totalled Springs",
+        "state": "FL",
+        "zip": "33166",
+        "country": "FloriDUH"
+    },
+    {
+        "name": "Mike Bumperkisser",
+        "email": "bumpnrun42@yahoo.com",
+        "password": "mywifesuxatparallelparkingFS1",
+        "phone": "(555) 987-6543",
+        "street": "Rear-End Court",
+        "city": "Dentville",
+        "state": "CA",
+        "zip": "90210",
+        "country": "Californication"
+    },
+    {
+        "name": "Alan Turing-Test",
+        "email": "captchaMyFeelings@hotmail.com",
+        "password": "imNotARobot...Maybe",
+        "phone": "(555) 010-1010",
+        "street": "404 Error Avenue",
+        "city": "Silicon Valley",
+        "state": "CA",
+        "zip": "94025",
+        "country": "Techtopia"
+    },
+    {
+        "name": "Jenny Foreign-Key",
+        "email": "constraintViolation@icloud.com",
+        "password": "CASCADEmyTears",
+        "phone": "(555) 777-8888",
+        "street": "SQL Injection Way",
+        "city": "Database City",
+        "state": "WA",
+        "zip": "98052",
+        "country": "Data Republic"
+    },
+    {
+        "name": "Rowdy Query",
+        "email": "groupByMyFailures@aol.com",
+        "password": "HAVING midlifeCrisis = TRUE",
+        "phone": "(555) 999-0000",
+        "street": "JOIN Table Terrace",
+        "city": "Null Island",
+        "state": "NY",
+        "zip": "10001",
+        "country": "The Cloud"
+    },
+    {
+        "name": "Ivana Tweak-Config",
+        "email": "sudoGiveMeCoffee@protonmail.com",
+        "password": "rm-rfMySocialLife",
+        "phone": "(555) 000-1111",
+        "street": "Root Access Road",
+        "city": "Kernel Panic",
+        "state": "CO",
+        "zip": "80014",
+        "country": "Debugistan"
+    },
+    {
+        "name": "Al Gorithm",
+        "email": "whileTrueLoop@hotmail.com",
+        "password": "password123!NOTNULL",
+        "phone": "(555) 222-3333",
+        "street": "Infinite Loop Lane",
+        "city": "Recursionville",
+        "state": "MA",
+        "zip": "02134",
+        "country": "Stack Overflow"
+    },
+    {
+        "name": "Dewey Decimal-Point",
+        "email": "floatingPointError@yahoo.com",
+        "password": "3.14159...andMorePie",
+        "phone": "(555) 314-1592",
+        "street": "Pi Street",
+        "city": "Mathville",
+        "state": "IL",
+        "zip": "60007",
+        "country": "Geekdom"
+    },
+    {
+        "name": "Tom WongLane",
+        "email": "wrongwaytom@icloud.com",
+        "password": "gpsliedtomeagain",
+        "phone": "(555) 666-6666",
+        "street": "Dead End Drive",
+        "city": "Lost Springs",
+        "state": "NV",
+        "zip": "89101",
+        "country": "Nevaduh"
+    },
+    {
+        "name": "Hugh Mungus-ExWife",
+        "email": "alimonyPaymentsRuinMe@hotmail.com",
+        "password": "sheTookTheDogToo",
+        "phone": "(555) 555-5555",
+        "street": "Broken Dreams Blvd",
+        "city": "Divorceville",
+        "state": "NJ",
+        "zip": "07087",
+        "country": "Alimony Nation"
+    },
+    {
+        "name": "Anita DivorcePapers",
+        "email": "whyIsLawyerSoExpensive@yahoo.com",
+        "password": "singleAgainAt40",
+        "phone": "(555) 444-3333",
+        "street": "Alimony Avenue",
+        "city": "Splitsville",
+        "state": "AZ",
+        "zip": "85001",
+        "country": "SingleandReadyToMingle"
+    },
+    {
+        "name": "Dan Wong Tun",
+        "email": "danielturner@hotmail.com",
+        "password": "googlemapssucks2023",
+        "phone": "(555) 888-9999",
+        "street": "Wrong Turn Terrace",
+        "city": "U-Turn City",
+        "state": "OH",
+        "zip": "43085",
+        "country": "OhighO"
+    },
+    {
+        "name": "Anita Test",
+        "email": "finalExamPanic@hotmail.com",
+        "password": "multipleChoiceIsALie",
+        "phone": "(555) 101-0101",
+        "street": "Cram Street",
+        "city": "Failtown",
+        "state": "PA",
+        "zip": "19019",
+        "country": "Panic States of America"
+    },
+    {
+        "name": "Christopher CarSick",
+        "email": "pukenchris@aol.com",
+        "password": "backseatdriver123",
+        "phone": "(555) 321-7654",
+        "street": "Motion Sickness Mews",
+        "city": "Queasyville",
+        "state": "NC",
+        "zip": "27513",
+        "country": "Nause Carolina"
+    },
+    {
+        "name": "Elizabeth TailLight",
+        "email": "brokenlizzy@protonmail.com",
+        "password": "ducttapefixeseverything",
+        "phone": "(555) 654-3210",
+        "street": "Jury Rig Road",
+        "city": "MacGyver Town",
+        "state": "MI",
+        "zip": "48075",
+        "country": "Redneckistan"
+    },
+    {
+        "name": "Matthew WrongGear",
+        "email": "grindermatt@outlook.com",
+        "password": "automaticisforwimps",
+        "phone": "(555) 789-0123",
+        "street": "Stick Shift Street",
+        "city": "Manualville",
+        "state": "GA",
+        "zip": "30301",
+        "country": "Stick Shift Sultanate"
+    },
+    {
+        "name": "Ashley NoInsurance",
+        "email": "riskyash@gmail.com",
+        "password": "whatscollisioncoverage",
+        "phone": "(555) 456-7890",
+        "street": "YOLO Avenue",
+        "city": "Uninsured City",
+        "state": "LA",
+        "zip": "70001",
+        "country": "YOLOtopia"
+    },
+    {
+        "name": "Kevin BadTransmission",
+        "email": "crunchykev@yahoo.com",
+        "password": "doubleclutchthis69",
+        "phone": "(555) 246-8102",
+        "street": "Gear Grinder Grove",
+        "city": "Clunkerville",
+        "state": "OR",
+        "zip": "97035",
+        "country": "Oregon Trail (RIP)"
+    }
+]

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { backendUrl } from "../App";
+import { toast } from "react-toastify";
 
 const AddToBranch = () => {
   const [openBranchDropdown, setOpenBranchDropdown] = useState(false);
@@ -26,6 +27,7 @@ const AddToBranch = () => {
     "Toyota",
     "Volkswagen",
     "Volvo",
+    "Universal"
   ].sort();
 
   const [quantity, setQuantity] = useState(1);
@@ -66,14 +68,14 @@ const AddToBranch = () => {
 
   const handleAddToBranch = async () => {
     if (!branchChosen || !partChosen || !manufacturerChosen) {
-      toast.message("Please select branch, manufacturer, and part");
+      toast.error("Please select branch, manufacturer, and part");
       return;
     }
-
+  
     try {
       setIsSubmitting(true);
       const branchCode = getBranchCode(branchChosen);
-
+  
       const response = await axios.post(
         `${backendUrl}/api/branch/add`,
         {
@@ -90,34 +92,19 @@ const AddToBranch = () => {
           },
         }
       );
-
+  
       if (response.data.success) {
         toast.success("Item added to branch successfully!");
+        // Clear all input fields
         setBranchChosen(null);
         setManufacturerChosen(null);
         setPartChosen(null);
         setQuantity(1);
       } else {
-        toast.error(`Error: ${response.data.message}`);
+        toast.error(response.data.message || "Failed to add item");
       }
     } catch (error) {
-      toast.error("Full error:", {
-        message: error.message,
-        response: error.response?.data,
-        config: error.config,
-      });
-
-      let errorMessage = "Failed to add to branch";
-      if (error.response) {
-        errorMessage =
-          error.response.data.message ||
-          error.response.data.error ||
-          JSON.stringify(error.response.data);
-      } else if (error.request) {
-        errorMessage = "No response received from server";
-      }
-
-      toast.alert(`Error: ${errorMessage}`);
+      toast.error(error.response?.data?.message || "Failed to add to branch");
     } finally {
       setIsSubmitting(false);
     }
@@ -126,7 +113,7 @@ const AddToBranch = () => {
   return (
     <div className="p-4 sm:p-6 max-w-7xl mx-auto bg-gray-50 rounded-xl shadow-sm">
       <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 pb-2 border-b border-gray-200">
-        Add Parts to Branch
+        Add Products to Branch
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">

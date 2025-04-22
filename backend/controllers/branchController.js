@@ -6,16 +6,11 @@ import {
 
 const addToBranch = async (req, res) => {
     try {
-        const {
-            branch,
-            product_id,
-            product_name,
-            qty,
-            manufacturer
-        } = req.body;
+        const { branch, product_id, product_name, qty, manufacturer } = req.body;
 
         const validBranches = ['ke', 'bl', 'pp', 'nr', 'sc'];
         if (!validBranches.includes(branch)) {
+            toast.error('Invalid branch specified');
             return res.status(400).json({
                 success: false,
                 message: 'Invalid branch specified'
@@ -23,17 +18,16 @@ const addToBranch = async (req, res) => {
         }
 
         if (!product_id || !product_name || qty === undefined || !manufacturer) {
+            toast.error('Missing required fields');
             return res.status(400).json({
                 success: false,
                 message: 'Missing required fields'
             });
         }
 
-        const manufacturerValue = typeof manufacturer === 'string' ?
-            manufacturer :
-            JSON.stringify(manufacturer);
+        const manufacturerValue = typeof manufacturer === 'string' ? manufacturer : JSON.stringify(manufacturer);
 
-        const query = `
+        await sequelize.query(`
             INSERT INTO ${branch}_branch 
             (product_id, product_name, qty, manufacturer)
             VALUES (?, ?, ?, ?)
@@ -41,8 +35,19 @@ const addToBranch = async (req, res) => {
                 qty = qty + ?,
                 product_name = ?,
                 manufacturer = ?
-        `;
+        `, {
+            replacements: [
+                product_id,
+                product_name,
+                qty,
+                manufacturerValue,
+                qty,
+                product_name,
+                manufacturerValue
+            ]
+        });
 
+        toast.success('Product added to branch successfully');
         res.json({
             success: true,
             message: 'Product added to branch successfully'
@@ -77,9 +82,7 @@ const getAllBranchInventory = async (req, res) => {
 
 const getSingleBranchInventory = async (req, res) => {
     try {
-        const {
-            branch
-        } = req.params;
+        const { branch } = req.params;
         const validBranches = ['ke', 'bl', 'pp', 'nr', 'sc'];
 
         if (!validBranches.includes(branch)) {
@@ -89,7 +92,7 @@ const getSingleBranchInventory = async (req, res) => {
             });
         }
 
-        const [results] = await sequelize.query(`SELECT * FROM ${branch}_branch`);
+        const [results] = await sequelize.query(`SELECT * FROM ${branch}_branch WHERE qty > 0`);
 
         res.json({
             success: true,

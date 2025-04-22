@@ -40,7 +40,7 @@ export const getAllInventory = async () => {
         const inventory = {};
 
         for (const branch of branches) {
-            const query = `SELECT * FROM ${branch}_branch`;
+            const query = `SELECT * FROM ${branch}_branch WHERE qty > 0`;
             const [results] = await sequelize.query(query);
             inventory[branch] = results;
         }
@@ -54,7 +54,7 @@ export const getAllInventory = async () => {
 
 export const getBranchInventory = async (branch) => {
     try {
-        const query = `SELECT * FROM ${branch}_branch`;
+        const query = `SELECT * FROM ${branch}_branch WHERE qty > 0`;
         const [results] = await sequelize.query(query);
         return results;
     } catch (error) {

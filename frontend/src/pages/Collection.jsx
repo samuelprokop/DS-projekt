@@ -190,7 +190,7 @@ const Collection = () => {
 
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
-          <Title text1={"ALL"} text2={"COLLECTIONS"} />
+          <Title text1={"ALL"} text2={" PRODUCTS"} />
 
           <div className="relative">
             <button
