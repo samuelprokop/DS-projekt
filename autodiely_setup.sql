@@ -1,7 +1,7 @@
 USE autodiely_eshop;
 
 -- TABLES
-CREATE TABLE IF NOT EXISTS autodiely_eshop.users (
+CREATE TABLE autodiely_eshop.users (
   _id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS autodiely_eshop.users (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.products (
+CREATE TABLE autodiely_eshop.products (
   _id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(255),
   description TEXT,
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS autodiely_eshop.products (
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.cart (
+CREATE TABLE autodiely_eshop.cart (
   _id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   product_id INT NOT NULL,
@@ -58,65 +58,60 @@ CREATE TABLE autodiely_eshop.orders (
 );
 
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.ke_branch (
-  product_id INT PRIMARY KEY,
+CREATE TABLE autodiely_eshop.ke_branch (
+  product_id INT,
   product_name VARCHAR(255),
   qty INT NOT NULL DEFAULT 0,
-  manufacturer JSON,
+  manufacturer VARCHAR(255),
   FOREIGN KEY (product_id) REFERENCES autodiely_eshop.products(_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.bl_branch (
-  product_id INT PRIMARY KEY,
+CREATE TABLE autodiely_eshop.bl_branch (
+  product_id INT,
   product_name VARCHAR(255),
   qty INT NOT NULL DEFAULT 0,
-  manufacturer JSON,
+  manufacturer VARCHAR(255),
   FOREIGN KEY (product_id) REFERENCES autodiely_eshop.products(_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.pp_branch (
-  product_id INT PRIMARY KEY,
+CREATE TABLE autodiely_eshop.pp_branch (
+  product_id INT,
   product_name VARCHAR(255),
   qty INT NOT NULL DEFAULT 0,
-  manufacturer JSON,
+  manufacturer VARCHAR(255),
   FOREIGN KEY (product_id) REFERENCES autodiely_eshop.products(_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.nr_branch (
-  product_id INT PRIMARY KEY,
+CREATE TABLE autodiely_eshop.nr_branch (
+  product_id INT,
   product_name VARCHAR(255),
   qty INT NOT NULL DEFAULT 0,
-  manufacturer JSON,
+  manufacturer VARCHAR(255),
   FOREIGN KEY (product_id) REFERENCES autodiely_eshop.products(_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE IF NOT EXISTS autodiely_eshop.sc_branch (
-  product_id INT PRIMARY KEY,
+CREATE TABLE autodiely_eshop.sc_branch (
+  product_id INT,
   product_name VARCHAR(255),
   qty INT NOT NULL DEFAULT 0,
-  manufacturer JSON,
+  manufacturer VARCHAR(255),
   FOREIGN KEY (product_id) REFERENCES autodiely_eshop.products(_id)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
-ALTER TABLE autodiely_eshop.ke_branch MODIFY manufacturer VARCHAR(255);
-ALTER TABLE autodiely_eshop.bl_branch MODIFY manufacturer VARCHAR(255);
-ALTER TABLE autodiely_eshop.pp_branch MODIFY manufacturer VARCHAR(255);
-ALTER TABLE autodiely_eshop.nr_branch MODIFY manufacturer VARCHAR(255);
-ALTER TABLE autodiely_eshop.sc_branch MODIFY manufacturer VARCHAR(255);
 
 CREATE TABLE autodiely_eshop.branch_orders (
   _id INT AUTO_INCREMENT PRIMARY KEY,
@@ -188,580 +183,10 @@ INSERT INTO products (_id, name, description, cta, price, image_url, manufacture
 	('39', 'Zapaľovacia cievka', 'Vysoko kvalitná zapalovacia cievka so stabilným výkonom. Zaisťuje silnú iskru pre optimálne spaľovanie.', 'Dokonalé spaľovanie s našou zapalovacou cievkou!', '25.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693332/ydvmgjfdyu9bcc1rzzoc.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]'),
 	('40', 'Zapaľovacia sviečka', 'Vysoko kvalitná zapaľovacia sviečka s perfektným spaľovaním. Znižuje spotrebu paliva.', 'Optimálny výkon motora s našimi zapaľovacími sviečkami!', '2.99', 'https://res.cloudinary.com/dc7asmr3a/image/upload/v1743693372/q2ehawuqsvkq37n3po25.jpg', '["Audi", "BMW", "Ford", "Honda", "Mercedes", "Seat", "Škoda", "Toyota", "Volkswagen", "Volvo"]', '0', 'nahradne_diely', '["Bánska Bystrica", "Bratislava", "Handlová", "Košice", "Liptovský Mikuláš", "Nitra", "Nové Zámky", "Poprad", "Prešov", "Prievidza", "Rožňava", "Senec", "Trenčín", "Zvolen", "Online"]');
     
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer)
-VALUES 
-(1, 'Alternátor', 45, 'BMW'),
-(3, 'Brzdové doštičky', 72, 'Volkswagen'),
-(5, 'Čistič bŕzd', 88, 'Universal'),
-(7, 'Chladiaca kvapalina', 33, 'Universal'),
-(9, 'DPF filter', 19, 'Toyota'),
-(11, 'Katalyzátor', 56, 'Ford'),
-(13, 'Olejový filter', 91, 'Universal'),
-(15, 'Palivový filter', 27, 'Universal'),
-(17, 'Katalyzátor', 62, 'Mercedes'),
-(19, 'Kolesové ložisko', 14, 'Audi'),
-(21, 'Kryt motora', 78, 'Volvo'),
-(23, 'Ložisko kľukového hriadeľa', 41, 'Škoda'),
-(25, 'Ochrana proti korózii', 95, 'Universal'),
-(27, 'Spojková sada', 63, 'Seat'),
-(29, 'Svetlomet (ľavý)', 22, 'Honda'),
-(31, 'Štartér', 37, 'BMW'),
-(33, 'Tlmič pruženia', 84, 'Volkswagen'),
-(35, 'Vodná pumpa', 59, 'Toyota'),
-(37, 'Vstrekovacie čerpadlo', 16, 'Ford'),
-(39, 'Zapaľovacia cievka', 71, 'Mercedes'),
-(2, 'Brzdová kvapalina', 48, 'Universal'),
-(4, 'Brzdové kotúče', 82, 'Audi'),
-(6, 'Čistič interiéru', 25, 'Universal'),
-(8, 'Chladič', 67, 'Volvo'),
-(10, 'Hlavný brzdový valec', 53, 'Škoda'),
-(12, 'Ochrana proti korózii', 39, 'Universal'),
-(14, 'Palivové čerpadlo', 76, 'Seat'),
-(16, 'Impregnácia pneumatík', 92, 'Universal'),
-(18, 'Klinový remeň', 44, 'Honda'),
-(20, 'Kľukový hriadeľ', 17, 'BMW'),
-(22, 'Lambda sonda', 81, 'Volkswagen'),
-(24, 'Motorový olej 10W-40', 28, 'Universal'),
-(26, 'Rozvodová reťaz', 65, 'Toyota'),
-(28, 'Stieračová guma (pár)', 93, 'Universal'),
-(30, 'Svetlomet (pravý)', 36, 'Ford'),
-(32, 'Štartovacie káble', 79, 'Universal'),
-(34, 'Turbo kompresor', 52, 'Mercedes'),
-(36, 'Vosk na karosériu', 85, 'Universal'),
-(38, 'Vzduchový filter', 21, 'Universal'),
-(40, 'Zapaľovacia sviečka', 74, 'Audi'),
-(1, 'Alternátor', 47, 'Volvo'),
-(3, 'Brzdové doštičky', 69, 'Škoda'),
-(5, 'Čistič bŕzd', 83, 'Universal'),
-(7, 'Chladiaca kvapalina', 31, 'Universal'),
-(9, 'DPF filter', 18, 'Seat'),
-(11, 'Katalyzátor', 55, 'Honda'),
-(13, 'Olejový filter', 94, 'Universal'),
-(15, 'Palivový filter', 26, 'Universal'),
-(17, 'Katalyzátor', 61, 'BMW'),
-(19, 'Kolesové ložisko', 13, 'Volkswagen'),
-(21, 'Kryt motora', 77, 'Toyota'),
-(23, 'Ložisko kľukového hriadeľa', 42, 'Ford'),
-(25, 'Ochrana proti korózii', 96, 'Universal'),
-(27, 'Spojková sada', 64, 'Mercedes'),
-(29, 'Svetlomet (ľavý)', 23, 'Audi'),
-(31, 'Štartér', 38, 'Volvo'),
-(33, 'Tlmič pruženia', 86, 'Škoda'),
-(35, 'Vodná pumpa', 58, 'Seat'),
-(37, 'Vstrekovacie čerpadlo', 15, 'Honda'),
-(39, 'Zapaľovacia cievka', 72, 'BMW'),
-(2, 'Brzdová kvapalina', 49, 'Universal'),
-(4, 'Brzdové kotúče', 81, 'Volkswagen'),
-(6, 'Čistič interiéru', 24, 'Universal'),
-(8, 'Chladič', 66, 'Toyota'),
-(10, 'Hlavný brzdový valec', 54, 'Ford'),
-(12, 'Ochrana proti korózii', 38, 'Universal'),
-(14, 'Palivové čerpadlo', 75, 'Mercedes'),
-(16, 'Impregnácia pneumatík', 91, 'Universal'),
-(18, 'Klinový remeň', 43, 'Audi'),
-(20, 'Kľukový hriadeľ', 16, 'Volvo'),
-(22, 'Lambda sonda', 82, 'Škoda'),
-(24, 'Motorový olej 10W-40', 29, 'Universal'),
-(26, 'Rozvodová reťaz', 64, 'Seat'),
-(28, 'Stieračová guma (pár)', 94, 'Universal'),
-(30, 'Svetlomet (pravý)', 35, 'Honda'),
-(32, 'Štartovacie káble', 78, 'Universal'),
-(34, 'Turbo kompresor', 51, 'BMW'),
-(36, 'Vosk na karosériu', 84, 'Universal'),
-(38, 'Vzduchový filter', 22, 'Universal'),
-(40, 'Zapaľovacia sviečka', 73, 'Volkswagen');
 
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer)
-VALUES 
-(2, 'Brzdová kvapalina', 42, 'Universal'),
-(4, 'Brzdové kotúče', 75, 'Toyota'),
-(6, 'Čistič interiéru', 29, 'Universal'),
-(8, 'Chladič', 68, 'Ford'),
-(10, 'Hlavný brzdový valec', 57, 'Mercedes'),
-(12, 'Ochrana proti korózii', 34, 'Universal'),
-(14, 'Palivové čerpadlo', 79, 'Audi'),
-(16, 'Impregnácia pneumatík', 89, 'Universal'),
-(18, 'Klinový remeň', 46, 'Volvo'),
-(20, 'Kľukový hriadeľ', 19, 'Škoda'),
-(22, 'Lambda sonda', 83, 'Seat'),
-(24, 'Motorový olej 10W-40', 32, 'Universal'),
-(26, 'Rozvodová reťaz', 66, 'Honda'),
-(28, 'Stieračová guma (pár)', 97, 'Universal'),
-(30, 'Svetlomet (pravý)', 38, 'BMW'),
-(32, 'Štartovacie káble', 72, 'Universal'),
-(34, 'Turbo kompresor', 54, 'Volkswagen'),
-(36, 'Vosk na karosériu', 87, 'Universal'),
-(38, 'Vzduchový filter', 23, 'Universal'),
-(40, 'Zapaľovacia sviečka', 76, 'Toyota'),
-(1, 'Alternátor', 44, 'Ford'),
-(3, 'Brzdové doštičky', 71, 'Mercedes'),
-(5, 'Čistič bŕzd', 87, 'Universal'),
-(7, 'Chladiaca kvapalina', 35, 'Universal'),
-(9, 'DPF filter', 17, 'Audi'),
-(11, 'Katalyzátor', 58, 'Volvo'),
-(13, 'Olejový filter', 93, 'Universal'),
-(15, 'Palivový filter', 28, 'Universal'),
-(17, 'Katalyzátor', 63, 'Škoda'),
-(19, 'Kolesové ložisko', 15, 'Seat'),
-(21, 'Kryt motora', 77, 'Honda'),
-(23, 'Ložisko kľukového hriadeľa', 43, 'BMW'),
-(25, 'Ochrana proti korózii', 94, 'Universal'),
-(27, 'Spojková sada', 65, 'Volkswagen'),
-(29, 'Svetlomet (ľavý)', 24, 'Toyota'),
-(31, 'Štartér', 39, 'Ford'),
-(33, 'Tlmič pruženia', 85, 'Mercedes'),
-(35, 'Vodná pumpa', 61, 'Audi'),
-(37, 'Vstrekovacie čerpadlo', 14, 'Volvo'),
-(39, 'Zapaľovacia cievka', 73, 'Škoda'),
-(2, 'Brzdová kvapalina', 43, 'Universal'),
-(4, 'Brzdové kotúče', 74, 'Seat'),
-(6, 'Čistič interiéru', 28, 'Universal'),
-(8, 'Chladič', 67, 'Honda'),
-(10, 'Hlavný brzdový valec', 56, 'BMW'),
-(12, 'Ochrana proti korózii', 35, 'Universal'),
-(14, 'Palivové čerpadlo', 78, 'Volkswagen'),
-(16, 'Impregnácia pneumatík', 88, 'Universal'),
-(18, 'Klinový remeň', 45, 'Toyota'),
-(20, 'Kľukový hriadeľ', 18, 'Ford'),
-(22, 'Lambda sonda', 84, 'Mercedes'),
-(24, 'Motorový olej 10W-40', 31, 'Universal'),
-(26, 'Rozvodová reťaz', 67, 'Audi'),
-(28, 'Stieračová guma (pár)', 96, 'Universal'),
-(30, 'Svetlomet (pravý)', 37, 'Volvo'),
-(32, 'Štartovacie káble', 73, 'Universal'),
-(34, 'Turbo kompresor', 53, 'Škoda'),
-(36, 'Vosk na karosériu', 86, 'Universal'),
-(38, 'Vzduchový filter', 24, 'Universal'),
-(40, 'Zapaľovacia sviečka', 75, 'Seat'),
-(1, 'Alternátor', 46, 'Honda'),
-(3, 'Brzdové doštičky', 70, 'BMW'),
-(5, 'Čistič bŕzd', 86, 'Universal'),
-(7, 'Chladiaca kvapalina', 34, 'Universal'),
-(9, 'DPF filter', 16, 'Volkswagen'),
-(11, 'Katalyzátor', 57, 'Toyota'),
-(13, 'Olejový filter', 92, 'Universal'),
-(15, 'Palivový filter', 29, 'Universal'),
-(17, 'Katalyzátor', 64, 'Ford'),
-(19, 'Kolesové ložisko', 12, 'Mercedes'),
-(21, 'Kryt motora', 79, 'Audi'),
-(23, 'Ložisko kľukového hriadeľa', 44, 'Volvo'),
-(25, 'Ochrana proti korózii', 93, 'Universal'),
-(27, 'Spojková sada', 66, 'Škoda'),
-(29, 'Svetlomet (ľavý)', 25, 'Seat'),
-(31, 'Štartér', 40, 'Honda'),
-(33, 'Tlmič pruženia', 83, 'BMW'),
-(35, 'Vodná pumpa', 62, 'Volkswagen'),
-(37, 'Vstrekovacie čerpadlo', 13, 'Toyota'),
-(39, 'Zapaľovacia cievka', 74, 'Ford');
 
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer)
-VALUES 
-(3, 'Brzdové doštičky', 73, 'Mercedes'),
-(5, 'Čistič bŕzd', 85, 'Universal'),
-(7, 'Chladiaca kvapalina', 32, 'Universal'),
-(9, 'DPF filter', 20, 'Audi'),
-(11, 'Katalyzátor', 59, 'Volvo'),
-(13, 'Olejový filter', 90, 'Universal'),
-(15, 'Palivový filter', 30, 'Universal'),
-(17, 'Katalyzátor', 60, 'Škoda'),
-(19, 'Kolesové ložisko', 11, 'Seat'),
-(21, 'Kryt motora', 80, 'Honda'),
-(23, 'Ložisko kľukového hriadeľa', 45, 'BMW'),
-(25, 'Ochrana proti korózii', 92, 'Universal'),
-(27, 'Spojková sada', 67, 'Volkswagen'),
-(29, 'Svetlomet (ľavý)', 26, 'Toyota'),
-(31, 'Štartér', 36, 'Ford'),
-(33, 'Tlmič pruženia', 82, 'Mercedes'),
-(35, 'Vodná pumpa', 60, 'Audi'),
-(37, 'Vstrekovacie čerpadlo', 17, 'Volvo'),
-(39, 'Zapaľovacia cievka', 70, 'Škoda'),
-(2, 'Brzdová kvapalina', 50, 'Universal'),
-(4, 'Brzdové kotúče', 80, 'Seat'),
-(6, 'Čistič interiéru', 23, 'Universal'),
-(8, 'Chladič', 65, 'Honda'),
-(10, 'Hlavný brzdový valec', 55, 'BMW'),
-(12, 'Ochrana proti korózii', 37, 'Universal'),
-(14, 'Palivové čerpadlo', 74, 'Volkswagen'),
-(16, 'Impregnácia pneumatík', 90, 'Universal'),
-(18, 'Klinový remeň', 47, 'Toyota'),
-(20, 'Kľukový hriadeľ', 20, 'Ford'),
-(22, 'Lambda sonda', 80, 'Mercedes'),
-(24, 'Motorový olej 10W-40', 30, 'Universal'),
-(26, 'Rozvodová reťaz', 68, 'Audi'),
-(28, 'Stieračová guma (pár)', 95, 'Universal'),
-(30, 'Svetlomet (pravý)', 34, 'Volvo'),
-(32, 'Štartovacie káble', 77, 'Universal'),
-(34, 'Turbo kompresor', 50, 'Škoda'),
-(36, 'Vosk na karosériu', 83, 'Universal'),
-(38, 'Vzduchový filter', 20, 'Universal'),
-(40, 'Zapaľovacia sviečka', 70, 'Seat'),
-(1, 'Alternátor', 48, 'Honda'),
-(3, 'Brzdové doštičky', 68, 'BMW'),
-(5, 'Čistič bŕzd', 84, 'Universal'),
-(7, 'Chladiaca kvapalina', 36, 'Universal'),
-(9, 'DPF filter', 15, 'Volkswagen'),
-(11, 'Katalyzátor', 54, 'Toyota'),
-(13, 'Olejový filter', 89, 'Universal'),
-(15, 'Palivový filter', 31, 'Universal'),
-(17, 'Katalyzátor', 65, 'Ford'),
-(19, 'Kolesové ložisko', 10, 'Mercedes'),
-(21, 'Kryt motora', 75, 'Audi'),
-(23, 'Ložisko kľukového hriadeľa', 40, 'Volvo'),
-(25, 'Ochrana proti korózii', 91, 'Universal'),
-(27, 'Spojková sada', 62, 'Škoda'),
-(29, 'Svetlomet (ľavý)', 21, 'Seat'),
-(31, 'Štartér', 35, 'Honda'),
-(33, 'Tlmič pruženia', 81, 'BMW'),
-(35, 'Vodná pumpa', 57, 'Volkswagen'),
-(37, 'Vstrekovacie čerpadlo', 18, 'Toyota'),
-(39, 'Zapaľovacia cievka', 69, 'Ford'),
-(2, 'Brzdová kvapalina', 47, 'Universal'),
-(4, 'Brzdové kotúče', 79, 'Mercedes'),
-(6, 'Čistič interiéru', 22, 'Universal'),
-(8, 'Chladič', 64, 'Audi'),
-(10, 'Hlavný brzdový valec', 52, 'Volvo'),
-(12, 'Ochrana proti korózii', 36, 'Universal'),
-(14, 'Palivové čerpadlo', 73, 'Škoda'),
-(16, 'Impregnácia pneumatík', 89, 'Universal'),
-(18, 'Klinový remeň', 48, 'Seat'),
-(20, 'Kľukový hriadeľ', 21, 'Honda'),
-(22, 'Lambda sonda', 79, 'BMW'),
-(24, 'Motorový olej 10W-40', 33, 'Universal'),
-(26, 'Rozvodová reťaz', 63, 'Volkswagen'),
-(28, 'Stieračová guma (pár)', 98, 'Universal'),
-(30, 'Svetlomet (pravý)', 33, 'Toyota'),
-(32, 'Štartovacie káble', 76, 'Universal'),
-(34, 'Turbo kompresor', 55, 'Ford'),
-(36, 'Vosk na karosériu', 82, 'Universal'),
-(38, 'Vzduchový filter', 19, 'Universal'),
-(40, 'Zapaľovacia sviečka', 72, 'Mercedes');
 
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer)
-VALUES 
-(4, 'Brzdové kotúče', 78, 'Audi'),
-(6, 'Čistič interiéru', 21, 'Universal'),
-(8, 'Chladič', 63, 'Volvo'),
-(10, 'Hlavný brzdový valec', 51, 'Škoda'),
-(12, 'Ochrana proti korózii', 40, 'Universal'),
-(14, 'Palivové čerpadlo', 72, 'Seat'),
-(16, 'Impregnácia pneumatík', 87, 'Universal'),
-(18, 'Klinový remeň', 49, 'Honda'),
-(20, 'Kľukový hriadeľ', 22, 'BMW'),
-(22, 'Lambda sonda', 78, 'Volkswagen'),
-(24, 'Motorový olej 10W-40', 34, 'Universal'),
-(26, 'Rozvodová reťaz', 62, 'Toyota'),
-(28, 'Stieračová guma (pár)', 99, 'Universal'),
-(30, 'Svetlomet (pravý)', 32, 'Ford'),
-(32, 'Štartovacie káble', 75, 'Universal'),
-(34, 'Turbo kompresor', 56, 'Mercedes'),
-(36, 'Vosk na karosériu', 81, 'Universal'),
-(38, 'Vzduchový filter', 18, 'Universal'),
-(40, 'Zapaľovacia sviečka', 71, 'Audi'),
-(1, 'Alternátor', 50, 'Volvo'),
-(3, 'Brzdové doštičky', 67, 'Škoda'),
-(5, 'Čistič bŕzd', 89, 'Universal'),
-(7, 'Chladiaca kvapalina', 37, 'Universal'),
-(9, 'DPF filter', 14, 'Seat'),
-(11, 'Katalyzátor', 53, 'Honda'),
-(13, 'Olejový filter', 88, 'Universal'),
-(15, 'Palivový filter', 32, 'Universal'),
-(17, 'Katalyzátor', 66, 'BMW'),
-(19, 'Kolesové ložisko', 9, 'Volkswagen'),
-(21, 'Kryt motora', 74, 'Toyota'),
-(23, 'Ložisko kľukového hriadeľa', 39, 'Ford'),
-(25, 'Ochrana proti korózii', 90, 'Universal'),
-(27, 'Spojková sada', 61, 'Mercedes'),
-(29, 'Svetlomet (ľavý)', 20, 'Audi'),
-(31, 'Štartér', 34, 'Volvo'),
-(33, 'Tlmič pruženia', 80, 'Škoda'),
-(35, 'Vodná pumpa', 56, 'Seat'),
-(37, 'Vstrekovacie čerpadlo', 19, 'Honda'),
-(39, 'Zapaľovacia cievka', 68, 'BMW'),
-(2, 'Brzdová kvapalina', 46, 'Universal'),
-(4, 'Brzdové kotúče', 77, 'Volkswagen'),
-(6, 'Čistič interiéru', 20, 'Universal'),
-(8, 'Chladič', 62, 'Toyota'),
-(10, 'Hlavný brzdový valec', 50, 'Ford'),
-(12, 'Ochrana proti korózii', 41, 'Universal'),
-(14, 'Palivové čerpadlo', 71, 'Mercedes'),
-(16, 'Impregnácia pneumatík', 86, 'Universal'),
-(18, 'Klinový remeň', 50, 'Audi'),
-(20, 'Kľukový hriadeľ', 23, 'Volvo'),
-(22, 'Lambda sonda', 77, 'Škoda'),
-(24, 'Motorový olej 10W-40', 35, 'Universal'),
-(26, 'Rozvodová reťaz', 61, 'Seat'),
-(28, 'Stieračová guma (pár)', 100, 'Universal'),
-(30, 'Svetlomet (pravý)', 31, 'Honda'),
-(32, 'Štartovacie káble', 74, 'Universal'),
-(34, 'Turbo kompresor', 57, 'BMW'),
-(36, 'Vosk na karosériu', 80, 'Universal'),
-(38, 'Vzduchový filter', 17, 'Universal'),
-(40, 'Zapaľovacia sviečka', 69, 'Volkswagen'),
-(1, 'Alternátor', 49, 'Toyota'),
-(3, 'Brzdové doštičky', 66, 'Ford'),
-(5, 'Čistič bŕzd', 90, 'Universal'),
-(7, 'Chladiaca kvapalina', 38, 'Universal'),
-(9, 'DPF filter', 13, 'Mercedes'),
-(11, 'Katalyzátor', 52, 'Audi'),
-(13, 'Olejový filter', 87, 'Universal'),
-(15, 'Palivový filter', 33, 'Universal'),
-(17, 'Katalyzátor', 67, 'Volvo'),
-(19, 'Kolesové ložisko', 8, 'Škoda'),
-(21, 'Kryt motora', 73, 'Seat'),
-(23, 'Ložisko kľukového hriadeľa', 38, 'Honda'),
-(25, 'Ochrana proti korózii', 89, 'Universal'),
-(27, 'Spojková sada', 60, 'BMW'),
-(29, 'Svetlomet (ľavý)', 19, 'Volkswagen'),
-(31, 'Štartér', 33, 'Toyota'),
-(33, 'Tlmič pruženia', 79, 'Ford'),
-(35, 'Vodná pumpa', 55, 'Mercedes'),
-(37, 'Vstrekovacie čerpadlo', 20, 'Audi'),
-(39, 'Zapaľovacia cievka', 67, 'Volvo');
 
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer)
-VALUES 
-(5, 'Čistič bŕzd', 81, 'Universal'),
-(7, 'Chladiaca kvapalina', 39, 'Universal'),
-(9, 'DPF filter', 12, 'Audi'),
-(11, 'Katalyzátor', 51, 'Volvo'),
-(13, 'Olejový filter', 86, 'Universal'),
-(15, 'Palivový filter', 34, 'Universal'),
-(17, 'Katalyzátor', 68, 'Škoda'),
-(19, 'Kolesové ložisko', 7, 'Seat'),
-(21, 'Kryt motora', 72, 'Honda'),
-(23, 'Ložisko kľukového hriadeľa', 37, 'BMW'),
-(25, 'Ochrana proti korózii', 88, 'Universal'),
-(27, 'Spojková sada', 59, 'Volkswagen'),
-(29, 'Svetlomet (ľavý)', 18, 'Toyota'),
-(31, 'Štartér', 32, 'Ford'),
-(33, 'Tlmič pruženia', 77, 'Mercedes'),
-(35, 'Vodná pumpa', 54, 'Audi'),
-(37, 'Vstrekovacie čerpadlo', 21, 'Volvo'),
-(39, 'Zapaľovacia cievka', 66, 'Škoda'),
-(2, 'Brzdová kvapalina', 45, 'Universal'),
-(4, 'Brzdové kotúče', 76, 'Seat'),
-(6, 'Čistič interiéru', 19, 'Universal'),
-(8, 'Chladič', 61, 'Honda'),
-(10, 'Hlavný brzdový valec', 49, 'BMW'),
-(12, 'Ochrana proti korózii', 42, 'Universal'),
-(14, 'Palivové čerpadlo', 70, 'Volkswagen'),
-(16, 'Impregnácia pneumatík', 85, 'Universal'),
-(18, 'Klinový remeň', 51, 'Toyota'),
-(20, 'Kľukový hriadeľ', 24, 'Ford'),
-(22, 'Lambda sonda', 76, 'Mercedes'),
-(24, 'Motorový olej 10W-40', 36, 'Universal'),
-(26, 'Rozvodová reťaz', 60, 'Audi'),
-(28, 'Stieračová guma (pár)', 97, 'Universal'),
-(30, 'Svetlomet (pravý)', 30, 'Volvo'),
-(32, 'Štartovacie káble', 71, 'Universal'),
-(34, 'Turbo kompresor', 58, 'Škoda'),
-(36, 'Vosk na karosériu', 79, 'Universal'),
-(38, 'Vzduchový filter', 16, 'Universal'),
-(40, 'Zapaľovacia sviečka', 68, 'Seat'),
-(1, 'Alternátor', 51, 'Honda'),
-(3, 'Brzdové doštičky', 65, 'BMW'),
-(5, 'Čistič bŕzd', 82, 'Universal'),
-(7, 'Chladiaca kvapalina', 40, 'Universal'),
-(9, 'DPF filter', 11, 'Volkswagen'),
-(11, 'Katalyzátor', 50, 'Toyota'),
-(13, 'Olejový filter', 85, 'Universal'),
-(15, 'Palivový filter', 35, 'Universal'),
-(17, 'Katalyzátor', 69, 'Ford'),
-(19, 'Kolesové ložisko', 6, 'Mercedes'),
-(21, 'Kryt motora', 71, 'Audi'),
-(23, 'Ložisko kľukového hriadeľa', 36, 'Volvo'),
-(25, 'Ochrana proti korózii', 87, 'Universal'),
-(27, 'Spojková sada', 58, 'Škoda'),
-(29, 'Svetlomet (ľavý)', 17, 'Seat'),
-(31, 'Štartér', 31, 'Honda'),
-(33, 'Tlmič pruženia', 76, 'BMW'),
-(35, 'Vodná pumpa', 53, 'Volkswagen'),
-(37, 'Vstrekovacie čerpadlo', 22, 'Toyota'),
-(39, 'Zapaľovacia cievka', 65, 'Ford'),
-(2, 'Brzdová kvapalina', 44, 'Universal'),
-(4, 'Brzdové kotúče', 75, 'Mercedes'),
-(6, 'Čistič interiéru', 18, 'Universal'),
-(8, 'Chladič', 60, 'Audi'),
-(10, 'Hlavný brzdový valec', 48, 'Volvo'),
-(12, 'Ochrana proti korózii', 43, 'Universal'),
-(14, 'Palivové čerpadlo', 69, 'Škoda'),
-(16, 'Impregnácia pneumatík', 84, 'Universal'),
-(18, 'Klinový remeň', 52, 'Seat'),
-(20, 'Kľukový hriadeľ', 25, 'Honda'),
-(22, 'Lambda sonda', 75, 'BMW'),
-(24, 'Motorový olej 10W-40', 37, 'Universal'),
-(26, 'Rozvodová reťaz', 59, 'Volkswagen'),
-(28, 'Stieračová guma (pár)', 96, 'Universal'),
-(30, 'Svetlomet (pravý)', 29, 'Toyota'),
-(32, 'Štartovacie káble', 70, 'Universal'),
-(34, 'Turbo kompresor', 59, 'Ford'),
-(36, 'Vosk na karosériu', 78, 'Universal'),
-(38, 'Vzduchový filter', 15, 'Universal'),
-(40, 'Zapaľovacia sviečka', 67, 'Mercedes');
-
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 23, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 7, 'Volkswagen');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 45, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 18, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 31, 'Toyota');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 9, 'Audi');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 27, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 14, 'Mercedes');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 5, 'Ford');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 42, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 21, 'Honda');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (4, 'Brzdové kotúče', 16, 'Škoda');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 29, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 11, 'Volvo');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 8, 'Seat');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 22, 'BMW');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 6, 'Toyota');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 33, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 19, 'Volkswagen');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 13, 'Audi');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 25, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (3, 'Brzdové doštičky', 28, 'Ford');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (9, 'DPF filter', 15, 'Mercedes');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 36, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 44, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 10, 'Honda');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 17, 'Volvo');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 20, 'Seat');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 9, 'BMW');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 12, 'Škoda');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 24, 'Toyota');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 32, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 14, 'Audi');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (11, 'Katalyzátor', 7, 'Mercedes');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 26, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (18, 'Klinový remeň', 21, 'Ford');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (23, 'Ložisko kľukového hriadeľa', 9, 'Volvo');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (27, 'Spojková sada', 13, 'Honda');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (32, 'Štartovacie káble', 39, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 45, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 17, 'Toyota');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (2, 'Brzdová kvapalina', 29, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (4, 'Brzdové kotúče', 11, 'Seat');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 34, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 8, 'Škoda');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 15, 'BMW');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 7, 'Audi');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (24, 'Motorový olej 10W-40', 43, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 31, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 18, 'Mercedes');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 12, 'Ford');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 27, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 37, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 28, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 41, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 9, 'Honda');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 16, 'Volkswagen');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 21, 'Audi');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 8, 'BMW');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 13, 'Škoda');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 30, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 13, 'Volvo');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 42, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 19, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 28, 'Ford');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 10, 'Seat');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 24, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 15, 'BMW');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 6, 'Honda');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 39, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 20, 'Toyota');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (11, 'Katalyzátor', 14, 'Volkswagen');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (18, 'Klinový remeň', 22, 'Ford');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (23, 'Ložisko kľukového hriadeľa', 8, 'Audi');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (27, 'Spojková sada', 17, 'Honda');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 40, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 30, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 45, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 11, 'Toyota');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 18, 'Volvo');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 20, 'BMW');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 7, 'Audi');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 14, 'Volkswagen');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 23, 'Seat');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (2, 'Brzdová kvapalina', 32, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 28, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 10, 'Ford');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 19, 'Toyota');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 24, 'Volvo');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 9, 'Škoda');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (24, 'Motorový olej 10W-40', 42, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 34, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 16, 'BMW');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 13, 'Mercedes');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 26, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (7, 'Chladiaca kvapalina', 27, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (10, 'Hlavný brzdový valec', 11, 'Seat');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 20, 'Audi');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 25, 'Toyota');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 8, 'BMW');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 33, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 17, 'Honda');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 12, 'Ford');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 25, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (1, 'Alternátor', 16, 'Volvo');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 29, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 12, 'Mercedes');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 43, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 18, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 27, 'Škoda');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 9, 'Toyota');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 23, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 14, 'Audi');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 5, 'BMW');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 38, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 19, 'Volkswagen');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (14, 'Palivové čerpadlo', 21, 'Volvo');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (17, 'Katalyzátor', 13, 'Seat');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (20, 'Kľukový hriadeľ', 10, 'Honda');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (24, 'Motorový olej 10W-40', 44, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (28, 'Stieračová guma (pár)', 32, 'Universal');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (31, 'Štartér', 15, 'Ford');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (35, 'Vodná pumpa', 11, 'BMW');
-INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) VALUES (38, 'Vzduchový filter', 24, 'Universal');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (11, 'Katalyzátor', 16, 'Toyota');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (18, 'Klinový remeň', 23, 'Volkswagen');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (23, 'Ložisko kľukového hriadeľa', 9, 'Mercedes');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (27, 'Spojková sada', 18, 'Audi');
-INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) VALUES (32, 'Štartovacie káble', 36, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (1, 'Alternátor', 19, 'BMW');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (5, 'Čistič bŕzd', 30, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (8, 'Chladič', 13, 'Ford');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (12, 'Ochrana proti korózii', 44, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (15, 'Palivový filter', 17, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (19, 'Kolesové ložisko', 26, 'Volvo');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (22, 'Lambda sonda', 8, 'Škoda');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (25, 'Ochrana proti korózii', 22, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (29, 'Svetlomet (ľavý)', 15, 'Honda');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (33, 'Tlmič pruženia', 6, 'Toyota');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (36, 'Vosk na karosériu', 37, 'Universal');
-INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) VALUES (40, 'Zapaľovacia sviečka', 20, 'Audi');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (3, 'Brzdové doštičky', 26, 'Honda');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 39, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (9, 'DPF filter', 13, 'BMW');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 29, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 43, 'Universal');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 10, 'Volkswagen');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 19, 'Mercedes');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 21, 'Toyota');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 8, 'Ford');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 15, 'Seat');
-INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 24, 'Škoda');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (3, 'Brzdové doštičky', 24, 'Volvo');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (6, 'Čistič interiéru', 38, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (9, 'DPF filter', 14, 'Audi');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (13, 'Olejový filter', 31, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (16, 'Impregnácia pneumatík', 42, 'Universal');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (21, 'Kryt motora', 11, 'Mercedes');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (26, 'Rozvodová reťaz', 20, 'BMW');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (30, 'Svetlomet (pravý)', 22, 'Honda');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (34, 'Turbo kompresor', 9, 'Toyota');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (37, 'Vstrekovacie čerpadlo', 16, 'Ford');
-INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) VALUES (39, 'Zapaľovacia cievka', 25, 'Volkswagen');
 
 INSERT INTO autodiely_eshop.orders (
     order_number, user_id, first_name, last_name, email, street, city, state,
@@ -1028,8 +453,361 @@ INSERT INTO autodiely_eshop.users (_id, name, email, password, created_at) VALUE
 (147, 'Chloe Edwards', 'chloe.edwards@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-17 08:45:00'),
 (148, 'Samuel Collins', 'samuel.collins@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-18 09:00:00'),
 (149, 'Ava Stewart', 'ava.stewart@example.com', '$2a$10$xJwL5v5Jz5U5e5B5f5Z5Oe', '2023-02-19 10:15:00');
-ALTER TABLE autodiely_eshop.users ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
 
+INSERT INTO autodiely_eshop.ke_branch (product_id, product_name, qty, manufacturer) 
+VALUES 
+(1, 'Alternátor', 12, 'BMW'),
+(1, 'Alternátor', 14, 'Volvo'),
+(2, 'Brzdová kvapalina', 8, 'Universal'),
+(3, 'Brzdové doštičky', 16, 'Volkswagen'),
+(3, 'Brzdové doštičky', 10, 'Škoda'),
+(4, 'Brzdové kotúče', 20, 'Audi'),
+(4, 'Brzdové kotúče', 18, 'Volkswagen'),
+(5, 'Čistič bŕzd', 7, 'Universal'),
+(6, 'Čistič interiéru', 10, 'Universal'),
+(7, 'Chladiaca kvapalina', 5, 'Universal'),
+(8, 'Chladič', 13, 'Volkswagen'),
+(8, 'Chladič', 15, 'Volvo'),
+(9, 'DPF filter', 9, 'Toyota'),
+(10, 'Hlavný brzdový valec', 19, 'Škoda'),
+(10, 'Hlavný brzdový valec', 20, 'Ford'),
+(11, 'Katalyzátor', 12, 'Ford'),
+(12, 'Ochrana proti korózii', 16, 'Universal'),
+(13, 'Olejový filter', 11, 'Universal'),
+(14, 'Palivové čerpadlo', 14, 'Volvo'),
+(15, 'Palivový filter', 6, 'Universal'),
+(16, 'Impregnácia pneumatík', 8, 'Universal'),
+(17, 'Katalyzátor', 9, 'Seat'),
+(18, 'Klinový remeň', 17, 'Honda'),
+(19, 'Kolesové ložisko', 12, 'Toyota'),
+(20, 'Kľukový hriadeľ', 4, 'Honda'),
+(21, 'Kryt motora', 5, 'Honda'),
+(22, 'Lambda sonda', 7, 'Audi'),
+(24, 'Motorový olej 10W-40', 15, 'Universal'),
+(25, 'Ochrana proti korózii', 11, 'Universal'),
+(26, 'Rozvodová reťaz', 5, 'Volkswagen'),
+(28, 'Stieračová guma (pár)', 9, 'Universal'),
+(29, 'Svetlomet (ľavý)', 6, 'Mercedes'),
+(30, 'Svetlomet (pravý)', 7, 'Audi'),
+(31, 'Štartér', 4, 'Ford'),
+(33, 'Tlmič pruženia', 2, 'Ford'),
+(34, 'Turbo kompresor', 3, 'BMW'),
+(35, 'Vodná pumpa', 6, 'BMW'),
+(36, 'Vosk na karosériu', 14, 'Universal'),
+(38, 'Vzduchový filter', 8, 'Universal'),
+(40, 'Zapaľovacia sviečka', 9, 'Honda');
+
+INSERT INTO autodiely_eshop.bl_branch (product_id, product_name, qty, manufacturer) 
+VALUES 
+(1, 'Alternátor', 14, 'Ford'),
+(1, 'Alternátor', 16, 'Honda'),
+(2, 'Brzdová kvapalina', 12, 'Universal'),
+(3, 'Brzdové doštičky', 18, 'Mercedes'),
+(3, 'Brzdové doštičky', 15, 'BMW'),
+(4, 'Brzdové kotúče', 8, 'Škoda'),
+(4, 'Brzdové kotúče', 10, 'Toyota'),
+(5, 'Čistič bŕzd', 9, 'Universal'),
+(6, 'Čistič interiéru', 11, 'Universal'),
+(7, 'Chladiaca kvapalina', 7, 'Universal'),
+(8, 'Chladič', 5, 'Volvo'),
+(9, 'DPF filter', 6, 'Audi'),
+(10, 'Hlavný brzdový valec', 4, 'Volvo'),
+(11, 'Katalyzátor', 10, 'Toyota'),
+(12, 'Ochrana proti korózii', 8, 'Universal'),
+(13, 'Olejový filter', 11, 'Universal'),
+(14, 'Palivové čerpadlo', 5, 'Seat'),
+(15, 'Palivový filter', 7, 'Universal'),
+(16, 'Impregnácia pneumatík', 13, 'Universal'),
+(17, 'Katalyzátor', 9, 'BMW'),
+(18, 'Klinový remeň', 8, 'Volkswagen'),
+(19, 'Kolesové ložisko', 10, 'Ford'),
+(20, 'Kľukový hriadeľ', 4, 'Toyota'),
+(21, 'Kryt motora', 6, 'Toyota'),
+(22, 'Lambda sonda', 5, 'Seat'),
+(23, 'Ložisko kľukového hriadeľa', 4, 'Mercedes'),
+(25, 'Ochrana proti korózii', 7, 'Universal'),
+(26, 'Rozvodová reťaz', 6, 'Volvo'),
+(27, 'Spojková sada', 10, 'Audi'),
+(28, 'Stieračová guma (pár)', 12, 'Universal'),
+(29, 'Svetlomet (ľavý)', 8, 'BMW'),
+(30, 'Svetlomet (pravý)', 9, 'BMW'),
+(31, 'Štartér', 8, 'Volkswagen'),
+(32, 'Štartovacie káble', 13, 'Universal'),
+(33, 'Tlmič pruženia', 5, 'Honda'),
+(34, 'Turbo kompresor', 6, 'Audi'),
+(35, 'Vodná pumpa', 8, 'Audi'),
+(36, 'Vosk na karosériu', 14, 'Universal'),
+(37, 'Vstrekovacie čerpadlo', 9, 'Volkswagen'),
+(38, 'Vzduchový filter', 10, 'Universal'),
+(39, 'Zapaľovacia cievka', 7, 'Seat'),
+(40, 'Zapaľovacia sviečka', 8, 'Toyota');
+
+INSERT INTO autodiely_eshop.sc_branch (product_id, product_name, qty, manufacturer) 
+VALUES 
+(1, 'Alternátor', 12, 'Volvo'),
+(1, 'Alternátor', 16, 'Honda'),
+(2, 'Brzdová kvapalina', 8, 'Universal'),
+(3, 'Brzdové doštičky', 14, 'Volvo'),
+(3, 'Brzdové doštičky', 15, 'BMW'),
+(4, 'Brzdové kotúče', 7, 'Seat'),
+(4, 'Brzdové kotúče', 13, 'Mercedes'),
+(4, 'Brzdové kotúče', 10, 'Seat'),
+(5, 'Čistič bŕzd', 8, 'Universal'),
+(5, 'Čistič bŕzd', 13, 'Universal'),
+(5, 'Čistič bŕzd', 12, 'Universal'),
+(6, 'Čistič interiéru', 9, 'Universal'),
+(7, 'Chladiaca kvapalina', 10, 'Universal'),
+(8, 'Chladič', 6, 'Mercedes'),
+(8, 'Chladič', 7, 'Audi'),
+(8, 'Chladič', 8, 'Honda'),
+(9, 'DPF filter', 5, 'Volkswagen'),
+(9, 'DPF filter', 6, 'Audi'),
+(9, 'DPF filter', 8, 'Audi'),
+(10, 'Hlavný brzdový valec', 4, 'Škoda'),
+(10, 'Hlavný brzdový valec', 7, 'Volvo'),
+(10, 'Hlavný brzdový valec', 8, 'BMW'),
+(11, 'Katalyzátor', 7, 'Toyota'),
+(11, 'Katalyzátor', 8, 'Volvo'),
+(12, 'Ochrana proti korózii', 9, 'Universal'),
+(13, 'Olejový filter', 10, 'Universal'),
+(14, 'Palivové čerpadlo', 6, 'BMW'),
+(14, 'Palivové čerpadlo', 10, 'Volkswagen'),
+(15, 'Palivový filter', 7, 'Universal'),
+(16, 'Impregnácia pneumatík', 13, 'Universal'),
+(17, 'Katalyzátor', 8, 'Škoda'),
+(17, 'Katalyzátor', 9, 'Ford'),
+(18, 'Klinový remeň', 6, 'Toyota'),
+(18, 'Klinový remeň', 7, 'Seat'),
+(19, 'Kolesové ložisko', 5, 'Mercedes'),
+(19, 'Kolesové ložisko', 6, 'Seat'),
+(19, 'Kolesové ložisko', 8, 'Škoda'),
+(20, 'Kľukový hriadeľ', 5, 'Audi'),
+(20, 'Kľukový hriadeľ', 6, 'Ford'),
+(20, 'Kľukový hriadeľ', 8, 'Honda'),
+(21, 'Kryt motora', 6, 'Mercedes'),
+(21, 'Kryt motora', 10, 'Audi'),
+(22, 'Lambda sonda', 5, 'Toyota'),
+(22, 'Lambda sonda', 8, 'BMW'),
+(22, 'Lambda sonda', 9, 'Mercedes'),
+(23, 'Ložisko kľukového hriadeľa', 5, 'Mercedes'),
+(23, 'Ložisko kľukového hriadeľa', 7, 'Volvo'),
+(23, 'Ložisko kľukového hriadeľa', 6, 'BMW'),
+(24, 'Motorový olej 10W-40', 9, 'Universal'),
+(25, 'Ochrana proti korózii', 7, 'Universal'),
+(26, 'Rozvodová reťaz', 9, 'BMW'),
+(26, 'Rozvodová reťaz', 10, 'Volkswagen'),
+(26, 'Rozvodová reťaz', 8, 'Audi'),
+(27, 'Spojková sada', 10, 'Škoda'),
+(27, 'Spojková sada', 9, 'Volkswagen'),
+(28, 'Stieračová guma (pár)', 8, 'Universal'),
+(29, 'Svetlomet (ľavý)', 6, 'Audi'),
+(29, 'Svetlomet (ľavý)', 7, 'Seat'),
+(29, 'Svetlomet (ľavý)', 8, 'Toyota'),
+(30, 'Svetlomet (pravý)', 7, 'Honda'),
+(30, 'Svetlomet (pravý)', 6, 'Toyota'),
+(30, 'Svetlomet (pravý)', 9, 'Volvo'),
+(31, 'Štartér', 8, 'Mercedes'),
+(31, 'Štartér', 9, 'Honda'),
+(31, 'Štartér', 6, 'Ford'),
+(33, 'Tlmič pruženia', 4, 'BMW'),
+(33, 'Tlmič pruženia', 8, 'BMW'),
+(33, 'Tlmič pruženia', 9, 'Mercedes'),
+(34, 'Turbo kompresor', 7, 'Toyota'),
+(34, 'Turbo kompresor', 6, 'Škoda'),
+(34, 'Turbo kompresor', 8, 'Ford'),
+(35, 'Vodná pumpa', 7, 'Ford'),
+(35, 'Vodná pumpa', 8, 'Volkswagen'),
+(35, 'Vodná pumpa', 6, 'Audi'),
+(36, 'Vosk na karosériu', 10, 'Universal'),
+(37, 'Vstrekovacie čerpadlo', 7, 'Ford'),
+(37, 'Vstrekovacie čerpadlo', 8, 'Volvo'),
+(37, 'Vstrekovacie čerpadlo', 9, 'Toyota'),
+(38, 'Vzduchový filter', 6, 'Universal'),
+(39, 'Zapaľovacia cievka', 9, 'Volkswagen'),
+(39, 'Zapaľovacia cievka', 10, 'Ford'),
+(39, 'Zapaľovacia cievka', 8, 'Škoda'),
+(40, 'Zapaľovacia sviečka', 7, 'Volkswagen'),
+(40, 'Zapaľovacia sviečka', 8, 'Mercedes'),
+(40, 'Zapaľovacia sviečka', 6, 'Seat');
+
+INSERT INTO autodiely_eshop.nr_branch (product_id, product_name, qty, manufacturer) 
+VALUES 
+(1, 'Alternátor', 14, 'Volvo'),
+(1, 'Alternátor', 13, 'Toyota'),
+(2, 'Brzdová kvapalina', 12, 'Universal'),
+(3, 'Brzdové doštičky', 16, 'Škoda'),
+(3, 'Brzdové doštičky', 15, 'Ford'),
+(3, 'Brzdové doštičky', 10, 'Honda'),
+(4, 'Brzdové kotúče', 18, 'Audi'),
+(4, 'Brzdové kotúče', 16, 'Volkswagen'),
+(5, 'Čistič bŕzd', 14, 'Universal'),
+(5, 'Čistič bŕzd', 10, 'Universal'),
+(6, 'Čistič interiéru', 9, 'Universal'),
+(7, 'Chladiaca kvapalina', 8, 'Universal'),
+(8, 'Chladič', 11, 'Volvo'),
+(8, 'Chladič', 10, 'Toyota'),
+(8, 'Chladič', 6, 'Audi'),
+(9, 'DPF filter', 6, 'Seat'),
+(9, 'DPF filter', 5, 'Mercedes'),
+(9, 'DPF filter', 8, 'BMW'),
+(10, 'Hlavný brzdový valec', 13, 'Škoda'),
+(10, 'Hlavný brzdový valec', 12, 'Ford'),
+(10, 'Hlavný brzdový valec', 8, 'Seat'),
+(11, 'Katalyzátor', 9, 'Honda'),
+(11, 'Katalyzátor', 10, 'Audi'),
+(11, 'Katalyzátor', 6, 'Mercedes'),
+(12, 'Ochrana proti korózii', 14, 'Universal'),
+(13, 'Olejový filter', 12, 'Universal'),
+(14, 'Palivové čerpadlo', 10, 'Seat'),
+(14, 'Palivové čerpadlo', 9, 'Mercedes'),
+(14, 'Palivové čerpadlo', 8, 'Audi'),
+(15, 'Palivový filter', 11, 'Universal'),
+(16, 'Impregnácia pneumatík', 13, 'Universal'),
+(17, 'Katalyzátor', 10, 'BMW'),
+(17, 'Katalyzátor', 9, 'Volvo'),
+(17, 'Katalyzátor', 7, 'Toyota'),
+(18, 'Klinový remeň', 14, 'Honda'),
+(18, 'Klinový remeň', 13, 'Audi'),
+(18, 'Klinový remeň', 9, 'Ford'),
+(19, 'Kolesové ložisko', 7, 'Volkswagen'),
+(19, 'Kolesové ložisko', 6, 'Škoda'),
+(20, 'Kľukový hriadeľ', 9, 'BMW'),
+(20, 'Kľukový hriadeľ', 10, 'Volvo'),
+(20, 'Kľukový hriadeľ', 7, 'BMW'),
+(21, 'Kryt motora', 12, 'Toyota'),
+(21, 'Kryt motora', 11, 'Seat'),
+(21, 'Kryt motora', 8, 'Volkswagen'),
+(22, 'Lambda sonda', 14, 'Volkswagen'),
+(22, 'Lambda sonda', 12, 'Škoda'),
+(23, 'Ložisko kľukového hriadeľa', 11, 'Ford'),
+(23, 'Ložisko kľukového hriadeľa', 9, 'Honda'),
+(23, 'Ložisko kľukového hriadeľa', 8, 'Volvo'),
+(24, 'Motorový olej 10W-40', 12, 'Universal'),
+(25, 'Ochrana proti korózii', 10, 'Universal'),
+(26, 'Rozvodová reťaz', 11, 'Toyota'),
+(26, 'Rozvodová reťaz', 9, 'Seat'),
+(26, 'Rozvodová reťaz', 8, 'Mercedes'),
+(27, 'Spojková sada', 13, 'Mercedes'),
+(27, 'Spojková sada', 12, 'BMW'),
+(27, 'Spojková sada', 11, 'Honda'),
+(28, 'Stieračová guma (pár)', 12, 'Universal'),
+(29, 'Svetlomet (ľavý)', 8, 'Audi'),
+(29, 'Svetlomet (ľavý)', 9, 'Volkswagen'),
+(30, 'Svetlomet (pravý)', 11, 'Ford'),
+(30, 'Svetlomet (pravý)', 10, 'Honda'),
+(30, 'Svetlomet (pravý)', 9, 'Toyota'),
+(31, 'Štartér', 10, 'Volvo'),
+(31, 'Štartér', 9, 'Toyota'),
+(31, 'Štartér', 7, 'Honda'),
+(32, 'Štartovacie káble', 13, 'Universal'),
+(33, 'Tlmič pruženia', 14, 'Škoda'),
+(33, 'Tlmič pruženia', 13, 'Ford'),
+(34, 'Turbo kompresor', 12, 'Mercedes'),
+(34, 'Turbo kompresor', 13, 'BMW'),
+(34, 'Turbo kompresor', 9, 'Ford'),
+(35, 'Vodná pumpa', 11, 'Seat'),
+(35, 'Vodná pumpa', 12, 'Mercedes'),
+(35, 'Vodná pumpa', 8, 'Ford'),
+(36, 'Vosk na karosériu', 14, 'Universal'),
+(37, 'Vstrekovacie čerpadlo', 9, 'Honda'),
+(37, 'Vstrekovacie čerpadlo', 10, 'Audi'),
+(37, 'Vstrekovacie čerpadlo', 8, 'Seat'),
+(38, 'Vzduchový filter', 9, 'Universal'),
+(39, 'Zapaľovacia cievka', 12, 'BMW'),
+(39, 'Zapaľovacia cievka', 10, 'Volvo'),
+(39, 'Zapaľovacia cievka', 9, 'Škoda'),
+(40, 'Zapaľovacia sviečka', 13, 'Audi'),
+(40, 'Zapaľovacia sviečka', 12, 'Volkswagen'),
+(40, 'Zapaľovacia sviečka', 9, 'Toyota');
+
+INSERT INTO autodiely_eshop.pp_branch (product_id, product_name, qty, manufacturer) 
+VALUES 
+(1, 'Alternátor', 12, 'BMW'),
+(1, 'Alternátor', 16, 'Honda'),
+(2, 'Brzdová kvapalina', 8, 'Universal'),
+(3, 'Brzdové doštičky', 10, 'Ford'),
+(3, 'Brzdové doštičky', 15, 'BMW'),
+(3, 'Brzdové doštičky', 18, 'Mercedes'),
+(4, 'Brzdové kotúče', 16, 'Mercedes'),
+(4, 'Brzdové kotúče', 18, 'Seat'),
+(5, 'Čistič bŕzd', 9, 'Universal'),
+(6, 'Čistič interiéru', 10, 'Universal'),
+(7, 'Chladiaca kvapalina', 12, 'Universal'),
+(8, 'Chladič', 6, 'Ford'),
+(8, 'Chladič', 9, 'Audi'),
+(8, 'Chladič', 8, 'Honda'),
+(9, 'DPF filter', 7, 'Volkswagen'),
+(9, 'DPF filter', 8, 'Mercedes'),
+(9, 'DPF filter', 9, 'Audi'),
+(10, 'Hlavný brzdový valec', 5, 'Ford'),
+(10, 'Hlavný brzdový valec', 10, 'Volvo'),
+(10, 'Hlavný brzdový valec', 12, 'BMW'),
+(11, 'Katalyzátor', 9, 'Toyota'),
+(11, 'Katalyzátor', 10, 'Volvo'),
+(12, 'Ochrana proti korózii', 9, 'Universal'),
+(13, 'Olejový filter', 8, 'Universal'),
+(14, 'Palivové čerpadlo', 9, 'Toyota'),
+(14, 'Palivové čerpadlo', 8, 'Škoda'),
+(14, 'Palivové čerpadlo', 7, 'Volkswagen'),
+(15, 'Palivový filter', 7, 'Universal'),
+(16, 'Impregnácia pneumatík', 11, 'Universal'),
+(17, 'Katalyzátor', 10, 'Volvo'),
+(17, 'Katalyzátor', 8, 'Škoda'),
+(17, 'Katalyzátor', 9, 'Ford'),
+(18, 'Klinový remeň', 9, 'Toyota'),
+(18, 'Klinový remeň', 8, 'Seat'),
+(19, 'Kolesové ložisko', 7, 'Mercedes'),
+(19, 'Kolesové ložisko', 6, 'Seat'),
+(19, 'Kolesové ložisko', 8, 'Volvo'),
+(20, 'Kľukový hriadeľ', 6, 'Škoda'),
+(20, 'Kľukový hriadeľ', 8, 'Ford'),
+(20, 'Kľukový hriadeľ', 7, 'Honda'),
+(21, 'Kryt motora', 8, 'Honda'),
+(21, 'Kryt motora', 9, 'Audi'),
+(21, 'Kryt motora', 12, 'Honda'),
+(22, 'Lambda sonda', 6, 'Škoda'),
+(22, 'Lambda sonda', 10, 'BMW'),
+(22, 'Lambda sonda', 11, 'Mercedes'),
+(23, 'Ložisko kľukového hriadeľa', 9, 'Volvo'),
+(23, 'Ložisko kľukového hriadeľa', 11, 'BMW'),
+(24, 'Motorový olej 10W-40', 10, 'Universal'),
+(25, 'Ochrana proti korózii', 9, 'Universal'),
+(26, 'Rozvodová reťaz', 7, 'Volvo'),
+(26, 'Rozvodová reťaz', 8, 'Volkswagen'),
+(26, 'Rozvodová reťaz', 9, 'Audi'),
+(27, 'Spojková sada', 8, 'Škoda'),
+(27, 'Spojková sada', 9, 'Volkswagen'),
+(28, 'Stieračová guma (pár)', 9, 'Universal'),
+(29, 'Svetlomet (ľavý)', 7, 'Honda'),
+(29, 'Svetlomet (ľavý)', 8, 'Seat'),
+(29, 'Svetlomet (ľavý)', 9, 'Toyota'),
+(30, 'Svetlomet (pravý)', 8, 'Seat'),
+(30, 'Svetlomet (pravý)', 9, 'Toyota'),
+(30, 'Svetlomet (pravý)', 10, 'Volvo'),
+(31, 'Štartér', 7, 'BMW'),
+(31, 'Štartér', 9, 'Honda'),
+(31, 'Štartér', 10, 'Ford'),
+(32, 'Štartovacie káble', 11, 'Universal'),
+(33, 'Tlmič pruženia', 5, 'Toyota'),
+(33, 'Tlmič pruženia', 8, 'BMW'),
+(33, 'Tlmič pruženia', 9, 'Mercedes'),
+(34, 'Turbo kompresor', 7, 'BMW'),
+(34, 'Turbo kompresor', 8, 'Škoda'),
+(34, 'Turbo kompresor', 9, 'Ford'),
+(35, 'Vodná pumpa', 6, 'Mercedes'),
+(35, 'Vodná pumpa', 8, 'Volkswagen'),
+(35, 'Vodná pumpa', 9, 'Audi'),
+(36, 'Vosk na karosériu', 10, 'Universal'),
+(37, 'Vstrekovacie čerpadlo', 6, 'Škoda'),
+(37, 'Vstrekovacie čerpadlo', 8, 'Volvo'),
+(37, 'Vstrekovacie čerpadlo', 9, 'Toyota'),
+(38, 'Vzduchový filter', 8, 'Universal'),
+(39, 'Zapaľovacia cievka', 9, 'Toyota'),
+(39, 'Zapaľovacia cievka', 10, 'Ford'),
+(39, 'Zapaľovacia cievka', 8, 'Škoda'),
+(40, 'Zapaľovacia sviečka', 8, 'Audi'),
+(40, 'Zapaľovacia sviečka', 9, 'Seat'),
+(40, 'Zapaľovacia sviečka', 10, 'Mercedes');
 
 
 -- TABLE CONTENT COUNT
